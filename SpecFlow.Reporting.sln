@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlow.Reporting.Text", "SpecFlow.Reporting.Text\SpecFlow.Reporting.Text.csproj", "{876E9F9F-2A95-413C-A230-678BB51FCDCA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlow.Reporting", "SpecFlow.Reporting\SpecFlow.Reporting.csproj", "{EABA391E-6B65-4E5C-8842-3D71A5F97B4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlow.Reporting.Json", "SpecFlow.Reporting.Json\SpecFlow.Reporting.Json.csproj", "{C830C923-5398-4F28-99C2-1592EE5F4F7B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F06106DF-9C40-4F90-9F2A-5B9FF00874BC}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		AssemblyInfo.Shared.cs = AssemblyInfo.Shared.cs
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlow.Reporting.Text.Tests", "SpecFlow.Reporting.Text.Tests\SpecFlow.Reporting.Text.Tests.csproj", "{BBA703FA-94C4-437F-9961-2A321163988A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{876E9F9F-2A95-413C-A230-678BB51FCDCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{876E9F9F-2A95-413C-A230-678BB51FCDCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{876E9F9F-2A95-413C-A230-678BB51FCDCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{876E9F9F-2A95-413C-A230-678BB51FCDCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EABA391E-6B65-4E5C-8842-3D71A5F97B4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EABA391E-6B65-4E5C-8842-3D71A5F97B4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EABA391E-6B65-4E5C-8842-3D71A5F97B4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EABA391E-6B65-4E5C-8842-3D71A5F97B4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C830C923-5398-4F28-99C2-1592EE5F4F7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C830C923-5398-4F28-99C2-1592EE5F4F7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C830C923-5398-4F28-99C2-1592EE5F4F7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C830C923-5398-4F28-99C2-1592EE5F4F7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBA703FA-94C4-437F-9961-2A321163988A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBA703FA-94C4-437F-9961-2A321163988A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBA703FA-94C4-437F-9961-2A321163988A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBA703FA-94C4-437F-9961-2A321163988A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
