@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>SpecFlow.Reporting</id>
+    <version>0.1.0.0</version>
+    <title>SpecFlow.Reporting</title>
+    <authors>Tim Schlechter</authors>
+    <owners>Tim Schlechter</owners>
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+		<projectUrl>https://github.com/TimSchlechter/SpecFlow.Reporting</projectUrl>
+		<iconUrl>https://dl.dropboxusercontent.com/u/17880436/SpecFlowReporting.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Generate SpecFlow testresult reports</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2014</copyright>
+    <tags>SpecFlow Reporting Xml Json BDD Test</tags>
+		<dependencies>
+			<dependency id="TechTalk.SpecFlow" version="1.9.0.77" />
+		</dependencies>
+  </metadata>
+</package>

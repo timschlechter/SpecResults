@@ -175,3 +175,6 @@ FakesAssemblies/
 
 # Ignore approval test received files
 **/*received.txt
+
+**/nuget/lib/**/*.*
+*.nupkg
