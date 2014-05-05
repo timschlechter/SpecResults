@@ -7,6 +7,7 @@ namespace SpecFlow.Reporting.Text
 {
 	public static class TextReporter
 	{
+		public static string OutputFilePath { get; set; }
 		public static bool Enabled
 		{
 			get { return Reporter.IsEnabled<TextReportingFactory>(); }

@@ -7,11 +7,11 @@ using SpecFlow.Reporting;
 
 namespace SpecFlow.Reporting.Text
 {
-	public class TextReport : Report, ITextWriter
+	public class TextReport : Report, IStreamWriter, IFileWriter
 	{
 		int indentSize = 4;
 
-		public void WriteAsText(System.IO.Stream stream)
+		public void Write(Stream stream)
 		{
 			var sb = new StringBuilder();
 			foreach (var feature in Features)
@@ -49,13 +49,24 @@ namespace SpecFlow.Reporting.Text
 				}
 			}
 
-			var bytes = Encoding.Default.GetBytes(sb.ToString());
+			var bytes = Encoding.UTF8.GetBytes(sb.ToString());
 			using (var ms = new MemoryStream(bytes))
 			{
 				ms.CopyTo(stream);	
 			}
 		}
 
-		
+		public void WriteFile(string filepath)
+		{
+			using (var ms = new MemoryStream())
+			{
+				Write(ms);
+				ms.Seek(0, SeekOrigin.Begin);
+				using (var fs = File.Create(filepath))
+				{
+					ms.CopyTo(fs);
+				}
+			}
+		}
 	}
 }

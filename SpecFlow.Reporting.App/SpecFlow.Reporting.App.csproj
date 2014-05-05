@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EABA391E-6B65-4E5C-8842-3D71A5F97B4F}</ProjectGuid>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EA09E3A4-3B14-4CE5-A67E-F1CE9FE17BF8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SpecFlow.Reporting</RootNamespace>
-    <AssemblyName>SpecFlow.Reporting</AssemblyName>
+    <RootNamespace>SpecFlow.Reporting.App</RootNamespace>
+    <AssemblyName>SpecFlow.Reporting.App</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -38,40 +38,12 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="TechTalk.SpecFlow">
-      <HintPath>..\packages\SpecFlow.1.9.0\lib\net35\TechTalk.SpecFlow.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Shared\AssemblyInfo.Shared.cs">
-      <Link>Properties\AssemblyInfo.Shared.cs</Link>
-    </Compile>
-    <Compile Include="DefaultImplementation\ScenarioBlock.cs" />
-    <Compile Include="DefaultImplementation\TaggedReportItem.cs" />
-    <Compile Include="DefaultImplementation\Feature.cs" />
-    <Compile Include="DefaultImplementation\Report.cs" />
-    <Compile Include="DefaultImplementation\ReportItem.cs" />
-    <Compile Include="DefaultImplementation\Scenario.cs" />
-    <Compile Include="DefaultImplementation\Step.cs" />
-    <Compile Include="Extensions.cs" />
-    <Compile Include="Interface\IScenarioBlock.cs" />
-    <Compile Include="Interface\Writers\IFileWriter.cs" />
-    <Compile Include="Interface\Writers\IStreamWriter.cs" />
-    <Compile Include="Interface\ITagged.cs" />
-    <Compile Include="Interface\IReportItem.cs" />
-    <Compile Include="Interface\IReportFactory.cs" />
-    <Compile Include="Interface\IFeature.cs" />
-    <Compile Include="Interface\IScenario.cs" />
-    <Compile Include="Interface\IStep.cs" />
-    <Compile Include="Interface\TestResult.cs" />
-    <Compile Include="Reporter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Interface\IReport.cs" />
-    <Compile Include="ReportingFactory.cs" />
-    <Compile Include="Reporter.Events.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <Folder Include="src\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

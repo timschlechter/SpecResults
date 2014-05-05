@@ -87,7 +87,11 @@
       <Name>SpecFlow.Reporting</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Approvals\SpecFlow.Reporting.Json\Features\Generate reports\Scenarios\Single scenario\IStreamWriter\approval.txt" />
+    <Content Include="Approvals\SpecFlow.Reporting.Text\Features\Generate reports\Scenarios\Single scenario\IFileWriter\approval.txt" />
+    <Content Include="Approvals\SpecFlow.Reporting.Text\Features\Generate reports\Scenarios\Single scenario\IStreamWriter\approval.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

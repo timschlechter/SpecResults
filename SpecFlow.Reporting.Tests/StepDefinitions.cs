@@ -7,6 +7,7 @@ using System.Linq;
 using System.Reflection;
 using TechTalk.SpecFlow;
 using System.Text;
+using ApprovalTests.Writers;
 
 namespace SpecFlow.Reporting.Tests
 {
@@ -26,11 +27,11 @@ namespace SpecFlow.Reporting.Tests
 
 				return Path.GetInvalidFileNameChars().Aggregate(val, (current, c) => current.Replace(c.ToString(), string.Empty));
 			}
-			public ApprovalScenarioNamer(IReport report, IFeature feature, IScenario scenario)
+			public ApprovalScenarioNamer(IReport report, IFeature feature, IScenario scenario, string name)
 			{
 				SourcePath = string.Format(@"..\\..\\Approvals\\{0}\Features\{1}\Scenarios\{2}", Clean(report.Generator), Clean(feature.Title), Clean(scenario.Title));
 
-				Name = "";
+				Name = name;
 			}
 			public string Name
 			{
@@ -79,15 +80,19 @@ namespace SpecFlow.Reporting.Tests
 
 		static StepDefinitions()
 		{
+			
 			// Clear report after each Scenario
 			Reporter.ReportedScenario += (sender, args) =>
 			{
-				var reportTextWriter = args.Report as ITextWriter;
-				if (reportTextWriter != null)
+				var reporter = new BeyondCompareReporter();
+
+				// Verify ISteamWriter
+				var streamWriter = args.Report as IStreamWriter;
+				if (streamWriter != null)
 				{
 					using (var stream = new MemoryStream())
 					{
-						reportTextWriter.WriteAsText(stream);
+						streamWriter.Write(stream);
 						stream.Position = 0;
 						using (var reader = new StreamReader(stream))
 						{
@@ -95,8 +100,31 @@ namespace SpecFlow.Reporting.Tests
 
 							ApprovalTests.Approvals.Verify(
 								new ApprovalStringWriter(result),
-								new ApprovalScenarioNamer(args.Report, args.Feature, args.Scenario),
-								new BeyondCompareReporter()
+								new ApprovalScenarioNamer(args.Report, args.Feature, args.Scenario, "IStreamWriter"),
+								reporter
+							);
+						}
+					}
+				}
+
+				// Verify IFileWriter
+				var fileWriter = args.Report as IFileWriter;
+				if (fileWriter != null)
+				{
+					var filepath = Path.GetTempFileName();
+					fileWriter.WriteFile(filepath);
+					using (var stream = new MemoryStream())
+					{
+						streamWriter.Write(stream);
+						stream.Position = 0;
+						using (var reader = new StreamReader(stream))
+						{
+							var result = reader.ReadToEnd();
+
+							ApprovalTests.Approvals.Verify(								
+								new ApprovalStringWriter(File.ReadAllText(filepath)),
+								new ApprovalScenarioNamer(args.Report, args.Feature, args.Scenario, "IFileWriter"),								
+								reporter
 							);
 						}
 					}

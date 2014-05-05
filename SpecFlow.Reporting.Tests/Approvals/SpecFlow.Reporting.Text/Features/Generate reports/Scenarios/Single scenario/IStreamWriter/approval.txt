@@ -1,0 +1,9 @@
+﻿[Success] Feature: Generate reports
+    In order to get information about test results
+    As a developer
+    I want to generate reports
+
+[Success] Scenario: Single scenario
+[Success]  Given a scenario is specified
+[Success]  When the tests run
+[Success]  Then a report is generated

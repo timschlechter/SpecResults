@@ -9,9 +9,9 @@ using Newtonsoft.Json.Converters;
 
 namespace SpecFlow.Reporting.Json
 {
-	public class JsonReport : Report, ITextWriter
+	public class JsonReport : Report, IStreamWriter
 	{
-		public void WriteAsText(Stream stream)
+		public void Write(Stream stream)
 		{
 			var json = JsonConvert.SerializeObject(
 				this,
