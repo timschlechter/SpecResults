@@ -6,5 +6,10 @@
 		{
 			get { return "SpecFlow.Reporting.Json"; }
 		}
+
+		public override IReport DoCreateReport()
+		{
+			return new JsonReport();
+		}
 	}
 }

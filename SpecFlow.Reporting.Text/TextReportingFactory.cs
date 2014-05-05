@@ -9,12 +9,12 @@ namespace SpecFlow.Reporting.Text
 	{
 		public override string Name
 		{
-			get { return "SpecFlow.Reporting.Json"; }
+			get { return "SpecFlow.Reporting.Text"; }
 		}
 
 		public override IReport DoCreateReport()
 		{
-			return new TextWriterReport();
+			return new TextReport();
 		}
 	}
 }

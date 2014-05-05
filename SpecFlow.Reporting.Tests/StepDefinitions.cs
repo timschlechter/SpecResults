@@ -83,19 +83,22 @@ namespace SpecFlow.Reporting.Tests
 			Reporter.ReportedScenario += (sender, args) =>
 			{
 				var reportTextWriter = args.Report as ITextWriter;
-				using (var stream = new MemoryStream())
+				if (reportTextWriter != null)
 				{
-					reportTextWriter.WriteAsText(stream);
-					stream.Position = 0;
-					using (var reader = new StreamReader(stream))
+					using (var stream = new MemoryStream())
 					{
-						var result = reader.ReadToEnd();
+						reportTextWriter.WriteAsText(stream);
+						stream.Position = 0;
+						using (var reader = new StreamReader(stream))
+						{
+							var result = reader.ReadToEnd();
 
-						ApprovalTests.Approvals.Verify(
-							new ApprovalStringWriter(result),
-							new ApprovalScenarioNamer(args.Report, args.Feature, args.Scenario),
-							new BeyondCompareReporter()
-						);
+							ApprovalTests.Approvals.Verify(
+								new ApprovalStringWriter(result),
+								new ApprovalScenarioNamer(args.Report, args.Feature, args.Scenario),
+								new BeyondCompareReporter()
+							);
+						}
 					}
 				}
 

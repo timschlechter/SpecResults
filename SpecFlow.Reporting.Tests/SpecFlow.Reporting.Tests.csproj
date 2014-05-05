@@ -74,6 +74,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SpecFlow.Reporting.Json\SpecFlow.Reporting.Json.csproj">
+      <Project>{C830C923-5398-4F28-99C2-1592EE5F4F7B}</Project>
+      <Name>SpecFlow.Reporting.Json</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SpecFlow.Reporting.Text\SpecFlow.Reporting.Text.csproj">
       <Project>{876e9f9f-2a95-413c-a230-678bb51fcdca}</Project>
       <Name>SpecFlow.Reporting.Text</Name>
@@ -83,9 +87,7 @@
       <Name>SpecFlow.Reporting</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Approvals\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

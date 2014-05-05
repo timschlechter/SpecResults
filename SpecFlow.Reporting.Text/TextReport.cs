@@ -7,7 +7,7 @@ using SpecFlow.Reporting;
 
 namespace SpecFlow.Reporting.Text
 {
-	public class TextWriterReport : Report, ITextWriter
+	public class TextReport : Report, ITextWriter
 	{
 		int indentSize = 4;
 

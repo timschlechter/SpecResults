@@ -27,9 +27,9 @@ namespace SpecFlow.Reporting
 		}
 
 		#endregion Nested Type: ReportState
-		
+
 		#region Factories
-		
+
 		private static List<Type> factoryTypes = new List<Type>();
 		public static void Enable<T>(bool enabled)
 			where T : IReportingFactory, new()
@@ -59,19 +59,41 @@ namespace SpecFlow.Reporting
 		}
 
 		static bool testrunIsFirstFeature;
+
+		/// <summary>
+		/// Set fixed start and end times. Usefull for automated tests.
+		/// </summary>
+		public static DateTime? FixedRunTime
+		{
+			get;
+			set;
+		}
+
+		public static DateTime CurrentRunTime
+		{
+			get
+			{
+				if (FixedRunTime.HasValue)
+				{
+					return FixedRunTime.Value;
+				}
+				return CurrentRunTime;
+			}
+		}
+
 		static DateTime testrunStarttime;
-		
+
 		[BeforeTestRun]
 		public static void BeforeTestRun()
 		{
 			testrunIsFirstFeature = true;
-			testrunStarttime = DateTime.Now;			
+			testrunStarttime = CurrentRunTime;
 		}
 
 		[BeforeFeature]
 		public static void BeforeFeature()
-		{			
-			var starttime = DateTime.Now;
+		{
+			var starttime = CurrentRunTime;
 
 			// Init reports when the first feature runs. This is intentionally
 			// not done in BeforeTestRun(), to make sure other 
@@ -88,6 +110,7 @@ namespace SpecFlow.Reporting
 				foreach (var factory in factories)
 				{
 					var report = factory.CreateReport();
+					report.Generator = factory.Name;
 					report.StartTime = starttime;
 					var state = new ReportState
 					{
@@ -98,7 +121,7 @@ namespace SpecFlow.Reporting
 					RaiseEvent(ReportStarted, state);
 				}
 
-				testrunIsFirstFeature = false ;
+				testrunIsFirstFeature = false;
 			}
 
 			foreach (var state in reports)
@@ -119,7 +142,7 @@ namespace SpecFlow.Reporting
 		[BeforeScenario]
 		public static void BeforeScenario()
 		{
-			var starttime = DateTime.Now;
+			var starttime = CurrentRunTime;
 
 			foreach (var state in reports)
 			{
@@ -138,7 +161,7 @@ namespace SpecFlow.Reporting
 		[BeforeScenarioBlock]
 		public static void BeforeScenarioBlock()
 		{
-			var starttime = DateTime.Now;
+			var starttime = CurrentRunTime;
 
 			foreach (var state in reports)
 			{
@@ -183,7 +206,7 @@ namespace SpecFlow.Reporting
 		[AfterScenarioBlock]
 		public static void AfterScenarioBlock()
 		{
-			var endtime = DateTime.Now;
+			var endtime = CurrentRunTime;
 			foreach (var state in reports)
 			{
 				var scenarioblock = state.CurrentScenarioBlock;
@@ -199,8 +222,8 @@ namespace SpecFlow.Reporting
 			foreach (var state in reports.ToArray())
 			{
 				var scenario = state.CurrentScenario;
-				scenario.EndTime = DateTime.Now;				
-				RaiseEvent(ReportedScenario, state);				
+				scenario.EndTime = CurrentRunTime;
+				RaiseEvent(ReportedScenario, state);
 				state.CurrentScenario = null;
 			}
 		}
@@ -211,9 +234,9 @@ namespace SpecFlow.Reporting
 			foreach (var state in reports)
 			{
 				var feature = state.CurrentFeature;
-				feature.EndTime = DateTime.Now;
-				RaiseEvent(ReportedFeature, state); 
-				state.CurrentFeature = null;				
+				feature.EndTime = CurrentRunTime;
+				RaiseEvent(ReportedFeature, state);
+				state.CurrentFeature = null;
 			}
 		}
 
@@ -222,16 +245,16 @@ namespace SpecFlow.Reporting
 		{
 			foreach (var state in reports)
 			{
-				state.Report.EndTime = DateTime.Now;
+				state.Report.EndTime = CurrentRunTime;
 				RaiseEvent(ReportFinished, state);
 			}
 		}
 
 		#region AddStep
-		
+
 		public static IDisposable AddStep(MethodBase method, params object[] parameters)
 		{
-			var starttime = DateTime.Now;
+			var starttime = CurrentRunTime;
 
 			foreach (var state in reports)
 			{
@@ -280,11 +303,11 @@ namespace SpecFlow.Reporting
 				{
 					if (disposing)
 					{
-						DateTime endtime = DateTime.Now;
+						DateTime endtime = CurrentRunTime;
 						foreach (var step in steps)
 						{
 							if (step != null)
-							{								
+							{
 								step.EndTime = endtime;
 
 
