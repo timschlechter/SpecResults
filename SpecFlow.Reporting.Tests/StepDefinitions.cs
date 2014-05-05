@@ -8,11 +8,12 @@ using System.Reflection;
 using TechTalk.SpecFlow;
 using System.Text;
 using ApprovalTests.Writers;
+using System;
 
 namespace SpecFlow.Reporting.Tests
 {
 	[Binding]
-	public partial class StepDefinitions
+	public partial class StepDefinitions : ReportingStepDefinitions
 	{
 		#region Approval Testing Helpers
 		
@@ -136,20 +137,17 @@ namespace SpecFlow.Reporting.Tests
 
 		[Given(@"a scenario is specified")]
 		public void GivenAScenarioIsSpecified()
-		{
-			using (Reporter.AddStep(MethodBase.GetCurrentMethod())) { }
+		{			
 		}
 
 		[When(@"the tests run")]
 		public void WhenTheTestsRun()
 		{
-			using (Reporter.AddStep(MethodBase.GetCurrentMethod())) { }
 		}
 
 		[Then(@"a report is generated")]
 		public void ThenAReportIsGenerated()
 		{
-			using (Reporter.AddStep(MethodBase.GetCurrentMethod())) { }
 		}
 
 	}

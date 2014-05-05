@@ -67,8 +67,10 @@
     <Compile Include="Reporter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Interface\IReport.cs" />
+    <Compile Include="Reporter.SpecFlowHooks.cs" />
     <Compile Include="ReportingFactory.cs" />
     <Compile Include="Reporter.Events.cs" />
+    <Compile Include="ReportingStepDefinitions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

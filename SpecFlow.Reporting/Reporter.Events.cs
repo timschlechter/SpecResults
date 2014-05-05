@@ -18,24 +18,64 @@ namespace SpecFlow.Reporting
 	public partial class Reporter
 	{
 		public static event EventHandler<ReportEventArgs> ReportStarted;
+		internal static void OnReportStarted(ReportState state)
+		{
+			RaiseEvent(ReportStarted, state);
+		}
 
 		public static event EventHandler<ReportEventArgs> ReportFinished;
+		internal static void OnReportFinished(ReportState state)
+		{
+			RaiseEvent(ReportFinished, state);
+		}
 
 		public static event EventHandler<ReportEventArgs> ReportingFeature;
+		internal static void OnReportingFeature(ReportState state)
+		{
+			RaiseEvent(ReportingFeature, state);
+		}
 
 		public static event EventHandler<ReportEventArgs> ReportedFeature;
+		internal static void OnReportedFeature(ReportState state)
+		{
+			RaiseEvent(ReportedFeature, state);
+		}
 
 		public static event EventHandler<ReportEventArgs> ReportingScenario;
+		internal static void OnReportingScenario(ReportState state)
+		{
+			RaiseEvent(ReportingScenario, state);
+		}
 
 		public static event EventHandler<ReportEventArgs> ReportedScenario;
+		internal static void OnReportedScenario(ReportState state)
+		{
+			RaiseEvent(ReportedScenario, state);
+		}
 
 		public static event EventHandler<ReportEventArgs> ReportingScenarioBlock;
+		internal static void OnReportingScenarioBlock(ReportState state)
+		{
+			RaiseEvent(ReportingScenarioBlock, state);
+		}
 
 		public static event EventHandler<ReportEventArgs> ReportedScenarioBlock;
+		internal static void OnReportedScenarioBlock(ReportState state)
+		{
+			RaiseEvent(ReportedScenarioBlock, state);
+		}
 
 		public static event EventHandler<ReportEventArgs> ReportingStep;
+		internal static void OnReportingStep(ReportState state)
+		{
+			RaiseEvent(ReportingStep, state);
+		}
 
 		public static event EventHandler<ReportEventArgs> ReportedStep;
+		internal static void OnReportedStep(ReportState state)
+		{
+			RaiseEvent(ReportedStep, state);
+		}
 
 		private static void RaiseEvent(
 			EventHandler<ReportEventArgs> handler, ReportState state)
