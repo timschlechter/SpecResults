@@ -80,7 +80,7 @@ namespace SpecFlow.Reporting
 				{
 					return FixedRunTime.Value;
 				}
-				return CurrentRunTime;
+				return DateTime.Now;
 			}
 		}
 

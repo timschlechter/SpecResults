@@ -11,7 +11,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace SpecFlow.Reporting.Tests
+namespace SpecFlow.Reporting.ApprovalTestSuite
 {
     using TechTalk.SpecFlow;
     

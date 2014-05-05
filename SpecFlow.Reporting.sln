@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2010
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlow.Reporting.Text", "SpecFlow.Reporting.Text\SpecFlow.Reporting.Text.csproj", "{876E9F9F-2A95-413C-A230-678BB51FCDCA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlow.Reporting", "SpecFlow.Reporting\SpecFlow.Reporting.csproj", "{EABA391E-6B65-4E5C-8842-3D71A5F97B4F}"
@@ -15,9 +15,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlow.Reporting.Tests", "SpecFlow.Reporting.Tests\SpecFlow.Reporting.Tests.csproj", "{BBA703FA-94C4-437F-9961-2A321163988A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlow.Reporting.App", "SpecFlow.Reporting.App\SpecFlow.Reporting.App.csproj", "{EA09E3A4-3B14-4CE5-A67E-F1CE9FE17BF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlow.Reporting.ApprovalTestSuite", "SpecFlow.Reporting.ApprovalTestSuite\SpecFlow.Reporting.ApprovalTestSuite.csproj", "{BBA703FA-94C4-437F-9961-2A321163988A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{FC21705D-DD5E-47DC-A845-701864EB7103}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,16 +39,21 @@ Global
 		{C830C923-5398-4F28-99C2-1592EE5F4F7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C830C923-5398-4F28-99C2-1592EE5F4F7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C830C923-5398-4F28-99C2-1592EE5F4F7B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BBA703FA-94C4-437F-9961-2A321163988A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BBA703FA-94C4-437F-9961-2A321163988A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BBA703FA-94C4-437F-9961-2A321163988A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BBA703FA-94C4-437F-9961-2A321163988A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EA09E3A4-3B14-4CE5-A67E-F1CE9FE17BF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EA09E3A4-3B14-4CE5-A67E-F1CE9FE17BF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA09E3A4-3B14-4CE5-A67E-F1CE9FE17BF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA09E3A4-3B14-4CE5-A67E-F1CE9FE17BF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBA703FA-94C4-437F-9961-2A321163988A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBA703FA-94C4-437F-9961-2A321163988A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBA703FA-94C4-437F-9961-2A321163988A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBA703FA-94C4-437F-9961-2A321163988A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{876E9F9F-2A95-413C-A230-678BB51FCDCA} = {FC21705D-DD5E-47DC-A845-701864EB7103}
+		{C830C923-5398-4F28-99C2-1592EE5F4F7B} = {FC21705D-DD5E-47DC-A845-701864EB7103}
+		{EA09E3A4-3B14-4CE5-A67E-F1CE9FE17BF8} = {FC21705D-DD5E-47DC-A845-701864EB7103}
 	EndGlobalSection
 EndGlobal

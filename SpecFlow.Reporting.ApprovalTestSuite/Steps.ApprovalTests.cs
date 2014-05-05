@@ -1,26 +1,34 @@
-﻿using ApprovalTests;
-using ApprovalTests.Core;
-using ApprovalTests.Reporters;
-using NUnit.Framework;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using TechTalk.SpecFlow;
-using System.Text;
-using ApprovalTests.Writers;
+﻿using SpecFlow.Reporting.Text;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using TechTalk.SpecFlow;
+using SpecFlow.Reporting.Json;
+using ApprovalTests.Reporters;
+using System.IO;
+using ApprovalTests.Core;
 
 namespace SpecFlow.Reporting.Tests
 {
-	[Binding]
-	public partial class StepDefinitions : ReportingStepDefinitions
+	public partial class Steps
 	{
-		#region Approval Testing Helpers
-		
-		public class ApprovalScenarioNamer : IApprovalNamer
+		[BeforeTestRun]
+		public static void BeforeTestRun()
+		{
+			Reporter.FixedRunTime = DateTime.MinValue;
+			TextReporter.Enabled = true;
+			JsonReporter.Enabled = true;
+		}
+
+
+		#region Nested Type: ApprovalScenarioNamer
+
+		public class ReportingApprovalNamer : IApprovalNamer
 		{
 
-			private static string Clean(string val) {
+			private static string Clean(string val)
+			{
 				if (string.IsNullOrEmpty(val))
 				{
 					return null;
@@ -28,7 +36,7 @@ namespace SpecFlow.Reporting.Tests
 
 				return Path.GetInvalidFileNameChars().Aggregate(val, (current, c) => current.Replace(c.ToString(), string.Empty));
 			}
-			public ApprovalScenarioNamer(IReport report, IFeature feature, IScenario scenario, string name)
+			public ReportingApprovalNamer(IReport report, IFeature feature, IScenario scenario, string name)
 			{
 				SourcePath = string.Format(@"..\\..\\Approvals\\{0}\Features\{1}\Scenarios\{2}", Clean(report.Generator), Clean(feature.Title), Clean(scenario.Title));
 
@@ -42,9 +50,14 @@ namespace SpecFlow.Reporting.Tests
 
 			public string SourcePath
 			{
-				get;set;
+				get;
+				set;
 			}
 		}
+
+		#endregion
+
+		#region Nested Type: ApprovalStringWriter
 
 		public class ApprovalStringWriter : IApprovalWriter
 		{
@@ -79,13 +92,11 @@ namespace SpecFlow.Reporting.Tests
 
 		#endregion
 
-		static StepDefinitions()
+		static Steps()
 		{
-			
 			// Clear report after each Scenario
 			Reporter.ReportedScenario += (sender, args) =>
 			{
-				var reporter = new BeyondCompareReporter();
 
 				// Verify ISteamWriter
 				var streamWriter = args.Report as IStreamWriter;
@@ -99,11 +110,7 @@ namespace SpecFlow.Reporting.Tests
 						{
 							var result = reader.ReadToEnd();
 
-							ApprovalTests.Approvals.Verify(
-								new ApprovalStringWriter(result),
-								new ApprovalScenarioNamer(args.Report, args.Feature, args.Scenario, "IStreamWriter"),
-								reporter
-							);
+							Verify(result, args, "IStreamWriter");
 						}
 					}
 				}
@@ -114,41 +121,22 @@ namespace SpecFlow.Reporting.Tests
 				{
 					var filepath = Path.GetTempFileName();
 					fileWriter.WriteFile(filepath);
-					using (var stream = new MemoryStream())
-					{
-						streamWriter.Write(stream);
-						stream.Position = 0;
-						using (var reader = new StreamReader(stream))
-						{
-							var result = reader.ReadToEnd();
 
-							ApprovalTests.Approvals.Verify(								
-								new ApprovalStringWriter(File.ReadAllText(filepath)),
-								new ApprovalScenarioNamer(args.Report, args.Feature, args.Scenario, "IFileWriter"),								
-								reporter
-							);
-						}
-					}
+					Verify(File.ReadAllText(filepath), args, "IFileWriter");					
 				}
 
 				args.Report.Features.Clear();
 			};
 		}
 
-		[Given(@"a scenario is specified")]
-		public void GivenAScenarioIsSpecified()
-		{			
-		}
-
-		[When(@"the tests run")]
-		public void WhenTheTestsRun()
+		private static void Verify(string result, ReportEventArgs args, string testname)
 		{
-		}
 
-		[Then(@"a report is generated")]
-		public void ThenAReportIsGenerated()
-		{
+			ApprovalTests.Approvals.Verify(
+				new ApprovalStringWriter(result),
+				new ReportingApprovalNamer(args.Report, args.Feature, args.Scenario, testname),
+				new BeyondCompareReporter()
+			);
 		}
-
 	}
 }
