@@ -27,6 +27,29 @@ namespace SpecFlow.Reporting
 		}
 
 		#endregion Nested Type: ReportState
+		
+		#region Factories
+		
+		private static List<Type> factoryTypes = new List<Type>();
+		public static void Enable<T>(bool enabled)
+			where T : IReportingFactory, new()
+		{
+			if (enabled)
+			{
+				factoryTypes.Add(typeof(T));
+			}
+			else
+			{
+				factoryTypes.Remove(typeof(T));
+			}
+		}
+		public static bool IsEnabled<T>()
+			where T : IReportingFactory, new()
+		{
+			return factoryTypes.Contains(typeof(T));
+		}
+
+		#endregion
 
 		private static List<ReportState> reports = new List<ReportState>();
 
@@ -35,56 +58,61 @@ namespace SpecFlow.Reporting
 			get { return reports.Select(x => x.Report); }
 		}
 
+		static bool testrunIsFirstFeature;
+		static DateTime testrunStarttime;
+		
 		[BeforeTestRun]
 		public static void BeforeTestRun()
 		{
-			var starttime = DateTime.Now;
-
-			// Create a factory instance for each non-abstract class in the current
-			// appdomain which implements IReportingFactory
-			var factories = AppDomain.CurrentDomain
-							.GetAssemblies()
-							.SelectMany(assembly => assembly.GetTypes())
-							.Where(type => !type.IsInterface)
-							.Where(type => !type.IsAbstract)
-							.Where(type => typeof(IReportingFactory).IsAssignableFrom(type))
-							.Select(type => (IReportingFactory)type.Assembly.CreateInstance(type.FullName))
-							.ToList();
-
-			// Register reporters
-			reports.Clear();
-			foreach (var factory in factories)
-			{
-				var report = factory.CreateReport();
-				report.StartTime = starttime;
-				reports.Add(
-					new ReportState
-					{
-						Report = report,
-						Factory = factory
-					}
-				);
-
-				RaiseEvent(ReportStarted, report);
-			}
+			testrunIsFirstFeature = true;
+			testrunStarttime = DateTime.Now;			
 		}
 
 		[BeforeFeature]
 		public static void BeforeFeature()
-		{
+		{			
 			var starttime = DateTime.Now;
+
+			// Init reports when the first feature runs. This is intentionally
+			// not done in BeforeTestRun(), to make sure other 
+			// [BeforeTestRun] annotated methods can perform initialization
+			// before the reports are created.
+			if (testrunIsFirstFeature)
+			{
+				var factories = factoryTypes
+								.Select(type => (IReportingFactory)type.Assembly.CreateInstance(type.FullName))
+								.ToList();
+
+				// Register reporters
+				reports.Clear();
+				foreach (var factory in factories)
+				{
+					var report = factory.CreateReport();
+					report.StartTime = starttime;
+					var state = new ReportState
+					{
+						Report = report,
+						Factory = factory
+					};
+					reports.Add(state);
+					RaiseEvent(ReportStarted, state);
+				}
+
+				testrunIsFirstFeature = false ;
+			}
 
 			foreach (var state in reports)
 			{
 				var feature = state.Factory.CreateFeature();
 				feature.StartTime = starttime;
 				feature.Title = FeatureContext.Current.FeatureInfo.Title;
+				feature.Description = FeatureContext.Current.FeatureInfo.Description;
 				feature.Tags.AddRange(FeatureContext.Current.FeatureInfo.Tags);
 
 				state.Report.Features.Add(feature);
 				state.CurrentFeature = feature;
 
-				RaiseEvent(ReportingFeature, state.Report, feature);
+				RaiseEvent(ReportingFeature, state);
 			}
 		}
 
@@ -103,13 +131,15 @@ namespace SpecFlow.Reporting
 				state.CurrentFeature.Scenarios.Add(scenario);
 				state.CurrentScenario = scenario;
 
-				RaiseEvent(ReportingScenario, state.Report, scenario);
+				RaiseEvent(ReportingScenario, state);
 			}
 		}
 
 		[BeforeScenarioBlock]
 		public static void BeforeScenarioBlock()
 		{
+			var starttime = DateTime.Now;
+
 			foreach (var state in reports)
 			{
 				switch (ScenarioContext.Current.CurrentScenarioBlock)
@@ -121,7 +151,8 @@ namespace SpecFlow.Reporting
 						break;
 				}
 
-				RaiseEvent(ReportingScenarioBlock, state.Report, state.CurrentScenarioBlock);
+				state.CurrentScenarioBlock.StartTime = starttime;
+				RaiseEvent(ReportingScenarioBlock, state);
 			}
 		}
 
@@ -133,13 +164,31 @@ namespace SpecFlow.Reporting
 		[AfterStep]
 		public static void AfterStep()
 		{
+			TestResult testresult;
+			if (ScenarioContext.Current.TestError == null)
+			{
+				testresult = TestResult.Success;
+			}
+			else
+			{
+				testresult = TestResult.Error;
+			}
+
+			foreach (var state in reports)
+			{
+				state.CurrentStep.Result = testresult;
+			}
 		}
 
 		[AfterScenarioBlock]
 		public static void AfterScenarioBlock()
 		{
+			var endtime = DateTime.Now;
 			foreach (var state in reports)
 			{
+				var scenarioblock = state.CurrentScenarioBlock;
+				scenarioblock.EndTime = endtime;
+				RaiseEvent(ReportedScenarioBlock, state);
 				state.CurrentScenarioBlock = null;
 			}
 		}
@@ -150,7 +199,8 @@ namespace SpecFlow.Reporting
 			foreach (var state in reports.ToArray())
 			{
 				var scenario = state.CurrentScenario;
-				scenario.EndTime = DateTime.Now;
+				scenario.EndTime = DateTime.Now;				
+				RaiseEvent(ReportedScenario, state);				
 				state.CurrentScenario = null;
 			}
 		}
@@ -160,16 +210,25 @@ namespace SpecFlow.Reporting
 		{
 			foreach (var state in reports)
 			{
-				state.CurrentFeature.EndTime = DateTime.Now;
-				state.CurrentFeature = null;
+				var feature = state.CurrentFeature;
+				feature.EndTime = DateTime.Now;
+				RaiseEvent(ReportedFeature, state); 
+				state.CurrentFeature = null;				
 			}
 		}
 
 		[AfterTestRun]
 		public static void AfterTestRun()
 		{
+			foreach (var state in reports)
+			{
+				state.Report.EndTime = DateTime.Now;
+				RaiseEvent(ReportFinished, state);
+			}
 		}
 
+		#region AddStep
+		
 		public static IDisposable AddStep(MethodBase method, params object[] parameters)
 		{
 			var starttime = DateTime.Now;
@@ -221,11 +280,13 @@ namespace SpecFlow.Reporting
 				{
 					if (disposing)
 					{
+						DateTime endtime = DateTime.Now;
 						foreach (var step in steps)
 						{
 							if (step != null)
-							{
-								step.EndTime = DateTime.Now;
+							{								
+								step.EndTime = endtime;
+
 
 								var attr = method.GetCustomAttributes(true).OfType<StepDefinitionBaseAttribute>().FirstOrDefault();
 								if (attr != null)
@@ -239,5 +300,7 @@ namespace SpecFlow.Reporting
 				}
 			}
 		}
+
+		#endregion
 	}
 }

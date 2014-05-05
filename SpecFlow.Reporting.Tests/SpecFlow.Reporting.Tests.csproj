@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SpecFlow.Reporting.Tests</RootNamespace>
-    <AssemblyName>SpecFlow.Reporting.Tests</AssemblyName>
+    <AssemblyName>SpecFlow.Reporting.Text.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -52,24 +52,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\AssemblyInfo.Shared.cs">
+    <Compile Include="..\Shared\AssemblyInfo.Shared.cs">
       <Link>Properties\AssemblyInfo.Shared.cs</Link>
     </Compile>
-    <Compile Include="GenerateReport.feature.cs">
+    <Compile Include="Reporting.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GenerateReport.feature</DependentUpon>
+      <DependentUpon>Reporting.feature</DependentUpon>
     </Compile>
+    <Compile Include="StepDefinitions.BeforeTestRun.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StepDefinitions.cs" />
+    <Compile Include="TestFixtureSetup.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="GenerateReport.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>GenerateReport.feature.cs</LastGenOutput>
-    </None>
     <None Include="packages.config" />
+    <None Include="Reporting.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Reporting.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SpecFlow.Reporting.Text\SpecFlow.Reporting.Text.csproj">
@@ -80,6 +82,9 @@
       <Project>{eaba391e-6b65-4e5c-8842-3d71a5f97b4f}</Project>
       <Name>SpecFlow.Reporting</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Approvals\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

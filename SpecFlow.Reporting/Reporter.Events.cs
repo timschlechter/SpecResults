@@ -2,24 +2,16 @@
 
 namespace SpecFlow.Reporting
 {
-	#region EventArgs
+	#region Nested Type: ReportEventArgs
 
-	public abstract class IReportItemEventArgs<TItem> : EventArgs where TItem : IReportItem
+	public class ReportEventArgs : EventArgs
 	{
 		public IReport Report { get; internal set; }
-
-		public TItem Item { get; internal set; }
+		public IFeature Feature { get; internal set; }
+		public IScenario Scenario { get; internal set; }
+		public IScenarioBlock ScenarioBlock { get; internal set; }
+		public IStep Step { get; internal set; }
 	}
-
-	public class ReportEventArgs : IReportItemEventArgs<IReport> { }
-
-	public class FeatureEventArgs : IReportItemEventArgs<IFeature> { }
-
-	public class ScenarioEventArgs : IReportItemEventArgs<IScenario> { }
-
-	public class ScenarioBlockEventArgs : IReportItemEventArgs<IScenarioBlock> { }
-
-	public class StepEventArgs : IReportItemEventArgs<IStep> { }
 
 	#endregion EventArgs
 
@@ -29,55 +21,39 @@ namespace SpecFlow.Reporting
 
 		public static event EventHandler<ReportEventArgs> ReportFinished;
 
-		public static event EventHandler<FeatureEventArgs> ReportingFeature;
+		public static event EventHandler<ReportEventArgs> ReportingFeature;
 
-		public static event EventHandler<FeatureEventArgs> ReportedFeature;
+		public static event EventHandler<ReportEventArgs> ReportedFeature;
 
-		public static event EventHandler<ScenarioEventArgs> ReportingScenario;
+		public static event EventHandler<ReportEventArgs> ReportingScenario;
 
-		public static event EventHandler<ScenarioEventArgs> ReportedScenario;
+		public static event EventHandler<ReportEventArgs> ReportedScenario;
 
-		public static event EventHandler<ScenarioBlockEventArgs> ReportingScenarioBlock;
+		public static event EventHandler<ReportEventArgs> ReportingScenarioBlock;
 
-		public static event EventHandler<ScenarioBlockEventArgs> ReportedScenarioBlock;
+		public static event EventHandler<ReportEventArgs> ReportedScenarioBlock;
 
-		public static event EventHandler<StepEventArgs> ReportingStep;
+		public static event EventHandler<ReportEventArgs> ReportingStep;
 
-		public static event EventHandler<StepEventArgs> ReportedStep;
+		public static event EventHandler<ReportEventArgs> ReportedStep;
 
-		private static void RaiseEvent<TEventArgs, TReportItem>(EventHandler<TEventArgs> handler, IReport report, TReportItem item)
-			where TEventArgs : IReportItemEventArgs<TReportItem>, new()
-			where TReportItem : IReportItem
+		private static void RaiseEvent(
+			EventHandler<ReportEventArgs> handler, ReportState state)
 		{
 			if (handler != null)
 			{
-				handler(null, new TEventArgs { Report = report, Item = item });
+				handler(
+					null,
+					new ReportEventArgs
+					{
+						Report = state.Report,
+						Feature = state.CurrentFeature,
+						Scenario = state.CurrentScenario,
+						ScenarioBlock = state.CurrentScenarioBlock,
+						Step = state.CurrentStep
+					}
+				);
 			}
-		}
-
-		private static void RaiseEvent(EventHandler<ReportEventArgs> handler, IReport report)
-		{
-			RaiseEvent<ReportEventArgs, IReport>(handler, report, report);
-		}
-
-		private static void RaiseEvent(EventHandler<FeatureEventArgs> handler, IReport report, IFeature item)
-		{
-			RaiseEvent<FeatureEventArgs, IFeature>(handler, report, item);
-		}
-
-		private static void RaiseEvent(EventHandler<ScenarioEventArgs> handler, IReport report, IScenario item)
-		{
-			RaiseEvent<ScenarioEventArgs, IScenario>(handler, report, item);
-		}
-
-		private static void RaiseEvent(EventHandler<ScenarioBlockEventArgs> handler, IReport report, IScenarioBlock item)
-		{
-			RaiseEvent<ScenarioBlockEventArgs, IScenarioBlock>(handler, report, item);
-		}
-
-		private static void RaiseEvent(EventHandler<StepEventArgs> handler, IReport report, IStep item)
-		{
-			RaiseEvent<StepEventArgs, IStep>(handler, report, item);
 		}
 	}
 }

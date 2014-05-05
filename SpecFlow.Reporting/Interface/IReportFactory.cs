@@ -2,6 +2,8 @@
 {
 	public interface IReportingFactory
 	{
+		string Name { get; }
+
 		IReport CreateReport();
 
 		IFeature CreateFeature();

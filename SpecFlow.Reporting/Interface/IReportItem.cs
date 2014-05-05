@@ -11,5 +11,7 @@ namespace SpecFlow.Reporting
 		DateTime EndTime { get; set; }
 
 		object UserData { get; set; }
+
+		TestResult Result { get; }
 	}
 }
