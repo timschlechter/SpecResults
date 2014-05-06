@@ -99,21 +99,8 @@ namespace SpecFlow.Reporting.Tests
 			{
 
 				// Verify ISteamWriter
-				var streamWriter = args.Report as IStreamWriter;
-				if (streamWriter != null)
-				{
-					using (var stream = new MemoryStream())
-					{
-						streamWriter.Write(stream);
-						stream.Position = 0;
-						using (var reader = new StreamReader(stream))
-						{
-							var result = reader.ReadToEnd();
-
-							Verify(result, args, "IStreamWriter");
-						}
-					}
-				}
+				var serialized = args.Report.SerializeToString();
+				Verify(serialized, args, "IStreamWriter");
 
 				// Verify IFileWriter
 				var fileWriter = args.Report as IFileWriter;
@@ -122,7 +109,7 @@ namespace SpecFlow.Reporting.Tests
 					var filepath = Path.GetTempFileName();
 					fileWriter.WriteFile(filepath);
 
-					Verify(File.ReadAllText(filepath), args, "IFileWriter");					
+					Verify(File.ReadAllText(filepath), args, "IFileWriter");
 				}
 
 				args.Report.Features.Clear();

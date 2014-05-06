@@ -9,7 +9,7 @@ namespace SpecFlow.Reporting.Text
 	{
 		public override string Name
 		{
-			get { return "SpecFlow.Reporting.Text"; }
+			get { return TextReporter.Name; }
 		}
 
 		protected override IReport DoCreateReport()

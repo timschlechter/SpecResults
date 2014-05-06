@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Linq;
 using System.Collections.Generic;
+using System;
 
 namespace SpecFlow.Reporting
 {
@@ -44,6 +45,26 @@ namespace SpecFlow.Reporting
 		public static IEnumerable<IScenarioBlock> GetBlocks(this IScenario scenario)
 		{
 			return new[] { scenario.Given, scenario.When, scenario.Then };
+		}
+
+		public static string SerializeToString(this IReport report)
+		{
+			var asStreamWriter = report as IStreamWriter;
+
+			if (asStreamWriter == null)
+			{
+				throw new NotImplementedException("report does not implement SpecFlow.Reporting.IStreamWriter");
+			}
+
+			using (var stream = new MemoryStream())
+			{
+				asStreamWriter.Write(stream);
+				stream.Position = 0;
+				using (var reader = new StreamReader(stream))
+				{
+					return reader.ReadToEnd();
+				}
+			}
 		}
 	}
 }
