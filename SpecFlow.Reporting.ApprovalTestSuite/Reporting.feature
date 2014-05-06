@@ -7,4 +7,9 @@ Scenario: Single scenario
 	Given a scenario is specified
 	When the tests run
 	Then a report is generated
+
+Scenario: Steps contain arguments
+	Given a "awesome" scenario is specified
+	When the tests with "multiple" parameters run "smoothly"
+	Then "1" report is generated
 	  

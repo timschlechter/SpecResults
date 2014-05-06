@@ -40,6 +40,12 @@ namespace SpecFlow.Reporting
 				if (attr != null)
 				{
 					step.Title = attr.Regex;
+
+					var args = (object[])msg.Properties["__Args"];
+					for (int i = 0; i < args.Length; i++)
+					{
+						step.Title = step.Title.ReplaceFirst("(.*)", args[i].ToString());
+					}
 				}
 				reporter.CurrentScenarioBlock.Steps.Add(step);
 				reporter.CurrentStep = step;

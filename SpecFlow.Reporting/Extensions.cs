@@ -56,6 +56,12 @@ namespace SpecFlow.Reporting
 			}
 
 			return sw.WriteToString();
-		}		
+		}
+
+		internal static string ReplaceFirst(this string s, string find, string replace)
+		{
+			var first = s.IndexOf(find);
+			return s.Substring(0, first) + replace + s.Substring(first + find.Length);
+		}
 	}
 }

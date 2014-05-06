@@ -33,5 +33,20 @@ namespace SpecFlow.Reporting.Tests
 		public void ThenAReportIsGenerated()
 		{
 		}
+
+		[Given(@"a ""(.*)"" scenario is specified")]
+		public void GivenAScenarioIsSpecified(string p0)
+		{
+		}
+
+		[When(@"the tests with ""(.*)"" parameters run ""(.*)""")]
+		public void WhenTheTestsWithParametersRun(string p0, string p1)
+		{
+		}
+
+		[Then(@"""(.*)"" report is generated")]
+		public void ThenReportIsGenerated(int p0)
+		{
+		}
 	}
 }
