@@ -7,10 +7,10 @@ xcopy ..\Specflow.Reporting\bin\NuGet\Specflow.Reporting.* ..\Specflow.Reporting
 nuget pack ..\Specflow.Reporting\Specflow.Reporting.nuspec -BasePath ..\Specflow.Reporting\nuget
 
 ::------------------------------------------------------------------------------
-:: Specflow.Reporting.Text
+:: Specflow.Reporting.PlainText
 ::------------------------------------------------------------------------------
-xcopy ..\Specflow.Reporting.Text\bin\NuGet\Specflow.Reporting.Text.* ..\Specflow.Reporting.Text\nuget\lib\%1\ /Y
-nuget pack ..\Specflow.Reporting.Text\Specflow.Reporting.Text.nuspec -BasePath ..\Specflow.Reporting.Text\nuget
+xcopy ..\Specflow.Reporting.PlainText\bin\NuGet\Specflow.Reporting.PlainText.* ..\Specflow.Reporting.PlainText\nuget\lib\%1\ /Y
+nuget pack ..\Specflow.Reporting.PlainText\Specflow.Reporting.PlainText.nuspec -BasePath ..\Specflow.Reporting.PlainText\nuget
 
 ::------------------------------------------------------------------------------
 :: Specflow.Reporting.Json

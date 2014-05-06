@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>SpecFlow.Reporting</id>
-    <version>0.2.3.0</version>
+    <version>0.3.0.0</version>
     <title>SpecFlow.Reporting</title>
     <authors>Tim Schlechter</authors>
     <owners>Tim Schlechter</owners>

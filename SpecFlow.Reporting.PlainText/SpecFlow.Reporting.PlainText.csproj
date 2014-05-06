@@ -7,8 +7,8 @@
     <ProjectGuid>{876E9F9F-2A95-413C-A230-678BB51FCDCA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SpecFlow.Reporting.Text</RootNamespace>
-    <AssemblyName>SpecFlow.Reporting.Text</AssemblyName>
+    <RootNamespace>SpecFlow.Reporting.PlainText</RootNamespace>
+    <AssemblyName>SpecFlow.Reporting.PlainText</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -38,7 +38,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>bin\Build Nuget Packages\SpecFlow.Reporting.Text.XML</DocumentationFile>
+    <DocumentationFile>bin\Build Nuget Packages\SpecFlow.Reporting.PlainText.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'NuGet|AnyCPU'">
     <OutputPath>bin\NuGet\</OutputPath>
@@ -67,7 +67,7 @@
     </Compile>
     <Compile Include="Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TextReporter.cs" />
+    <Compile Include="PlainTextReporter.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SpecFlow.Reporting\SpecFlow.Reporting.csproj">

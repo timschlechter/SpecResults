@@ -97,9 +97,9 @@
       <Project>{C830C923-5398-4F28-99C2-1592EE5F4F7B}</Project>
       <Name>SpecFlow.Reporting.Json</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SpecFlow.Reporting.Text\SpecFlow.Reporting.Text.csproj">
+    <ProjectReference Include="..\SpecFlow.Reporting.PlainText\SpecFlow.Reporting.PlainText.csproj">
       <Project>{876e9f9f-2a95-413c-a230-678bb51fcdca}</Project>
-      <Name>SpecFlow.Reporting.Text</Name>
+      <Name>SpecFlow.Reporting.PlainText</Name>
     </ProjectReference>
     <ProjectReference Include="..\SpecFlow.Reporting.Xml\SpecFlow.Reporting.Xml.csproj">
       <Project>{7dadfdb7-c67d-46fe-b989-c672c873fcd8}</Project>
