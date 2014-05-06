@@ -1,5 +1,6 @@
 ﻿using SpecFlow.Reporting.Json;
 using SpecFlow.Reporting.Text;
+using SpecFlow.Reporting.Xml;
 using System;
 using TechTalk.SpecFlow;
 
@@ -8,11 +9,15 @@ namespace SpecFlow.Reporting.Tests
 	[Binding]
 	public partial class Steps : ReportingStepDefinitions
 	{
-		public Steps()
+		[BeforeTestRun]
+		public static void BeforeTestRun()
 		{
 			Reporter.FixedRunTime = DateTime.MinValue;
 			TextReporter.Enabled = true;
 			JsonReporter.Enabled = true;
+			XmlReporter.Enabled = false;
+
+			IntializeApprovalTests();
 		}
 
 		[Given(@"a scenario is specified")]

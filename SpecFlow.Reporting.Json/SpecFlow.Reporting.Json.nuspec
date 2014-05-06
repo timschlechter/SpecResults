@@ -13,7 +13,7 @@
     <description>Generate SpecFlow testresult Json reports</description>
     <releaseNotes></releaseNotes>
     <copyright>Copyright 2014</copyright>
-    <tags>SpecFlow Reporting Json Json BDD Test</tags>
+    <tags>SpecFlow Reporting Json BDD Test</tags>
 		<dependencies>
 			<dependency id="SpecFlow.Reporting" version="0.1.0.0" />
 		</dependencies>

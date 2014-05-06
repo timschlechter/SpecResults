@@ -79,7 +79,7 @@ namespace SpecFlow.Reporting.Tests
 
 		#endregion Nested Type: ApprovalStringWriter
 
-		static Steps()
+		static void IntializeApprovalTests()
 		{
 			// Clear report after each Scenario
 			Reporter.ReportedScenario += (sender, args) =>

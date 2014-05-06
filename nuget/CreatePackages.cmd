@@ -17,3 +17,9 @@ nuget pack ..\Specflow.Reporting.Text\Specflow.Reporting.Text.nuspec -BasePath .
 ::------------------------------------------------------------------------------
 xcopy ..\Specflow.Reporting.Json\bin\NuGet\Specflow.Reporting.Json.* ..\Specflow.Reporting.Json\nuget\lib\%1\ /Y
 nuget pack ..\Specflow.Reporting.Json\Specflow.Reporting.Json.nuspec -BasePath ..\Specflow.Reporting.Json\nuget
+
+::------------------------------------------------------------------------------
+:: Specflow.Reporting.Xml
+::------------------------------------------------------------------------------
+xcopy ..\Specflow.Reporting.Xml\bin\NuGet\Specflow.Reporting.Xml.* ..\Specflow.Reporting.Xml\nuget\lib\%1\ /Y
+nuget pack ..\Specflow.Reporting.Xml\Specflow.Reporting.Xml.nuspec -BasePath ..\Specflow.Reporting.Xml\nuget

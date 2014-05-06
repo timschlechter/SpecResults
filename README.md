@@ -2,8 +2,9 @@ Usage
 ==================
 
 __1. Add one or more of the reporting plugins to your SpecFlow project:__
+* [SpecFlow.Reporting.Json](https://www.nuget.org/packages/SpecFlow.Reporting.Json/): generates a Json report
 * [SpecFlow.Reporting.Text](https://www.nuget.org/packages/SpecFlow.Reporting.Text/): generates a plain text report
-* [SpecFlow.Reporting.Json](https://www.nuget.org/packages/SpecFlow.Reporting.Text/): generates a JSON report
+* [SpecFlow.Reporting.Xml](https://www.nuget.org/packages/SpecFlow.Reporting.Xml/): generates a Xml report
 
 Register the reporter in the stepflow section in your app.config:
 <pre>
@@ -17,17 +18,17 @@ Register the reporter in the stepflow section in your app.config:
 
 __2. Make your existing [StepDefinitions class](https://github.com/techtalk/SpecFlow/wiki/Step-Definitions) inherit from [SpecFlow.Reporting.ReportingStepDefinitions](https://github.com/TimSchlechter/SpecFlow.Reporting/blob/master/SpecFlow.Reporting/ReportingStepDefinitions.cs)__
 
-__3. Initialize the plugin(s) in the constructor of the [StepDefinitions class](https://github.com/techtalk/SpecFlow/wiki/Step-Definitions):__
+__3. Initialize the plugin(s) in [BeforeTestRun]:__
 <pre>
 [Binding]
 public partial class StepDefinitions : ReportingStepDefinitions
 {
-	public StepDefinitions()
+	[BeforeTestRun]
+	public static void BeforeTestRun()
 	{
-		TextReporter.Enabled = true;
-		JsonReporter.Enabled = true;
+		JsonReporter.Enabled = true;	
 	}
-
+	
 	[Given(@"some example")]
 	public void GivenSomeExample()
 	{
@@ -42,7 +43,6 @@ public class StepDefinitions : ReportingStepDefinitions
 {
 	public Steps()
 	{
-		TextReporter.Enabled = true;
 		JsonReporter.Enabled = true;
 
 		Reporter.ReportFinished += (sender, args) => {
