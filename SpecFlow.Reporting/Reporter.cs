@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Runtime.Remoting.Activation;
-using System.Runtime.Remoting.Contexts;
-using System.Runtime.Remoting.Messaging;
 using TechTalk.SpecFlow;
 
 namespace SpecFlow.Reporting
@@ -34,6 +30,7 @@ namespace SpecFlow.Reporting
 		#region Factories
 
 		private static List<Type> factoryTypes = new List<Type>();
+
 		public static void Enable<T>(bool enabled)
 			where T : IReportingFactory, new()
 		{
@@ -46,13 +43,14 @@ namespace SpecFlow.Reporting
 				factoryTypes.Remove(typeof(T));
 			}
 		}
+
 		public static bool IsEnabled<T>()
 			where T : IReportingFactory, new()
 		{
 			return factoryTypes.Contains(typeof(T));
 		}
 
-		#endregion
+		#endregion Factories
 
 		internal static List<ReportState> reports = new List<ReportState>();
 
@@ -61,7 +59,7 @@ namespace SpecFlow.Reporting
 			get { return reports.Select(x => x.Report); }
 		}
 
-		static bool testrunIsFirstFeature;
+		private static bool testrunIsFirstFeature;
 
 		/// <summary>
 		/// Set fixed start and end times. Usefull for automated tests.
@@ -84,6 +82,6 @@ namespace SpecFlow.Reporting
 			}
 		}
 
-		static DateTime testrunStarttime;
+		private static DateTime testrunStarttime;
 	}
 }

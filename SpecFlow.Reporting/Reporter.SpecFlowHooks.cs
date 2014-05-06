@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using TechTalk.SpecFlow;
 
 namespace SpecFlow.Reporting
@@ -21,7 +18,7 @@ namespace SpecFlow.Reporting
 			var starttime = CurrentRunTime;
 
 			// Init reports when the first feature runs. This is intentionally
-			// not done in BeforeTestRun(), to make sure other 
+			// not done in BeforeTestRun(), to make sure other
 			// [BeforeTestRun] annotated methods can perform initialization
 			// before the reports are created.
 			if (testrunIsFirstFeature)

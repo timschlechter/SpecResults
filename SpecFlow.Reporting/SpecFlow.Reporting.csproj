@@ -89,6 +89,7 @@
     <Compile Include="Reporter.SpecFlowHooks.cs" />
     <Compile Include="ReportingFactory.cs" />
     <Compile Include="Reporter.Events.cs" />
+    <Compile Include="ReporterPlugin.cs" />
     <Compile Include="ReportingStepDefinitions.cs" />
   </ItemGroup>
   <ItemGroup>

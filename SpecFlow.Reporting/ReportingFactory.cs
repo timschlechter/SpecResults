@@ -84,6 +84,6 @@ namespace SpecFlow.Reporting
 			step.Steps = new List<IStep>();
 
 			return step;
-		}		
+		}
 	}
 }

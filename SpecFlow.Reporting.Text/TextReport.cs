@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using SpecFlow.Reporting;
 
 namespace SpecFlow.Reporting.Text
 {
 	public class TextReport : Report, IStreamWriter, IFileWriter
 	{
-		int indentSize = 4;
+		private int indentSize = 4;
 
 		public void Write(Stream stream)
 		{
@@ -30,7 +27,8 @@ namespace SpecFlow.Reporting.Text
 					foreach (var scenarioblock in scenario.GetBlocks())
 					{
 						bool firstStep = true;
-						foreach (var step in scenarioblock.Steps) {
+						foreach (var step in scenarioblock.Steps)
+						{
 							sb.AppendLine(
 								string.Format(
 								"{0} {1} {2} {3}",
@@ -44,7 +42,6 @@ namespace SpecFlow.Reporting.Text
 								firstStep = false;
 							}
 						}
-						
 					}
 				}
 			}
@@ -52,7 +49,7 @@ namespace SpecFlow.Reporting.Text
 			var bytes = Encoding.UTF8.GetBytes(sb.ToString());
 			using (var ms = new MemoryStream(bytes))
 			{
-				ms.CopyTo(stream);	
+				ms.CopyTo(stream);
 			}
 		}
 

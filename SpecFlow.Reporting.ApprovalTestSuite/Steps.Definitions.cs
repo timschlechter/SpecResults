@@ -1,23 +1,23 @@
-﻿using ApprovalTests;
-using ApprovalTests.Core;
-using ApprovalTests.Reporters;
-using NUnit.Framework;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using TechTalk.SpecFlow;
-using System.Text;
-using ApprovalTests.Writers;
+﻿using SpecFlow.Reporting.Json;
+using SpecFlow.Reporting.Text;
 using System;
+using TechTalk.SpecFlow;
 
 namespace SpecFlow.Reporting.Tests
 {
 	[Binding]
 	public partial class Steps : ReportingStepDefinitions
 	{
+		public Steps()
+		{
+			Reporter.FixedRunTime = DateTime.MinValue;
+			TextReporter.Enabled = true;
+			JsonReporter.Enabled = true;
+		}
+
 		[Given(@"a scenario is specified")]
 		public void GivenAScenarioIsSpecified()
-		{			
+		{
 		}
 
 		[When(@"the tests run")]
@@ -29,6 +29,5 @@ namespace SpecFlow.Reporting.Tests
 		public void ThenAReportIsGenerated()
 		{
 		}
-
 	}
 }

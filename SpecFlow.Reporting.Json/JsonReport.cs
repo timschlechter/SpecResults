@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System.IO;
 using System.Linq;
 using System.Text;
-using SpecFlow.Reporting;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
 namespace SpecFlow.Reporting.Json
 {

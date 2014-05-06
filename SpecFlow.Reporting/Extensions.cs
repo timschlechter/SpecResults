@@ -1,7 +1,7 @@
-﻿using System.IO;
-using System.Linq;
+﻿using System;
 using System.Collections.Generic;
-using System;
+using System.IO;
+using System.Linq;
 
 namespace SpecFlow.Reporting
 {
@@ -32,12 +32,12 @@ namespace SpecFlow.Reporting
 			if (results.Any(x => x == TestResult.NotRun))
 			{
 				return TestResult.NotRun;
-			}			
+			}
 
 			if (results.Any(x => x == TestResult.Unknown))
 			{
 				return TestResult.Unknown;
-			}			
+			}
 
 			return TestResult.Success;
 		}

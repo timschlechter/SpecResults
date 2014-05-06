@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json.Serialization;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using Newtonsoft.Json.Serialization;
 
 namespace SpecFlow.Reporting.Json
 {
@@ -21,7 +20,6 @@ namespace SpecFlow.Reporting.Json
 			return properties;
 		}
 
-
 		private string ConvertPropertyName(string name)
 		{
 			var result = new StringBuilder();
@@ -36,13 +34,11 @@ namespace SpecFlow.Reporting.Json
 						result.Append('_');
 					}
 					result.Append(c.ToString().ToLower());
-
 				}
 				else
 				{
 					result.Append(c);
 				}
-
 			}
 			return result.ToString();
 		}

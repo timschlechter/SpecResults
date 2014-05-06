@@ -6,7 +6,6 @@ namespace SpecFlow.Reporting
 	{
 		IList<IStep> Steps { get; set; }
 
-
 		new TestResult Result { get; set; }
 	}
 }

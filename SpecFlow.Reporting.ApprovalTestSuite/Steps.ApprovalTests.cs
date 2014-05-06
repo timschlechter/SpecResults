@@ -1,32 +1,17 @@
-﻿using SpecFlow.Reporting.Text;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using TechTalk.SpecFlow;
-using SpecFlow.Reporting.Json;
+﻿using ApprovalTests.Core;
 using ApprovalTests.Reporters;
 using System.IO;
-using ApprovalTests.Core;
+using System.Linq;
+using System.Text;
 
 namespace SpecFlow.Reporting.Tests
 {
 	public partial class Steps
 	{
-		[BeforeTestRun]
-		public static void BeforeTestRun()
-		{
-			Reporter.FixedRunTime = DateTime.MinValue;
-			TextReporter.Enabled = true;
-			JsonReporter.Enabled = true;
-		}
-
-
 		#region Nested Type: ApprovalScenarioNamer
 
 		public class ReportingApprovalNamer : IApprovalNamer
 		{
-
 			private static string Clean(string val)
 			{
 				if (string.IsNullOrEmpty(val))
@@ -36,12 +21,14 @@ namespace SpecFlow.Reporting.Tests
 
 				return Path.GetInvalidFileNameChars().Aggregate(val, (current, c) => current.Replace(c.ToString(), string.Empty));
 			}
+
 			public ReportingApprovalNamer(IReport report, IFeature feature, IScenario scenario, string name)
 			{
 				SourcePath = string.Format(@"..\\..\\Approvals\\{0}\Features\{1}\Scenarios\{2}", Clean(report.Generator), Clean(feature.Title), Clean(scenario.Title));
 
 				Name = name;
 			}
+
 			public string Name
 			{
 				get;
@@ -55,7 +42,7 @@ namespace SpecFlow.Reporting.Tests
 			}
 		}
 
-		#endregion
+		#endregion Nested Type: ApprovalScenarioNamer
 
 		#region Nested Type: ApprovalStringWriter
 
@@ -90,7 +77,7 @@ namespace SpecFlow.Reporting.Tests
 			}
 		}
 
-		#endregion
+		#endregion Nested Type: ApprovalStringWriter
 
 		static Steps()
 		{
@@ -100,13 +87,15 @@ namespace SpecFlow.Reporting.Tests
 				var report = args.Report;
 
 				// Verify ISteamWriter
-				if (report is IStreamWriter) {
+				if (report is IStreamWriter)
+				{
 					var serialized = report.SerializeToString();
 					Verify(serialized, args, "IStreamWriter");
 				}
 
 				// Verify IFileWriter
-				if (report is IFileWriter) {
+				if (report is IFileWriter)
+				{
 					var filepath = Path.GetTempFileName();
 					args.Report.WriteToFile(filepath);
 
@@ -117,7 +106,6 @@ namespace SpecFlow.Reporting.Tests
 
 		private static void Verify(string result, ReportEventArgs args, string testname)
 		{
-
 			ApprovalTests.Approvals.Verify(
 				new ApprovalStringWriter(result),
 				new ReportingApprovalNamer(args.Report, args.Feature, args.Scenario, testname),

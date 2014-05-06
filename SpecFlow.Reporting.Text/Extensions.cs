@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 
 namespace SpecFlow.Reporting.Text
@@ -26,8 +25,8 @@ namespace SpecFlow.Reporting.Text
 		}
 
 		public static IEnumerable<string> Indent(this IEnumerable<string> strings, int count)
-		{			
-			return strings.Select(x => "".PadLeft(count) + (x != null ? x : "") );
+		{
+			return strings.Select(x => "".PadLeft(count) + (x != null ? x : ""));
 		}
 	}
 }

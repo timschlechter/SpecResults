@@ -12,8 +12,6 @@ namespace SpecFlow.Reporting
 	{
 	}
 
-
-
 	public class ReporterAspect : IMessageSink
 	{
 		private IMessageSink next;
@@ -35,7 +33,7 @@ namespace SpecFlow.Reporting
 
 		public IMessage SyncProcessMessage(IMessage msg)
 		{
-			var methodMessage = new MethodCallMessageWrapper( (IMethodCallMessage) msg );
+			var methodMessage = new MethodCallMessageWrapper((IMethodCallMessage)msg);
 
 			var starttime = Reporter.CurrentRunTime;
 
