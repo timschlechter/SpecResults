@@ -6,6 +6,8 @@ namespace SpecFlow.Reporting.Text
 {
 	public class TextReport : Report, IStreamWriter, IFileWriter
 	{
+		string IFileWriter.DefaultFileName { get { return "testresults.txt"; } }
+
 		public void Write(Stream stream)
 		{
 			var sb = new StringBuilder();

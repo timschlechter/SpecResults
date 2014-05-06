@@ -76,6 +76,10 @@ namespace SpecFlow.Reporting
 				throw new NotImplementedException("The report does not implement SpecFlow.Reporting.IFileWriter");
 			}
 
+			if (Directory.Exists(filepath))
+			{
+				filepath = Path.Combine(filepath, filewriter.DefaultFileName);
+			}
 			filewriter.WriteFile(filepath);
 		}
 	}

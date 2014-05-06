@@ -2,7 +2,7 @@
 <package >
 	<metadata>
 		<id>SpecFlow.Reporting.Xml</id>
-		<version>0.1.0-alpha</version>
+		<version>0.2.3.0</version>
 		<title>SpecFlow.Reporting.Xml</title>
 		<authors>Tim Schlechter</authors>
 		<owners>Tim Schlechter</owners>
@@ -15,7 +15,7 @@
 		<copyright>Copyright 2014</copyright>
 		<tags>SpecFlow Reporting Xml BDD Test</tags>
 		<dependencies>
-			<dependency id="SpecFlow.Reporting" version="0.0.0.0" />
+			<dependency id="SpecFlow.Reporting" version="0.2.3.0" />
 		</dependencies>
 	</metadata>
 </package>

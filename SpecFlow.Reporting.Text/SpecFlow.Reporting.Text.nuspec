@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>SpecFlow.Reporting.Text</id>
-    <version>0.1.0.0</version>
+    <version>0.2.3.0</version>
     <title>SpecFlow.Reporting.Text</title>
     <authors>Tim Schlechter</authors>
     <owners>Tim Schlechter</owners>
@@ -15,7 +15,7 @@
     <copyright>Copyright 2014</copyright>
     <tags>SpecFlow Reporting PlainText Text Txt Json BDD Test</tags>
 		<dependencies>
-			<dependency id="SpecFlow.Reporting" version="0.1.0.0" />
+			<dependency id="SpecFlow.Reporting" version="0.2.3.0" />
 		</dependencies>
   </metadata>
 </package>

@@ -122,6 +122,7 @@ namespace SpecFlow.Reporting
 			foreach (var state in reports)
 			{
 				state.CurrentStep.Result = testresult;
+				OnReportedStep(state);
 			}
 		}
 
