@@ -6,44 +6,12 @@ namespace SpecFlow.Reporting.Text
 {
 	public class TextReport : Report, IStreamWriter, IFileWriter
 	{
-		private int indentSize = 4;
-
 		public void Write(Stream stream)
 		{
 			var sb = new StringBuilder();
 			foreach (var feature in Features)
 			{
-				sb.AppendLine(feature.GetResultLabel() + " Feature: " + feature.Title);
-				if (!String.IsNullOrEmpty(feature.Description))
-				{
-					sb.AppendLine(feature.Description.Indent(indentSize));
-				}
-				sb.AppendLine();
-
-				foreach (var scenario in feature.Scenarios)
-				{
-					sb.AppendLine(scenario.GetResultLabel() + " Scenario: " + scenario.Title);
-
-					foreach (var scenarioblock in scenario.GetBlocks())
-					{
-						bool firstStep = true;
-						foreach (var step in scenarioblock.Steps)
-						{
-							sb.AppendLine(
-								string.Format(
-								"{0} {1} {2} {3}",
-								step.GetResultLabel(),
-								"".Indent(indentSize),
-								firstStep ? scenarioblock.BlockType.ToString() : "And",
-								step.Title
-							));
-							if (firstStep)
-							{
-								firstStep = false;
-							}
-						}
-					}
-				}
+				sb.AppendLine(feature.ToPlainText());
 			}
 
 			var bytes = Encoding.UTF8.GetBytes(sb.ToString());

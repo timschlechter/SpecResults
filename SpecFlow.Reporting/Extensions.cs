@@ -39,7 +39,7 @@ namespace SpecFlow.Reporting
 				return TestResult.Unknown;
 			}
 
-			return TestResult.Success;
+			return TestResult.OK;
 		}
 
 		public static IEnumerable<IScenarioBlock> GetBlocks(this IScenario scenario)

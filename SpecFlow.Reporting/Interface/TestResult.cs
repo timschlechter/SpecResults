@@ -3,7 +3,7 @@
 	public enum TestResult
 	{
 		Unknown = 0,
-		Success,
+		OK,
 		Error,
 		NotRun,
 		NotImplemented

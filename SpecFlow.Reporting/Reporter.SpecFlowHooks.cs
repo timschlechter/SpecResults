@@ -112,7 +112,7 @@ namespace SpecFlow.Reporting
 			TestResult testresult;
 			if (ScenarioContext.Current.TestError == null)
 			{
-				testresult = TestResult.Success;
+				testresult = TestResult.OK;
 			}
 			else
 			{
