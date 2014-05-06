@@ -1,16 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace SpecFlow.Reporting.Json
+﻿namespace SpecFlow.Reporting.Json
 {
-	public static class JsonReporter
+	public class JsonReporter : ReporterPlugin<JsonReportingFactory>
 	{
-		public static bool Enabled
-		{
-			get { return Reporter.IsEnabled<JsonReportingFactory>(); }
-			set { Reporter.Enable<JsonReportingFactory>(value); }
-		}
+		protected JsonReporter() { }
 	}
 }
