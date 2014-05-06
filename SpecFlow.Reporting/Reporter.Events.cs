@@ -6,99 +6,101 @@ namespace SpecFlow.Reporting
 
 	public class ReportEventArgs : EventArgs
 	{
-		public IReport Report { get; internal set; }
+		public Reporter Reporter { get; internal set; }
 
-		public IFeature Feature { get; internal set; }
+		public Report Report { get; internal set; }
 
-		public IScenario Scenario { get; internal set; }
+		public Feature Feature { get; internal set; }
 
-		public IScenarioBlock ScenarioBlock { get; internal set; }
+		public Scenario Scenario { get; internal set; }
 
-		public IStep Step { get; internal set; }
+		public ScenarioBlock ScenarioBlock { get; internal set; }
+
+		public Step Step { get; internal set; }
 	}
 
 	#endregion Nested Type: ReportEventArgs
 
-	public partial class Reporter
+	public partial class Reporters
 	{
 		#region Events
 
-		public static event EventHandler<ReportEventArgs> ReportStarted;
+		public static event EventHandler<ReportEventArgs> StartingReport;
 
-		public static event EventHandler<ReportEventArgs> ReportingFeature;
+		public static event EventHandler<ReportEventArgs> StartingFeature;
 
-		public static event EventHandler<ReportEventArgs> ReportingScenario;
+		public static event EventHandler<ReportEventArgs> StartingScenario;
 
-		public static event EventHandler<ReportEventArgs> ReportingScenarioBlock;
+		public static event EventHandler<ReportEventArgs> StartingScenarioBlock;
 
-		public static event EventHandler<ReportEventArgs> ReportingStep;
+		public static event EventHandler<ReportEventArgs> StartingStep;
 
-		public static event EventHandler<ReportEventArgs> ReportedStep;
+		public static event EventHandler<ReportEventArgs> FinishedStep;
 
-		public static event EventHandler<ReportEventArgs> ReportedScenarioBlock;
+		public static event EventHandler<ReportEventArgs> FinishedScenarioBlock;
 
-		public static event EventHandler<ReportEventArgs> ReportedScenario;
+		public static event EventHandler<ReportEventArgs> FinishedScenario;
 
-		public static event EventHandler<ReportEventArgs> ReportedFeature;
+		public static event EventHandler<ReportEventArgs> FinishedFeature;
 
-		public static event EventHandler<ReportEventArgs> ReportFinished;
+		public static event EventHandler<ReportEventArgs> FinishedFinished;
 
 		#endregion Events
 
 		#region Event Raising
 
-		internal static void OnReportStarted(ReportState state)
+		internal static void OnReportStarted(Reporter reporter)
 		{
-			RaiseEvent(ReportStarted, state);
+			RaiseEvent(StartingReport, reporter);
 		}
 
-		internal static void OnReportingFeature(ReportState state)
+		internal static void OnStartingFeature(Reporter reporter)
 		{
-			RaiseEvent(ReportingFeature, state);
+			RaiseEvent(StartingFeature, reporter);
 		}
 
-		internal static void OnReportingScenario(ReportState state)
+		internal static void OnStartingScenario(Reporter reporter)
 		{
-			RaiseEvent(ReportingScenario, state);
+			RaiseEvent(StartingScenario, reporter);
 		}
 
-		internal static void OnReportingScenarioBlock(ReportState state)
+		internal static void OnStartingScenarioBlock(Reporter reporter)
 		{
-			RaiseEvent(ReportingScenarioBlock, state);
+			RaiseEvent(StartingScenarioBlock, reporter);
 		}
 
-		internal static void OnReportingStep(ReportState state)
+		internal static void OnStartingStep(Reporter reporter)
 		{
-			RaiseEvent(ReportingStep, state);
+			RaiseEvent(StartingStep, reporter);
 		}
 
-		internal static void OnReportedStep(ReportState state)
+		internal static void OnFinishedStep(Reporter reporter)
 		{
-			RaiseEvent(ReportedStep, state);
+			RaiseEvent(FinishedStep, reporter);
 		}
 
-		internal static void OnReportedScenarioBlock(ReportState state)
+		internal static void OnFinishedScenarioBlock(Reporter reporter)
 		{
-			RaiseEvent(ReportedScenarioBlock, state);
+			RaiseEvent(FinishedScenarioBlock, reporter);
 		}
 
-		internal static void OnReportedScenario(ReportState state)
+		internal static void OnFinishedScenario(Reporter reporter)
 		{
-			RaiseEvent(ReportedScenario, state);
+			RaiseEvent(FinishedScenario, reporter);
 		}
 
-		internal static void OnReportedFeature(ReportState state)
+		internal static void OnFinishedFeature(Reporter reporter)
 		{
-			RaiseEvent(ReportedFeature, state);
+			RaiseEvent(FinishedFeature, reporter);
 		}
 
-		internal static void OnReportFinished(ReportState state)
+		internal static void OnFinishedReport(Reporter reporter)
 		{
-			RaiseEvent(ReportFinished, state);
+			RaiseEvent(FinishedFinished, reporter);
 		}
 
 		private static void RaiseEvent(
-			EventHandler<ReportEventArgs> handler, ReportState state)
+			EventHandler<ReportEventArgs> handler, Reporter reporter)
 		{
 			if (handler != null)
 			{
@@ -106,11 +108,12 @@ namespace SpecFlow.Reporting
 					null,
 					new ReportEventArgs
 					{
-						Report = state.Report,
-						Feature = state.CurrentFeature,
-						Scenario = state.CurrentScenario,
-						ScenarioBlock = state.CurrentScenarioBlock,
-						Step = state.CurrentStep
+						Reporter = reporter,
+						Report = reporter.Report,
+						Feature = reporter.CurrentFeature,
+						Scenario = reporter.CurrentScenario,
+						ScenarioBlock = reporter.CurrentScenarioBlock,
+						Step = reporter.CurrentStep
 					}
 				);
 			}

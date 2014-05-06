@@ -2,8 +2,8 @@
 
 namespace SpecFlow.Reporting
 {
-	public interface ITagged
+	public class Step : ReportItem
 	{
-		List<string> Tags { get; set; }
+		public IList<Step> Steps { get; set; }
 	}
 }

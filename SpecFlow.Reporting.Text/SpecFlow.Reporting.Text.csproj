@@ -68,8 +68,6 @@
     <Compile Include="Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TextReporter.cs" />
-    <Compile Include="TextReport.cs" />
-    <Compile Include="TextReportingFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SpecFlow.Reporting\SpecFlow.Reporting.csproj">

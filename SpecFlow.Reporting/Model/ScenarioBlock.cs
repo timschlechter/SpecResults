@@ -1,6 +1,6 @@
 ﻿namespace SpecFlow.Reporting
 {
-	public class ScenarioBlock : Step, IScenarioBlock
+	public class ScenarioBlock : Step
 	{
 		public TechTalk.SpecFlow.ScenarioBlock BlockType { get; set; }
 

@@ -65,32 +65,23 @@
     <Compile Include="..\Shared\AssemblyInfo.Shared.cs">
       <Link>Properties\AssemblyInfo.Shared.cs</Link>
     </Compile>
+    <Compile Include="StringReporter.cs" />
+    <Compile Include="Reporters.FactoryMethods.cs" />
     <Compile Include="ReportingAspect.cs" />
-    <Compile Include="DefaultImplementation\ScenarioBlock.cs" />
-    <Compile Include="DefaultImplementation\TaggedReportItem.cs" />
-    <Compile Include="DefaultImplementation\Feature.cs" />
-    <Compile Include="DefaultImplementation\Report.cs" />
-    <Compile Include="DefaultImplementation\ReportItem.cs" />
-    <Compile Include="DefaultImplementation\Scenario.cs" />
-    <Compile Include="DefaultImplementation\Step.cs" />
+    <Compile Include="Model\ScenarioBlock.cs" />
+    <Compile Include="Model\TaggedReportItem.cs" />
+    <Compile Include="Model\Feature.cs" />
+    <Compile Include="Model\Report.cs" />
+    <Compile Include="Model\ReportItem.cs" />
+    <Compile Include="Model\Scenario.cs" />
+    <Compile Include="Model\Step.cs" />
     <Compile Include="Extensions.cs" />
-    <Compile Include="Interface\IScenarioBlock.cs" />
-    <Compile Include="Interface\Writers\IFileWriter.cs" />
-    <Compile Include="Interface\Writers\IStreamWriter.cs" />
-    <Compile Include="Interface\ITagged.cs" />
-    <Compile Include="Interface\IReportItem.cs" />
-    <Compile Include="Interface\IReportFactory.cs" />
-    <Compile Include="Interface\IFeature.cs" />
-    <Compile Include="Interface\IScenario.cs" />
-    <Compile Include="Interface\IStep.cs" />
-    <Compile Include="Interface\TestResult.cs" />
-    <Compile Include="Reporter.cs" />
+    <Compile Include="Model\TestResult.cs" />
+    <Compile Include="Reporters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Interface\IReport.cs" />
-    <Compile Include="Reporter.SpecFlowHooks.cs" />
-    <Compile Include="ReportingFactory.cs" />
+    <Compile Include="Reporters.SpecFlowHooks.cs" />
+    <Compile Include="Reporter.cs" />
     <Compile Include="Reporter.Events.cs" />
-    <Compile Include="ReporterPlugin.cs" />
     <Compile Include="ReportingStepDefinitions.cs" />
   </ItemGroup>
   <ItemGroup>

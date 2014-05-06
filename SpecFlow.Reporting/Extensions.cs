@@ -12,7 +12,7 @@ namespace SpecFlow.Reporting
 			return Path.GetInvalidFileNameChars().Aggregate(fileName, (current, c) => current.Replace(c.ToString(), string.Empty));
 		}
 
-		public static TestResult GetResult(this IEnumerable<IReportItem> items)
+		public static TestResult GetResult(this IEnumerable<ReportItem> items)
 		{
 			return items.Select(x => x.Result).GetResult();
 		}
@@ -42,45 +42,20 @@ namespace SpecFlow.Reporting
 			return TestResult.OK;
 		}
 
-		public static IEnumerable<IScenarioBlock> GetBlocks(this IScenario scenario)
+		public static IEnumerable<ScenarioBlock> GetBlocks(this Scenario scenario)
 		{
 			return new[] { scenario.Given, scenario.When, scenario.Then };
 		}
 
-		public static string SerializeToString(this IReport report)
+		public static string WriteToString(this Reporter reporter)
 		{
-			var streamwriter = report as IStreamWriter;
-
-			if (streamwriter == null)
+			var sw = (reporter as StringReporter);
+			if (sw == null)
 			{
-				throw new NotImplementedException("The report does not implement SpecFlow.Reporting.IStreamWriter");
+				throw new NotImplementedException("The report does not implement SpecFlow.Reporting.StringReporter");
 			}
 
-			using (var stream = new MemoryStream())
-			{
-				streamwriter.Write(stream);
-				stream.Position = 0;
-				using (var reader = new StreamReader(stream))
-				{
-					return reader.ReadToEnd();
-				}
-			}
-		}
-
-		public static void WriteToFile(this IReport report, string filepath)
-		{
-			var filewriter = report as IFileWriter;
-
-			if (filewriter == null)
-			{
-				throw new NotImplementedException("The report does not implement SpecFlow.Reporting.IFileWriter");
-			}
-
-			if (Directory.Exists(filepath))
-			{
-				filepath = Path.Combine(filepath, filewriter.DefaultFileName);
-			}
-			filewriter.WriteFile(filepath);
-		}
+			return sw.WriteToString();
+		}		
 	}
 }

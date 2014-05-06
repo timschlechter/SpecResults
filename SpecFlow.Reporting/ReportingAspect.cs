@@ -30,20 +30,20 @@ namespace SpecFlow.Reporting
 		{
 			var methodMessage = new MethodCallMessageWrapper((IMethodCallMessage)msg);
 
-			var starttime = Reporter.CurrentRunTime;
+			var starttime = Reporters.CurrentRunTime;
 
-			foreach (var state in Reporter.reports)
+			foreach (var reporter in Reporters.reporters)
 			{
-				var step = state.Factory.CreateStep();
+				var step = Reporters.CreateStep();
 				step.StartTime = starttime;
 				var attr = methodMessage.MethodBase.GetCustomAttributes(true).OfType<StepDefinitionBaseAttribute>().FirstOrDefault();
 				if (attr != null)
 				{
 					step.Title = attr.Regex;
 				}
-				state.CurrentScenarioBlock.Steps.Add(step);
-				state.CurrentStep = step;
-				Reporter.OnReportingStep(state);
+				reporter.CurrentScenarioBlock.Steps.Add(step);
+				reporter.CurrentStep = step;
+				Reporters.OnStartingStep(reporter);
 			}
 
 			return next.SyncProcessMessage(msg);

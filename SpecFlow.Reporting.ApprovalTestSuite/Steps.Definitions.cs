@@ -1,6 +1,5 @@
 ﻿using SpecFlow.Reporting.Json;
 using SpecFlow.Reporting.Text;
-using SpecFlow.Reporting.Xml;
 using System;
 using TechTalk.SpecFlow;
 
@@ -12,10 +11,10 @@ namespace SpecFlow.Reporting.Tests
 		[BeforeTestRun]
 		public static void BeforeTestRun()
 		{
-			Reporter.FixedRunTime = DateTime.MinValue;
-			TextReporter.Enabled = true;
-			JsonReporter.Enabled = true;
-			XmlReporter.Enabled = false;
+			Reporters.FixedRunTime = DateTime.MinValue;
+			Reporters.Add(new JsonReporter());
+			Reporters.Add(new PlainTextReporter());
+			//Reporters.Add(new XmlReporter());
 
 			IntializeApprovalTests();
 		}

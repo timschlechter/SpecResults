@@ -1,9 +1,15 @@
 ﻿namespace SpecFlow.Reporting.Xml
 {
-	public class XmlReporter : ReporterPlugin<XmlReportingFactory>
+	public class XmlReporter : StringReporter
 	{
-		protected XmlReporter()
+		public override string Name
 		{
+			get { return "SpecFlow.Reporting.Xml"; }
+		}
+
+		public override void WriteToStream(System.IO.Stream stream)
+		{
+			throw new System.NotImplementedException();
 		}
 	}
 }

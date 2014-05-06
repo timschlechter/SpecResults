@@ -26,7 +26,7 @@ public partial class StepDefinitions : ReportingStepDefinitions
 	[BeforeTestRun]
 	public static void BeforeTestRun()
 	{
-		JsonReporter.Enabled = true;	
+		Reporters.Add(new JsonReporter());
 	}
 	
 	[Given(@"some example")]
@@ -43,10 +43,10 @@ public class StepDefinitions : ReportingStepDefinitions
 {
 	public Steps()
 	{
-		JsonReporter.Enabled = true;
+		Reporters.Add(new JsonReporter());
 
-		Reporter.ReportFinished += (sender, args) => {
-			Console.WriteLine(args.Report.SerializeToString());
+		Reporter.FinishedReport += (sender, args) => {
+			Console.WriteLine(args.Reporter.WriteToString());
 		};
 	}
 

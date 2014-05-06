@@ -22,7 +22,7 @@ namespace SpecFlow.Reporting.Tests
 				return Path.GetInvalidFileNameChars().Aggregate(val, (current, c) => current.Replace(c.ToString(), string.Empty));
 			}
 
-			public ReportingApprovalNamer(IReport report, IFeature feature, IScenario scenario, string name)
+			public ReportingApprovalNamer(Report report, Feature feature, Scenario scenario, string name)
 			{
 				SourcePath = string.Format(@"..\\..\\Approvals\\{0}\Features\{1}\Scenarios\{2}", Clean(report.Generator), Clean(feature.Title), Clean(scenario.Title));
 
@@ -79,28 +79,24 @@ namespace SpecFlow.Reporting.Tests
 
 		#endregion Nested Type: ApprovalStringWriter
 
-		static void IntializeApprovalTests()
+		private static void IntializeApprovalTests()
 		{
 			// Clear report after each Scenario
-			Reporter.ReportedScenario += (sender, args) =>
+			Reporters.FinishedScenario += (sender, args) =>
 			{
-				var report = args.Report;
+				var reporter = args.Reporter;
 
 				// Verify ISteamWriter
-				if (report is IStreamWriter)
+				if (reporter is StringReporter)
 				{
-					var serialized = report.SerializeToString();
-					Verify(serialized, args, "IStreamWriter");
+					var serialized = reporter.WriteToString();
+					Verify(serialized, args, "WriteToString");
 				}
 
 				// Verify IFileWriter
-				if (report is IFileWriter)
-				{
-					var filepath = Path.GetTempFileName();
-					args.Report.WriteToFile(filepath);
-
-					Verify(File.ReadAllText(filepath), args, "IFileWriter");
-				}
+				var filepath = Path.GetTempFileName();
+				reporter.WriteToFile(filepath);
+				Verify(File.ReadAllText(filepath), args, "WriteToFile");				
 			};
 		}
 

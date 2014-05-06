@@ -2,7 +2,7 @@
 
 namespace SpecFlow.Reporting
 {
-	public class ReportItem : IReportItem
+	public abstract class ReportItem
 	{
 		public string Title { get; set; }
 
@@ -13,5 +13,9 @@ namespace SpecFlow.Reporting
 		public object UserData { get; set; }
 
 		public virtual TestResult Result { get; set; }
+
+		protected ReportItem()
+		{
+		}
 	}
 }

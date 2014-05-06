@@ -2,11 +2,11 @@
 
 namespace SpecFlow.Reporting
 {
-	public class Feature : TaggedReportItem, IFeature
+	public class Feature : TaggedReportItem
 	{
 		public string Description { get; set; }
 
-		public List<IScenario> Scenarios { get; set; }
+		public List<Scenario> Scenarios { get; set; }
 
 		public override TestResult Result
 		{

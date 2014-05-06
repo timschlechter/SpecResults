@@ -1,0 +1,70 @@
+﻿{
+  "generator": "SpecFlow.Reporting.Json",
+  "features": [
+    {
+      "description": "In order to get information about test results\r\nAs a developer\r\nI want to generate reports",
+      "scenarios": [
+        {
+          "given": {
+            "block_type": "Given",
+            "result": "OK",
+            "steps": [
+              {
+                "steps": [],
+                "title": "a scenario is specified",
+                "start_time": "0001-01-01T00:00:00",
+                "end_time": "0001-01-01T00:00:00",
+                "result": "OK"
+              }
+            ],
+            "start_time": "0001-01-01T00:00:00",
+            "end_time": "0001-01-01T00:00:00"
+          },
+          "when": {
+            "block_type": "When",
+            "result": "OK",
+            "steps": [
+              {
+                "steps": [],
+                "title": "the tests run",
+                "start_time": "0001-01-01T00:00:00",
+                "end_time": "0001-01-01T00:00:00",
+                "result": "OK"
+              }
+            ],
+            "start_time": "0001-01-01T00:00:00",
+            "end_time": "0001-01-01T00:00:00"
+          },
+          "then": {
+            "block_type": "Then",
+            "result": "OK",
+            "steps": [
+              {
+                "steps": [],
+                "title": "a report is generated",
+                "start_time": "0001-01-01T00:00:00",
+                "end_time": "0001-01-01T00:00:00",
+                "result": "OK"
+              }
+            ],
+            "start_time": "0001-01-01T00:00:00",
+            "end_time": "0001-01-01T00:00:00"
+          },
+          "result": "OK",
+          "tags": [],
+          "title": "Single scenario",
+          "start_time": "0001-01-01T00:00:00",
+          "end_time": "0001-01-01T00:00:00"
+        }
+      ],
+      "result": "OK",
+      "tags": [],
+      "title": "Generate reports",
+      "start_time": "0001-01-01T00:00:00",
+      "end_time": "0001-01-01T00:00:00"
+    }
+  ],
+  "result": "OK",
+  "start_time": "0001-01-01T00:00:00",
+  "end_time": "0001-01-01T00:00:00"
+}
