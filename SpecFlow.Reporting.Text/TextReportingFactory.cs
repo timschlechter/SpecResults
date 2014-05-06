@@ -12,7 +12,7 @@ namespace SpecFlow.Reporting.Text
 			get { return "SpecFlow.Reporting.Text"; }
 		}
 
-		public override IReport DoCreateReport()
+		protected override IReport DoCreateReport()
 		{
 			return new TextReport();
 		}

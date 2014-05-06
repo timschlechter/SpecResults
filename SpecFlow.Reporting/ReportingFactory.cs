@@ -6,7 +6,7 @@ namespace SpecFlow.Reporting
 	{
 		public abstract string Name { get; }
 
-		public virtual IReport DoCreateReport()
+		protected virtual IReport DoCreateReport()
 		{
 			return new Report
 			{
@@ -14,22 +14,22 @@ namespace SpecFlow.Reporting
 			};
 		}
 
-		public virtual IFeature DoCreateFeature()
+		protected virtual IFeature DoCreateFeature()
 		{
 			return new Feature();
 		}
 
-		public virtual IScenario DoCreateScenario()
+		protected virtual IScenario DoCreateScenario()
 		{
 			return new Scenario();
 		}
 
-		public virtual IScenarioBlock DoCreateScenarioBlock()
+		protected virtual IScenarioBlock DoCreateScenarioBlock()
 		{
 			return new ScenarioBlock();
 		}
 
-		public virtual IStep DoCreateStep()
+		protected virtual IStep DoCreateStep()
 		{
 			return new Step();
 		}

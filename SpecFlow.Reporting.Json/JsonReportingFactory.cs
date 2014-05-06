@@ -7,7 +7,7 @@
 			get { return "SpecFlow.Reporting.Json"; }
 		}
 
-		public override IReport DoCreateReport()
+		protected override IReport DoCreateReport()
 		{
 			return new JsonReport();
 		}
