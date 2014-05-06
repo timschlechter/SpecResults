@@ -97,22 +97,21 @@ namespace SpecFlow.Reporting.Tests
 			// Clear report after each Scenario
 			Reporter.ReportedScenario += (sender, args) =>
 			{
+				var report = args.Report;
 
 				// Verify ISteamWriter
-				var serialized = args.Report.SerializeToString();
-				Verify(serialized, args, "IStreamWriter");
+				if (report is IStreamWriter) {
+					var serialized = report.SerializeToString();
+					Verify(serialized, args, "IStreamWriter");
+				}
 
 				// Verify IFileWriter
-				var fileWriter = args.Report as IFileWriter;
-				if (fileWriter != null)
-				{
+				if (report is IFileWriter) {
 					var filepath = Path.GetTempFileName();
-					fileWriter.WriteFile(filepath);
+					args.Report.WriteToFile(filepath);
 
 					Verify(File.ReadAllText(filepath), args, "IFileWriter");
 				}
-
-				args.Report.Features.Clear();
 			};
 		}
 

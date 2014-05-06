@@ -49,22 +49,34 @@ namespace SpecFlow.Reporting
 
 		public static string SerializeToString(this IReport report)
 		{
-			var asStreamWriter = report as IStreamWriter;
+			var streamwriter = report as IStreamWriter;
 
-			if (asStreamWriter == null)
+			if (streamwriter == null)
 			{
-				throw new NotImplementedException("report does not implement SpecFlow.Reporting.IStreamWriter");
+				throw new NotImplementedException("The report does not implement SpecFlow.Reporting.IStreamWriter");
 			}
 
 			using (var stream = new MemoryStream())
 			{
-				asStreamWriter.Write(stream);
+				streamwriter.Write(stream);
 				stream.Position = 0;
 				using (var reader = new StreamReader(stream))
 				{
 					return reader.ReadToEnd();
 				}
 			}
+		}
+
+		public static void WriteToFile(this IReport report, string filepath)
+		{
+			var filewriter = report as IFileWriter;
+
+			if (filewriter == null)
+			{
+				throw new NotImplementedException("The report does not implement SpecFlow.Reporting.IFileWriter");
+			}
+
+			filewriter.WriteFile(filepath);
 		}
 	}
 }
