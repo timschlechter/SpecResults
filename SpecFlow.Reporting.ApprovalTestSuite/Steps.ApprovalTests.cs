@@ -24,7 +24,7 @@ namespace SpecFlow.Reporting.Tests
 
 			public ReportingApprovalNamer(Report report, Feature feature, Scenario scenario, string name)
 			{
-				SourcePath = string.Format(@"..\\..\\Approvals\\{0}\Features\{1}\Scenarios\{2}", Clean(report.Generator), Clean(feature.Title), Clean(scenario.Title));
+				SourcePath = string.Format(@"..\\..\\Approvals\\{0}\Feature - {1}\Scenario - {2}", Clean(report.Generator), Clean(feature.Title), Clean(scenario.Title));
 
 				Name = name;
 			}
