@@ -1,3 +1,5 @@
+del *.nupkg
+
 nuget pack ..\Specflow.Reporting\Specflow.Reporting.csproj -Build -Properties Configuration=Release
 
 nuget pack ..\Specflow.Reporting.PlainText\Specflow.Reporting.PlainText.csproj -Build -Properties Configuration=Release
