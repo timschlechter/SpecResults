@@ -4,6 +4,6 @@ namespace SpecFlow.Reporting
 {
 	public class Step : ReportItem
 	{
-		public IList<Step> Steps { get; set; }
+		public List<Step> Steps { get; set; }
 	}
 }

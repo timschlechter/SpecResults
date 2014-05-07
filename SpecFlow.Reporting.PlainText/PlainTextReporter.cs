@@ -98,21 +98,20 @@ namespace SpecFlow.Reporting.Text
 			var sb = new StringBuilder();
 			sb.AppendLine("Scenario: " + scenario.Title + " " + GetResultLabel(scenario));
 
-			foreach (var scenarioblock in scenario.GetBlocks())
-			{
-				sb.Append(ToPlainText(scenarioblock));
-			}
-
+			sb.Append(ToPlainText(TechTalk.SpecFlow.ScenarioBlock.Given, scenario.Given));
+			sb.Append(ToPlainText(TechTalk.SpecFlow.ScenarioBlock.When, scenario.When));
+			sb.Append(ToPlainText(TechTalk.SpecFlow.ScenarioBlock.Then, scenario.Then));
+			
 			return sb.ToString();
 		}
 
-		public string ToPlainText(ScenarioBlock scenarioblock)
+		public string ToPlainText(TechTalk.SpecFlow.ScenarioBlock blockType, ScenarioBlock scenarioblock)
 		{
 			var sb = new StringBuilder();
 
 			foreach (var step in scenarioblock.Steps)
 			{
-				var text = ToPlainText(step, sb.Length == 0 ? scenarioblock.BlockType.ToString() : "And");
+				var text = ToPlainText(step, sb.Length == 0 ? blockType.ToString() : "And");
 				sb.AppendLine(Indent(text));
 			}
 

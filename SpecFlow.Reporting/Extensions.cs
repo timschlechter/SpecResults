@@ -44,11 +44,6 @@ namespace SpecFlow.Reporting
 			return TestResult.OK;
 		}
 
-		public static IEnumerable<ScenarioBlock> GetBlocks(this Scenario scenario)
-		{
-			return new[] { scenario.Given, scenario.When, scenario.Then };
-		}
-
 		public static string WriteToString(this Reporter reporter)
 		{
 			var sw = (reporter as StringReporter);

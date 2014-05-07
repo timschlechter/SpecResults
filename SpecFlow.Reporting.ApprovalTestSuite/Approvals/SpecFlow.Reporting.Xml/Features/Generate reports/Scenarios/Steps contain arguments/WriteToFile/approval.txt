@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <StartTime>0001-01-01T00:00:00</StartTime>
+  <EndTime>0001-01-01T00:00:00</EndTime>
+  <Result>Pending</Result>
+  <Generator>SpecFlow.Reporting.Xml</Generator>
+  <Features>
+    <Feature>
+      <Title>Generate reports</Title>
+      <StartTime>0001-01-01T00:00:00</StartTime>
+      <EndTime>0001-01-01T00:00:00</EndTime>
+      <Result>Pending</Result>
+      <Tags />
+      <Description>In order to get information about test results
+As a developer
+I want to generate reports</Description>
+      <Scenarios>
+        <Scenario>
+          <Title>Single scenario</Title>
+          <StartTime>0001-01-01T00:00:00</StartTime>
+          <EndTime>0001-01-01T00:00:00</EndTime>
+          <Result>OK</Result>
+          <Tags />
+          <Given>
+            <StartTime>0001-01-01T00:00:00</StartTime>
+            <EndTime>0001-01-01T00:00:00</EndTime>
+            <Result>OK</Result>
+            <Steps>
+              <Step>
+                <Title>a scenario is specified</Title>
+                <StartTime>0001-01-01T00:00:00</StartTime>
+                <EndTime>0001-01-01T00:00:00</EndTime>
+                <Result>OK</Result>
+                <Steps />
+              </Step>
+            </Steps>
+          </Given>
+          <When>
+            <StartTime>0001-01-01T00:00:00</StartTime>
+            <EndTime>0001-01-01T00:00:00</EndTime>
+            <Result>OK</Result>
+            <Steps>
+              <Step>
+                <Title>the tests run</Title>
+                <StartTime>0001-01-01T00:00:00</StartTime>
+                <EndTime>0001-01-01T00:00:00</EndTime>
+                <Result>OK</Result>
+                <Steps />
+              </Step>
+            </Steps>
+          </When>
+          <Then>
+            <StartTime>0001-01-01T00:00:00</StartTime>
+            <EndTime>0001-01-01T00:00:00</EndTime>
+            <Result>OK</Result>
+            <Steps>
+              <Step>
+                <Title>a report is generated</Title>
+                <StartTime>0001-01-01T00:00:00</StartTime>
+                <EndTime>0001-01-01T00:00:00</EndTime>
+                <Result>OK</Result>
+                <Steps />
+              </Step>
+            </Steps>
+          </Then>
+        </Scenario>
+        <Scenario>
+          <Title>Step is not implemented</Title>
+          <StartTime>0001-01-01T00:00:00</StartTime>
+          <EndTime>0001-01-01T00:00:00</EndTime>
+          <Result>Pending</Result>
+          <Tags />
+          <Given>
+            <StartTime>0001-01-01T00:00:00</StartTime>
+            <EndTime>0001-01-01T00:00:00</EndTime>
+            <Result>OK</Result>
+            <Steps>
+              <Step>
+                <Title>a scenario is specified</Title>
+                <StartTime>0001-01-01T00:00:00</StartTime>
+                <EndTime>0001-01-01T00:00:00</EndTime>
+                <Result>OK</Result>
+                <Steps />
+              </Step>
+            </Steps>
+          </Given>
+          <When>
+            <StartTime>0001-01-01T00:00:00</StartTime>
+            <EndTime>0001-01-01T00:00:00</EndTime>
+            <Result>Pending</Result>
+            <Steps>
+              <Step>
+                <Title>a step is not implemented</Title>
+                <StartTime>0001-01-01T00:00:00</StartTime>
+                <EndTime>0001-01-01T00:00:00</EndTime>
+                <Result>Pending</Result>
+                <Steps />
+              </Step>
+            </Steps>
+          </When>
+          <Then>
+            <StartTime>0001-01-01T00:00:00</StartTime>
+            <EndTime>0001-01-01T00:00:00</EndTime>
+            <Result>OK</Result>
+            <Steps />
+          </Then>
+        </Scenario>
+        <Scenario>
+          <Title>Steps contain arguments</Title>
+          <StartTime>0001-01-01T00:00:00</StartTime>
+          <EndTime>0001-01-01T00:00:00</EndTime>
+          <Result>OK</Result>
+          <Tags />
+          <Given>
+            <StartTime>0001-01-01T00:00:00</StartTime>
+            <EndTime>0001-01-01T00:00:00</EndTime>
+            <Result>OK</Result>
+            <Steps>
+              <Step>
+                <Title>a "awesome" scenario is specified</Title>
+                <StartTime>0001-01-01T00:00:00</StartTime>
+                <EndTime>0001-01-01T00:00:00</EndTime>
+                <Result>OK</Result>
+                <Steps />
+              </Step>
+            </Steps>
+          </Given>
+          <When>
+            <StartTime>0001-01-01T00:00:00</StartTime>
+            <EndTime>0001-01-01T00:00:00</EndTime>
+            <Result>OK</Result>
+            <Steps>
+              <Step>
+                <Title>the tests with "multiple" parameters run "smoothly"</Title>
+                <StartTime>0001-01-01T00:00:00</StartTime>
+                <EndTime>0001-01-01T00:00:00</EndTime>
+                <Result>OK</Result>
+                <Steps />
+              </Step>
+            </Steps>
+          </When>
+          <Then>
+            <StartTime>0001-01-01T00:00:00</StartTime>
+            <EndTime>0001-01-01T00:00:00</EndTime>
+            <Result>OK</Result>
+            <Steps>
+              <Step>
+                <Title>"1" report is generated</Title>
+                <StartTime>0001-01-01T00:00:00</StartTime>
+                <EndTime>0001-01-01T00:00:00</EndTime>
+                <Result>OK</Result>
+                <Steps />
+              </Step>
+            </Steps>
+          </Then>
+        </Scenario>
+      </Scenarios>
+    </Feature>
+  </Features>
+</Report>

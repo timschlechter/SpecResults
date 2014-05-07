@@ -26,9 +26,9 @@ namespace SpecFlow.Reporting
 			return new Scenario
 			{
 				Tags = new List<string>(),
-				Given = new ScenarioBlock { Steps = new List<Step>(), BlockType = TechTalk.SpecFlow.ScenarioBlock.Given },
-				When = new ScenarioBlock { Steps = new List<Step>(), BlockType = TechTalk.SpecFlow.ScenarioBlock.When },
-				Then = new ScenarioBlock { Steps = new List<Step>(), BlockType = TechTalk.SpecFlow.ScenarioBlock.Then }
+				Given = new ScenarioBlock { Steps = new List<Step>() },
+				When = new ScenarioBlock { Steps = new List<Step>() },
+				Then = new ScenarioBlock { Steps = new List<Step>() }
 			};
 		}
 
