@@ -1,4 +1,6 @@
-﻿using TechTalk.SpecFlow;
+﻿using System.Collections.Generic;
+using System.Reflection;
+using TechTalk.SpecFlow;
 
 namespace SpecFlow.Reporting
 {
@@ -97,21 +99,7 @@ namespace SpecFlow.Reporting
 		[AfterStep]
 		public static void AfterStep()
 		{
-			TestResult testresult;
-			if (ScenarioContext.Current.TestError == null)
-			{
-				testresult = TestResult.OK;
-			}
-			else
-			{
-				testresult = TestResult.Error;
-			}
-
-			foreach (var reporter in reporters)
-			{
-				reporter.CurrentStep.Result = testresult;
-				OnFinishedStep(reporter);
-			}
+			
 		}
 
 		[AfterScenarioBlock]

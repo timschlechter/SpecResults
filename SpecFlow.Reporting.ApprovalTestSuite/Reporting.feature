@@ -13,3 +13,7 @@ Scenario: Steps contain arguments
 	When the tests with "multiple" parameters run "smoothly"
 	Then "1" report is generated
 	  
+Scenario: Step is not implemented
+	Given a scenario is specified
+	When a step is not implemented
+	Then a report is generated

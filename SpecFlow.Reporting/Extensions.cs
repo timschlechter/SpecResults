@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
+using TechTalk.SpecFlow;
 
 namespace SpecFlow.Reporting
 {
@@ -24,9 +26,9 @@ namespace SpecFlow.Reporting
 				return TestResult.Error;
 			}
 
-			if (results.Any(x => x == TestResult.NotImplemented))
+			if (results.Any(x => x == TestResult.Pending))
 			{
-				return TestResult.NotImplemented;
+				return TestResult.Pending;
 			}
 
 			if (results.Any(x => x == TestResult.NotRun))
@@ -56,6 +58,14 @@ namespace SpecFlow.Reporting
 			}
 
 			return sw.WriteToString();
+		}
+
+		internal static IEnumerable<string> GetPendingSteps(this ScenarioContext scenarioContenxt)
+		{
+			return typeof(ScenarioContext)
+				.GetProperty("PendingSteps", BindingFlags.NonPublic | BindingFlags.Instance)
+				.GetValue(ScenarioContext.Current, null) as IEnumerable<string>
+				?? new string[0];
 		}
 
 		internal static string ReplaceFirst(this string s, string find, string replace)

@@ -84,11 +84,10 @@ namespace SpecFlow.Reporting.Text
 				sb.AppendLine(Indent(feature.Description));
 			}
 
-			sb.AppendLine();
-
 			foreach (var scenario in feature.Scenarios)
 			{
-				sb.AppendLine(ToPlainText(scenario));
+				sb.AppendLine();			
+				sb.Append(ToPlainText(scenario));
 			}
 
 			return sb.ToString();

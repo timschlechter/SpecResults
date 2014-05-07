@@ -1,4 +1,4 @@
-﻿Feature: Generate reports [OK]
+﻿Feature: Generate reports [Pending]
     In order to get information about test results
     As a developer
     I want to generate reports
@@ -7,4 +7,8 @@ Scenario: Single scenario [OK]
     Given a scenario is specified [OK]
     When the tests run [OK]
     Then a report is generated [OK]
+
+Scenario: Step is not implemented [Pending]
+    Given a scenario is specified [OK]
+    When a step is not implemented [Pending]
 

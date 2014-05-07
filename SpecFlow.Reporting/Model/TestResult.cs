@@ -6,6 +6,6 @@
 		OK,
 		Error,
 		NotRun,
-		NotImplemented
+		Pending
 	}
 }

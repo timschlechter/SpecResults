@@ -48,5 +48,13 @@ namespace SpecFlow.Reporting.Tests
 		public void ThenReportIsGenerated(int p0)
 		{
 		}
+
+		[When(@"a step is not implemented")]
+		public void WhenAStepIsNotImplemented()
+		{
+			ScenarioContext.Current.Pending();
+		}
+
+
 	}
 }

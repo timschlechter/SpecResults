@@ -99,58 +99,6 @@
           "title": "Step is not implemented",
           "start_time": "0001-01-01T00:00:00",
           "end_time": "0001-01-01T00:00:00"
-        },
-        {
-          "given": {
-            "block_type": "Given",
-            "result": "OK",
-            "steps": [
-              {
-                "steps": [],
-                "title": "a \"awesome\" scenario is specified",
-                "start_time": "0001-01-01T00:00:00",
-                "end_time": "0001-01-01T00:00:00",
-                "result": "OK"
-              }
-            ],
-            "start_time": "0001-01-01T00:00:00",
-            "end_time": "0001-01-01T00:00:00"
-          },
-          "when": {
-            "block_type": "When",
-            "result": "OK",
-            "steps": [
-              {
-                "steps": [],
-                "title": "the tests with \"multiple\" parameters run \"smoothly\"",
-                "start_time": "0001-01-01T00:00:00",
-                "end_time": "0001-01-01T00:00:00",
-                "result": "OK"
-              }
-            ],
-            "start_time": "0001-01-01T00:00:00",
-            "end_time": "0001-01-01T00:00:00"
-          },
-          "then": {
-            "block_type": "Then",
-            "result": "OK",
-            "steps": [
-              {
-                "steps": [],
-                "title": "\"1\" report is generated",
-                "start_time": "0001-01-01T00:00:00",
-                "end_time": "0001-01-01T00:00:00",
-                "result": "OK"
-              }
-            ],
-            "start_time": "0001-01-01T00:00:00",
-            "end_time": "0001-01-01T00:00:00"
-          },
-          "result": "OK",
-          "tags": [],
-          "title": "Steps contain arguments",
-          "start_time": "0001-01-01T00:00:00",
-          "end_time": "0001-01-01T00:00:00"
         }
       ],
       "result": "Pending",

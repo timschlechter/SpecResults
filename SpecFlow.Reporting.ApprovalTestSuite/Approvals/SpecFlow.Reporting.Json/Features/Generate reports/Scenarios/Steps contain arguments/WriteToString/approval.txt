@@ -63,6 +63,50 @@
             "steps": [
               {
                 "steps": [],
+                "title": "a scenario is specified",
+                "start_time": "0001-01-01T00:00:00",
+                "end_time": "0001-01-01T00:00:00",
+                "result": "OK"
+              }
+            ],
+            "start_time": "0001-01-01T00:00:00",
+            "end_time": "0001-01-01T00:00:00"
+          },
+          "when": {
+            "block_type": "When",
+            "result": "Pending",
+            "steps": [
+              {
+                "steps": [],
+                "title": "a step is not implemented",
+                "start_time": "0001-01-01T00:00:00",
+                "end_time": "0001-01-01T00:00:00",
+                "result": "Pending"
+              }
+            ],
+            "start_time": "0001-01-01T00:00:00",
+            "end_time": "0001-01-01T00:00:00"
+          },
+          "then": {
+            "block_type": "Then",
+            "result": "OK",
+            "steps": [],
+            "start_time": "0001-01-01T00:00:00",
+            "end_time": "0001-01-01T00:00:00"
+          },
+          "result": "Pending",
+          "tags": [],
+          "title": "Step is not implemented",
+          "start_time": "0001-01-01T00:00:00",
+          "end_time": "0001-01-01T00:00:00"
+        },
+        {
+          "given": {
+            "block_type": "Given",
+            "result": "OK",
+            "steps": [
+              {
+                "steps": [],
                 "title": "a \"awesome\" scenario is specified",
                 "start_time": "0001-01-01T00:00:00",
                 "end_time": "0001-01-01T00:00:00",
@@ -109,14 +153,14 @@
           "end_time": "0001-01-01T00:00:00"
         }
       ],
-      "result": "OK",
+      "result": "Pending",
       "tags": [],
       "title": "Generate reports",
       "start_time": "0001-01-01T00:00:00",
       "end_time": "0001-01-01T00:00:00"
     }
   ],
-  "result": "OK",
+  "result": "Pending",
   "start_time": "0001-01-01T00:00:00",
   "end_time": "0001-01-01T00:00:00"
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Activation;
 using System.Runtime.Remoting.Contexts;
@@ -18,7 +19,8 @@ namespace SpecFlow.Reporting
 
 		public IMessageCtrl AsyncProcessMessage(IMessage msg, IMessageSink replySink)
 		{
-			throw new NotImplementedException();
+			var rtnMsgCtrl = next.AsyncProcessMessage(msg, replySink);
+			return rtnMsgCtrl;
 		}
 
 		public IMessageSink NextSink
@@ -52,14 +54,45 @@ namespace SpecFlow.Reporting
 				Reporters.OnStartingStep(reporter);
 			}
 
-			return next.SyncProcessMessage(msg);
+			try
+			{
+				IMessage rtnMsg = next.SyncProcessMessage(msg);
+				IMethodReturnMessage mrm = (rtnMsg as IMethodReturnMessage);
+
+				TestResult testResult;
+				if (mrm.Exception is PendingStepException)
+				{
+					testResult = TestResult.Pending;
+				}
+				else if (ScenarioContext.Current.TestError == null)
+				{
+					testResult = TestResult.OK;
+				}
+				else
+				{
+					testResult = TestResult.Error;
+				}
+
+				foreach (var reporter in Reporters.reporters)
+				{
+					reporter.CurrentStep.Result = testResult;
+					Reporters.OnFinishedStep(reporter);
+				}
+
+				return mrm;
+			}
+			catch (Exception ex)
+			{
+
+				throw;
+			}
+
 		}
 	}
 
 	public class ReportingProperty : IContextProperty, IContributeObjectSink
 	{
-		public IMessageSink GetObjectSink(MarshalByRefObject o,
-		IMessageSink next)
+		public IMessageSink GetObjectSink(MarshalByRefObject o, IMessageSink next)
 		{
 			return new ReportingAspect(next);
 		}
@@ -70,6 +103,9 @@ namespace SpecFlow.Reporting
 
 		public bool IsNewContextOK(Context newCtx)
 		{
+			var p = newCtx.GetProperty("Reporting") as ReportingProperty;
+			if (p == null)
+				return false;
 			return true;
 		}
 
@@ -89,6 +125,22 @@ namespace SpecFlow.Reporting
 		public override void GetPropertiesForNewContext(IConstructionCallMessage ccm)
 		{
 			ccm.ContextProperties.Add(new ReportingProperty());
+		}
+
+		public override bool IsContextOK(Context ctx, System.Runtime.Remoting.Activation.IConstructionCallMessage ctorMsg)
+		{
+			var p = ctx.GetProperty("Reporting") as ReportingProperty;
+			if (p == null)
+				return false;
+			return true;
+		}
+
+		public override bool IsNewContextOK(Context newCtx)
+		{
+			var p = newCtx.GetProperty("Reporting") as ReportingProperty;
+			if (p == null)
+				return false;
+			return true;
 		}
 	}
 }
