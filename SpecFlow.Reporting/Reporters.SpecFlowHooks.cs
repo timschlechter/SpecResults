@@ -7,14 +7,14 @@ namespace SpecFlow.Reporting
 	public static partial class Reporters
 	{
 		[BeforeTestRun]
-		public static void BeforeTestRun()
+		internal static void BeforeTestRun()
 		{
 			testrunIsFirstFeature = true;
 			testrunStarttime = CurrentRunTime;
 		}
 
 		[BeforeFeature]
-		public static void BeforeFeature()
+		internal static void BeforeFeature()
 		{
 			var starttime = CurrentRunTime;
 
@@ -52,7 +52,7 @@ namespace SpecFlow.Reporting
 		}
 
 		[BeforeScenario]
-		public static void BeforeScenario()
+		internal static void BeforeScenario()
 		{
 			var starttime = CurrentRunTime;
 
@@ -71,7 +71,7 @@ namespace SpecFlow.Reporting
 		}
 
 		[BeforeScenarioBlock]
-		public static void BeforeScenarioBlock()
+		internal static void BeforeScenarioBlock()
 		{
 			var starttime = CurrentRunTime;
 
@@ -92,18 +92,18 @@ namespace SpecFlow.Reporting
 		}
 
 		[BeforeStep]
-		public static void BeforeStep()
+		internal static void BeforeStep()
 		{
 		}
 
 		[AfterStep]
-		public static void AfterStep()
+		internal static void AfterStep()
 		{
 			
 		}
 
 		[AfterScenarioBlock]
-		public static void AfterScenarioBlock()
+		internal static void AfterScenarioBlock()
 		{
 			var endtime = CurrentRunTime;
 			foreach (var reporter in reporters)
@@ -116,7 +116,7 @@ namespace SpecFlow.Reporting
 		}
 
 		[AfterScenario]
-		public static void AfterScenario()
+		internal static void AfterScenario()
 		{
 			foreach (var reporter in reporters.ToArray())
 			{
@@ -128,7 +128,7 @@ namespace SpecFlow.Reporting
 		}
 
 		[AfterFeature]
-		public static void AfterFeature()
+		internal static void AfterFeature()
 		{
 			foreach (var reporter in reporters)
 			{
@@ -140,7 +140,7 @@ namespace SpecFlow.Reporting
 		}
 
 		[AfterTestRun]
-		public static void AfterTestRun()
+		internal static void AfterTestRun()
 		{
 			foreach (var reporter in reporters)
 			{

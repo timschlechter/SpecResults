@@ -8,7 +8,7 @@ using TechTalk.SpecFlow;
 
 namespace SpecFlow.Reporting
 {
-	public class ReportingAspect : IMessageSink
+	internal class ReportingAspect : IMessageSink
 	{
 		private IMessageSink next;
 
@@ -81,7 +81,7 @@ namespace SpecFlow.Reporting
 		}
 	}
 
-	public class ReportingProperty : IContextProperty, IContributeObjectSink
+	internal class ReportingProperty : IContextProperty, IContributeObjectSink
 	{
 		public IMessageSink GetObjectSink(MarshalByRefObject o, IMessageSink next)
 		{
@@ -106,7 +106,7 @@ namespace SpecFlow.Reporting
 		}
 	}
 
-	public class ReportingAttribute : ContextAttribute
+	internal class ReportingAttribute : ContextAttribute
 	{
 		public ReportingAttribute()
 			: base("Reporting")

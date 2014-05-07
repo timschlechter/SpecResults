@@ -1,5 +1,6 @@
 ﻿using ApprovalTests.Core;
 using ApprovalTests.Reporters;
+using System;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -96,6 +97,7 @@ namespace SpecFlow.Reporting.Tests
 				// Verify IFileWriter
 				var filepath = Path.GetTempFileName();
 				reporter.WriteToFile(filepath);
+				Console.WriteLine("Verify " + filepath);
 				Verify(File.ReadAllText(filepath), args, "WriteToFile");				
 			};
 		}
