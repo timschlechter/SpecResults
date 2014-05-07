@@ -54,39 +54,30 @@ namespace SpecFlow.Reporting
 				Reporters.OnStartingStep(reporter);
 			}
 
-			try
+			IMessage rtnMsg = next.SyncProcessMessage(msg);
+			IMethodReturnMessage mrm = (rtnMsg as IMethodReturnMessage);
+
+			TestResult testResult;
+			if (mrm.Exception is PendingStepException)
 			{
-				IMessage rtnMsg = next.SyncProcessMessage(msg);
-				IMethodReturnMessage mrm = (rtnMsg as IMethodReturnMessage);
-
-				TestResult testResult;
-				if (mrm.Exception is PendingStepException)
-				{
-					testResult = TestResult.Pending;
-				}
-				else if (ScenarioContext.Current.TestError == null)
-				{
-					testResult = TestResult.OK;
-				}
-				else
-				{
-					testResult = TestResult.Error;
-				}
-
-				foreach (var reporter in Reporters.reporters)
-				{
-					reporter.CurrentStep.Result = testResult;
-					Reporters.OnFinishedStep(reporter);
-				}
-
-				return mrm;
+				testResult = TestResult.Pending;
 			}
-			catch (Exception ex)
+			else if (ScenarioContext.Current.TestError == null)
 			{
-
-				throw;
+				testResult = TestResult.OK;
+			}
+			else
+			{
+				testResult = TestResult.Error;
 			}
 
+			foreach (var reporter in Reporters.reporters)
+			{
+				reporter.CurrentStep.Result = testResult;
+				Reporters.OnFinishedStep(reporter);
+			}
+
+			return mrm;
 		}
 	}
 
