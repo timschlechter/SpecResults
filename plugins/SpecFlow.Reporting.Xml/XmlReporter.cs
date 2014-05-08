@@ -1,19 +1,18 @@
-﻿using System.Text;
+﻿using System.IO;
+using System.Text;
 using System.Xml;
+using System.Xml.Xsl;
 namespace SpecFlow.Reporting.Xml
 {
 	public class XmlReporter : StringReporter
 	{
-		public override string Name
-		{
-			get { return "SpecFlow.Reporting.Xml"; }
-		}
+		public XmlWriterSettings XmlWriterSettings { get; private set; }
 
-		public XmlWriterSettings Settings { get; private set; }
+		public string XsltFile { get; set; }
 
 		public XmlReporter()
 		{
-			Settings = new XmlWriterSettings
+			XmlWriterSettings = new XmlWriterSettings
 			{
 				Indent = true,
 				IndentChars = "  ",
@@ -21,13 +20,46 @@ namespace SpecFlow.Reporting.Xml
 			};
 		}
 
-		public override void WriteToStream(System.IO.Stream stream)
+		public override void WriteToStream(Stream stream)
 		{
-			using (var writer = XmlTextWriter.Create(stream, Settings))
+			if (string.IsNullOrEmpty(XsltFile))
+			{
+				InternalWriteToStream(stream);
+			}
+			else
+			{
+				WriteTransformedToStream(stream, XsltFile);
+			}
+		}
+
+		private void InternalWriteToStream(Stream stream)
+		{
+			using (var writer = XmlTextWriter.Create(stream, XmlWriterSettings))
 			{
 				var serializer = new System.Xml.Serialization.XmlSerializer(Report.GetType());
 				serializer.Serialize(writer, Report);
 			};
+		}
+
+		protected virtual void WriteTransformedToStream(Stream outputStream, string xsltFile)
+		{
+			using (var inputStream = new MemoryStream())
+			{
+				InternalWriteToStream(inputStream);
+				inputStream.Seek(0, SeekOrigin.Begin);
+
+				using (var reader = XmlReader.Create(inputStream))
+				{
+					var xslt = new XslCompiledTransform();
+					xslt.Load(xsltFile);
+
+					// Create the writer.
+					using (var writer = XmlWriter.Create(outputStream, XmlWriterSettings))
+					{
+						xslt.Transform(reader, writer);
+					}
+				}
+			}
 		}
 	}
 }

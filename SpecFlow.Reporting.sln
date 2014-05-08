@@ -20,11 +20,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{22192E5C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{352F5E32-E25B-4231-8674-518AA1624AAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlow.Reporting.Json", "plugins\SpecFlow.Reporting.Json\SpecFlow.Reporting.Json.csproj", "{C830C923-5398-4F28-99C2-1592EE5F4F7B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Json", "plugins\SpecFlow.Reporting.Json\Json.csproj", "{C830C923-5398-4F28-99C2-1592EE5F4F7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlow.Reporting.PlainText", "plugins\SpecFlow.Reporting.PlainText\SpecFlow.Reporting.PlainText.csproj", "{876E9F9F-2A95-413C-A230-678BB51FCDCA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlainText", "plugins\SpecFlow.Reporting.PlainText\PlainText.csproj", "{876E9F9F-2A95-413C-A230-678BB51FCDCA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlow.Reporting.Xml", "plugins\SpecFlow.Reporting.Xml\SpecFlow.Reporting.Xml.csproj", "{7DADFDB7-C67D-46FE-B989-C672C873FCD8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xml", "plugins\SpecFlow.Reporting.Xml\Xml.csproj", "{7DADFDB7-C67D-46FE-B989-C672C873FCD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xml.NUnit", "plugins\SpecFlow.Reporting.Xml.NUnit\Xml.NUnit.csproj", "{8F276893-8AFF-4ABE-BC60-F9A8D0F52F24}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,6 +75,14 @@ Global
 		{7DADFDB7-C67D-46FE-B989-C672C873FCD8}.NuGet|Any CPU.Build.0 = NuGet|Any CPU
 		{7DADFDB7-C67D-46FE-B989-C672C873FCD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DADFDB7-C67D-46FE-B989-C672C873FCD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F276893-8AFF-4ABE-BC60-F9A8D0F52F24}.Build Nuget Packages|Any CPU.ActiveCfg = Release|Any CPU
+		{8F276893-8AFF-4ABE-BC60-F9A8D0F52F24}.Build Nuget Packages|Any CPU.Build.0 = Release|Any CPU
+		{8F276893-8AFF-4ABE-BC60-F9A8D0F52F24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F276893-8AFF-4ABE-BC60-F9A8D0F52F24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F276893-8AFF-4ABE-BC60-F9A8D0F52F24}.NuGet|Any CPU.ActiveCfg = Release|Any CPU
+		{8F276893-8AFF-4ABE-BC60-F9A8D0F52F24}.NuGet|Any CPU.Build.0 = Release|Any CPU
+		{8F276893-8AFF-4ABE-BC60-F9A8D0F52F24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F276893-8AFF-4ABE-BC60-F9A8D0F52F24}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -81,5 +91,6 @@ Global
 		{C830C923-5398-4F28-99C2-1592EE5F4F7B} = {352F5E32-E25B-4231-8674-518AA1624AAE}
 		{876E9F9F-2A95-413C-A230-678BB51FCDCA} = {352F5E32-E25B-4231-8674-518AA1624AAE}
 		{7DADFDB7-C67D-46FE-B989-C672C873FCD8} = {352F5E32-E25B-4231-8674-518AA1624AAE}
+		{8F276893-8AFF-4ABE-BC60-F9A8D0F52F24} = {352F5E32-E25B-4231-8674-518AA1624AAE}
 	EndGlobalSection
 EndGlobal

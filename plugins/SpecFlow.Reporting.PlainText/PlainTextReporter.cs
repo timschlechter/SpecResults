@@ -9,11 +9,6 @@ namespace SpecFlow.Reporting.Text
 {
 	public class PlainTextReporter : StringReporter
 	{
-		public override string Name
-		{
-			get { return "SpecFlow.Reporting.Text"; }
-		}
-
 		public string DefaultFileName { get { return "testresults.txt"; } }
 
 		public string IndentString { get; set; }

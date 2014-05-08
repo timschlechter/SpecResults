@@ -1,6 +1,7 @@
 ﻿using SpecFlow.Reporting.Json;
 using SpecFlow.Reporting.Text;
 using SpecFlow.Reporting.Xml;
+using SpecFlow.Reporting.Xml.NUnit;
 using System;
 using TechTalk.SpecFlow;
 
@@ -14,9 +15,11 @@ namespace SpecFlow.Reporting.Tests
 		{
 			Reporters.FixedRunTime = DateTime.MinValue;
 
-			Reporters.Add(new JsonReporter());
-			Reporters.Add(new PlainTextReporter());
-			Reporters.Add(new XmlReporter());
+			//Reporters.Add(new JsonReporter());
+			//Reporters.Add(new PlainTextReporter());
+			//Reporters.Add(new XmlReporter());
+
+			Reporters.Add(new NUnitXmlReporter());
 
 			IntializeApprovalTests();
 		}

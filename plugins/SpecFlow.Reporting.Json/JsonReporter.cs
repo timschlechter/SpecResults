@@ -8,11 +8,6 @@ namespace SpecFlow.Reporting.Json
 {
 	public class JsonReporter : StringReporter
 	{
-		public override string Name
-		{
-			get { return "SpecFlow.Reporting.Json"; }
-		}
-
 		public override void WriteToStream(Stream stream)
 		{
 			var json = JsonConvert.SerializeObject(

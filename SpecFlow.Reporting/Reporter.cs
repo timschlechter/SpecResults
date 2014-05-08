@@ -3,7 +3,13 @@ namespace SpecFlow.Reporting
 {
 	public abstract class Reporter
 	{
-		public abstract string Name { get; }
+		public string Name
+		{
+			get
+			{
+				return this.GetType().FullName;
+			}
+		}
 
 		public Report Report { get; internal set; }
 
@@ -28,6 +34,6 @@ namespace SpecFlow.Reporting
 					ms.CopyTo(fs);
 				}
 			}
-		}		
+		}
 	}
 }
