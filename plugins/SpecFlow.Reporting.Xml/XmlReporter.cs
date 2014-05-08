@@ -4,7 +4,7 @@ using System.Xml;
 using System.Xml.Xsl;
 namespace SpecFlow.Reporting.Xml
 {
-	public class XmlReporter : StringReporter
+	public class XmlReporter : Reporter
 	{
 		public XmlWriterSettings XmlWriterSettings { get; private set; }
 

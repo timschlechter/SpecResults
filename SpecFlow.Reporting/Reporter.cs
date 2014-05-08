@@ -35,5 +35,18 @@ namespace SpecFlow.Reporting
 				}
 			}
 		}
+
+		public string WriteToString()
+		{
+			using (var stream = new MemoryStream())
+			{
+				WriteToStream(stream);
+				stream.Position = 0;
+				using (var reader = new StreamReader(stream))
+				{
+					return reader.ReadToEnd();
+				}
+			}
+		}	
 	}
 }

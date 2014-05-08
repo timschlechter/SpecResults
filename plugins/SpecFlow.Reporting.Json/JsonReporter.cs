@@ -6,7 +6,7 @@ using System.Text;
 
 namespace SpecFlow.Reporting.Json
 {
-	public class JsonReporter : StringReporter
+	public class JsonReporter : Reporter
 	{
 		public override void WriteToStream(Stream stream)
 		{

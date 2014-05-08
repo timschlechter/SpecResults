@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace SpecFlow.Reporting.Text
 {
-	public class PlainTextReporter : StringReporter
+	public class PlainTextReporter : Reporter
 	{
 		public string DefaultFileName { get { return "testresults.txt"; } }
 

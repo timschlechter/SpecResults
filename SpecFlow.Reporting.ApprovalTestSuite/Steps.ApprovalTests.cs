@@ -88,11 +88,8 @@ namespace SpecFlow.Reporting.Tests
 				var reporter = args.Reporter;
 
 				// Verify ISteamWriter
-				if (reporter is StringReporter)
-				{
-					var serialized = reporter.WriteToString();
-					Verify(serialized, args, "WriteToString");
-				}
+				var serialized = reporter.WriteToString();
+				Verify(serialized, args, "WriteToString");
 
 				// Verify IFileWriter
 				var filepath = Path.GetTempFileName();

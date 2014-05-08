@@ -44,17 +44,6 @@ namespace SpecFlow.Reporting
 			return TestResult.OK;
 		}
 
-		public static string WriteToString(this Reporter reporter)
-		{
-			var sw = (reporter as StringReporter);
-			if (sw == null)
-			{
-				throw new NotImplementedException("The report does not implement SpecFlow.Reporting.StringReporter");
-			}
-
-			return sw.WriteToString();
-		}
-
 		internal static IEnumerable<string> GetPendingSteps(this ScenarioContext scenarioContenxt)
 		{
 			return typeof(ScenarioContext)
