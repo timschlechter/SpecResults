@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlow.Reporting", "SpecFlow.Reporting\SpecFlow.Reporting.csproj", "{EABA391E-6B65-4E5C-8842-3D71A5F97B4F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F06106DF-9C40-4F90-9F2A-5B9FF00874BC}"
@@ -27,6 +27,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xml", "plugins\SpecFlow.Reporting.Xml\Xml.csproj", "{7DADFDB7-C67D-46FE-B989-C672C873FCD8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xml.NUnit", "plugins\SpecFlow.Reporting.Xml.NUnit\Xml.NUnit.csproj", "{8F276893-8AFF-4ABE-BC60-F9A8D0F52F24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "Plugins\SpecFlow.Reporting.WebApp\WebApp.csproj", "{EA09E3A4-3B14-4CE5-A67E-F1CE9FE17BF8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,6 +85,14 @@ Global
 		{8F276893-8AFF-4ABE-BC60-F9A8D0F52F24}.NuGet|Any CPU.Build.0 = Release|Any CPU
 		{8F276893-8AFF-4ABE-BC60-F9A8D0F52F24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F276893-8AFF-4ABE-BC60-F9A8D0F52F24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA09E3A4-3B14-4CE5-A67E-F1CE9FE17BF8}.Build Nuget Packages|Any CPU.ActiveCfg = Build Nuget Packages|Any CPU
+		{EA09E3A4-3B14-4CE5-A67E-F1CE9FE17BF8}.Build Nuget Packages|Any CPU.Build.0 = Build Nuget Packages|Any CPU
+		{EA09E3A4-3B14-4CE5-A67E-F1CE9FE17BF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA09E3A4-3B14-4CE5-A67E-F1CE9FE17BF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA09E3A4-3B14-4CE5-A67E-F1CE9FE17BF8}.NuGet|Any CPU.ActiveCfg = NuGet|Any CPU
+		{EA09E3A4-3B14-4CE5-A67E-F1CE9FE17BF8}.NuGet|Any CPU.Build.0 = NuGet|Any CPU
+		{EA09E3A4-3B14-4CE5-A67E-F1CE9FE17BF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA09E3A4-3B14-4CE5-A67E-F1CE9FE17BF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -92,5 +102,6 @@ Global
 		{876E9F9F-2A95-413C-A230-678BB51FCDCA} = {352F5E32-E25B-4231-8674-518AA1624AAE}
 		{7DADFDB7-C67D-46FE-B989-C672C873FCD8} = {352F5E32-E25B-4231-8674-518AA1624AAE}
 		{8F276893-8AFF-4ABE-BC60-F9A8D0F52F24} = {352F5E32-E25B-4231-8674-518AA1624AAE}
+		{EA09E3A4-3B14-4CE5-A67E-F1CE9FE17BF8} = {352F5E32-E25B-4231-8674-518AA1624AAE}
 	EndGlobalSection
 EndGlobal

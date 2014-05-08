@@ -23,10 +23,10 @@ namespace SpecFlow.Reporting.Tests
 				return Path.GetInvalidFileNameChars().Aggregate(val, (current, c) => current.Replace(c.ToString(), string.Empty));
 			}
 
-			public ReportingApprovalNamer(Reporter reporter, string name)
+			public ReportingApprovalNamer(Reporter reporter)
 			{
 				SourcePath = Path.Combine(@"..\\..\\approvals\\", reporter.Name);
-				Name = name;
+				Name = "";
 			}
 
 			public string Name
@@ -86,25 +86,17 @@ namespace SpecFlow.Reporting.Tests
 			{
 				var reporter = args.Reporter;
 
-				// Verify ISteamWriter
-				var serialized = reporter.WriteToString();
-				Verify(serialized, reporter, "WriteToString");
-
 				// Verify IFileWriter
 				var filepath = Path.GetTempFileName();
 				reporter.WriteToFile(filepath);
 				Console.WriteLine("Verify " + filepath);
-				Verify(File.ReadAllText(filepath), reporter, "WriteToFile");
-			};
-		}
 
-		private static void Verify(string result, Reporter reporter, string testname)
-		{
-			ApprovalTests.Approvals.Verify(
-				new ApprovalStringWriter(result),
-				new ReportingApprovalNamer(reporter, testname),
-				new BeyondCompareReporter()
-			);
+				ApprovalTests.Approvals.Verify(
+					new ApprovalStringWriter(File.ReadAllText(filepath)),
+					new ReportingApprovalNamer(reporter),
+					new BeyondCompareReporter()
+				);
+			};
 		}
 	}
 }

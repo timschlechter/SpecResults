@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$title$</id>
+    <version>$version$</version>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/TimSchlechter/SpecFlow.Reporting</projectUrl>
+    <iconUrl>https://dl.dropboxusercontent.com/u/17880436/SpecFlowReporting.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2014</copyright>
+    <tags>specflow bdd reporting</tags>
+    <dependencies>      
+    </dependencies>
+  </metadata>
+</package>

@@ -8,8 +8,8 @@
     <ProjectGuid>{EA09E3A4-3B14-4CE5-A67E-F1CE9FE17BF8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SpecFlow.Reporting.App</RootNamespace>
-    <AssemblyName>SpecFlow.Reporting.App</AssemblyName>
+    <RootNamespace>SpecFlow.Reporting.WebApp</RootNamespace>
+    <AssemblyName>SpecFlow.Reporting.WebApp</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -38,7 +38,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>bin\Build Nuget Packages\SpecFlow.Reporting.App.XML</DocumentationFile>
+    <DocumentationFile>bin\Build Nuget Packages\SpecFlow.Reporting.WebApp.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'NuGet|AnyCPU'">
     <OutputPath>bin\NuGet\</OutputPath>
@@ -59,7 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\shared\AssemblyInfo.Shared.cs">
+    <Compile Include="..\..\Shared\AssemblyInfo.Shared.cs">
       <Link>Properties\AssemblyInfo.Shared.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
