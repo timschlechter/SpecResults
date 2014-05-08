@@ -37,7 +37,7 @@ namespace SpecFlow.Reporting.Text
 
 		public static string GetResultLabel(ReportItem item)
 		{
-			return string.Format("[{0}]", item.Result.ToString());
+			return string.Format("[{0}] in {1}ms", item.Result.ToString(), (item.EndTime - item.StartTime).Milliseconds);
 		}
 
 		public string Indent(string str, int levels = 1)

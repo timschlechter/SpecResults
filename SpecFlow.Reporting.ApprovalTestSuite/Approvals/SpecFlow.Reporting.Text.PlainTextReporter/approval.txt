@@ -1,19 +1,19 @@
-﻿Feature: Generate reports [Pending]
+﻿Feature: Generate reports [Pending] in 0ms
     In order to get information about test results
-As a developer
-I want to generate reports
+    As a developer
+    I want to generate reports
 
-Scenario: Single scenario [OK]
-    Given a scenario is specified [OK]
-    When the tests run [OK]
-    Then a report is generated [OK]
+Scenario: Single scenario [OK] in 0ms
+    Given a scenario is specified [OK] in 0ms
+    When the tests run [OK] in 0ms
+    Then a report is generated [OK] in 0ms
 
-Scenario: Step is not implemented [Pending]
-    Given a scenario is specified [OK]
-    When a step is not implemented [Pending]
+Scenario: Step is not implemented [Pending] in 0ms
+    Given a scenario is specified [OK] in 0ms
+    When a step is not implemented [Pending] in 0ms
 
-Scenario: Steps contain arguments [OK]
-    Given a "awesome" scenario is specified [OK]
-    When the tests with "multiple" parameters run "smoothly" [OK]
-    Then "1" report is generated [OK]
+Scenario: Steps contain arguments [OK] in 0ms
+    Given a "awesome" scenario is specified [OK] in 0ms
+    When the tests with "multiple" parameters run "smoothly" [OK] in 0ms
+    Then "1" report is generated [OK] in 0ms
 

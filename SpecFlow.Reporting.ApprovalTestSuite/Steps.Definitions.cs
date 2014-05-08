@@ -18,7 +18,6 @@ namespace SpecFlow.Reporting.Tests
 			Reporters.Add(new JsonReporter());
 			Reporters.Add(new PlainTextReporter());
 			Reporters.Add(new XmlReporter());
-
 			Reporters.Add(new NUnitXmlReporter());
 
 			IntializeApprovalTests();
