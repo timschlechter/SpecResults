@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2010
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlow.Reporting", "SpecFlow.Reporting\SpecFlow.Reporting.csproj", "{EABA391E-6B65-4E5C-8842-3D71A5F97B4F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F06106DF-9C40-4F90-9F2A-5B9FF00874BC}"
@@ -16,6 +16,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{22192E5C-EFF7-4A5B-B6E9-D643AB6EA713}"
 	ProjectSection(SolutionItems) = preProject
 		nuget\CreatePackages.cmd = nuget\CreatePackages.cmd
+		plugins\SpecFlow.Reporting.Json\SpecFlow.Reporting.Json.nuspec = plugins\SpecFlow.Reporting.Json\SpecFlow.Reporting.Json.nuspec
+		SpecFlow.Reporting\SpecFlow.Reporting.nuspec = SpecFlow.Reporting\SpecFlow.Reporting.nuspec
+		plugins\SpecFlow.Reporting.PlainText\SpecFlow.Reporting.PlainText.nuspec = plugins\SpecFlow.Reporting.PlainText\SpecFlow.Reporting.PlainText.nuspec
+		plugins\SpecFlow.Reporting.WebApp\SpecFlow.Reporting.WebApp.nuspec = plugins\SpecFlow.Reporting.WebApp\SpecFlow.Reporting.WebApp.nuspec
+		plugins\SpecFlow.Reporting.Xml.NUnit\SpecFlow.Reporting.Xml.NUnit.nuspec = plugins\SpecFlow.Reporting.Xml.NUnit\SpecFlow.Reporting.Xml.NUnit.nuspec
+		plugins\SpecFlow.Reporting.Xml\SpecFlow.Reporting.Xml.nuspec = plugins\SpecFlow.Reporting.Xml\SpecFlow.Reporting.Xml.nuspec
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{352F5E32-E25B-4231-8674-518AA1624AAE}"
