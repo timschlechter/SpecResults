@@ -2,6 +2,7 @@
 using System.Text;
 using System.Xml;
 using System.Xml.Xsl;
+
 namespace SpecFlow.Reporting.Xml
 {
 	public class XmlReporter : Reporter

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using TechTalk.SpecFlow;
 
 namespace SpecFlow.Reporting
@@ -17,7 +16,7 @@ namespace SpecFlow.Reporting
 		internal static List<Reporter> reporters = new List<Reporter>();
 
 		private static bool testrunIsFirstFeature;
-		
+
 		private static DateTime testrunStarttime;
 
 		/// <summary>

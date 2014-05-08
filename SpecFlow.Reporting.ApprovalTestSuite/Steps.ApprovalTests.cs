@@ -94,7 +94,7 @@ namespace SpecFlow.Reporting.Tests
 				var filepath = Path.GetTempFileName();
 				reporter.WriteToFile(filepath);
 				Console.WriteLine("Verify " + filepath);
-				Verify(File.ReadAllText(filepath), reporter, "WriteToFile");				
+				Verify(File.ReadAllText(filepath), reporter, "WriteToFile");
 			};
 		}
 

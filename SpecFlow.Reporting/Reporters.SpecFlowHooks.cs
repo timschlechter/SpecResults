@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Reflection;
-using TechTalk.SpecFlow;
+﻿using TechTalk.SpecFlow;
 
 namespace SpecFlow.Reporting
 {
@@ -99,7 +97,6 @@ namespace SpecFlow.Reporting
 		[AfterStep]
 		internal static void AfterStep()
 		{
-			
 		}
 
 		[AfterScenarioBlock]

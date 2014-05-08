@@ -81,7 +81,7 @@ namespace SpecFlow.Reporting.Text
 
 			foreach (var scenario in feature.Scenarios)
 			{
-				sb.AppendLine();			
+				sb.AppendLine();
 				sb.Append(ToPlainText(scenario));
 			}
 
@@ -96,7 +96,7 @@ namespace SpecFlow.Reporting.Text
 			sb.Append(ToPlainText(TechTalk.SpecFlow.ScenarioBlock.Given, scenario.Given));
 			sb.Append(ToPlainText(TechTalk.SpecFlow.ScenarioBlock.When, scenario.When));
 			sb.Append(ToPlainText(TechTalk.SpecFlow.ScenarioBlock.Then, scenario.Then));
-			
+
 			return sb.ToString();
 		}
 

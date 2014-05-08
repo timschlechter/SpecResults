@@ -1,7 +1,4 @@
-﻿using SpecFlow.Reporting.Json;
-using SpecFlow.Reporting.Text;
-using SpecFlow.Reporting.Xml;
-using SpecFlow.Reporting.Xml.NUnit;
+﻿using SpecFlow.Reporting.Xml.NUnit;
 using System;
 using TechTalk.SpecFlow;
 
@@ -59,7 +56,5 @@ namespace SpecFlow.Reporting.Tests
 		{
 			ScenarioContext.Current.Pending();
 		}
-
-
 	}
 }

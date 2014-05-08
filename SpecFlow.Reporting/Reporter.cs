@@ -1,4 +1,5 @@
 ﻿using System.IO;
+
 namespace SpecFlow.Reporting
 {
 	public abstract class Reporter
@@ -47,6 +48,6 @@ namespace SpecFlow.Reporting
 					return reader.ReadToEnd();
 				}
 			}
-		}	
+		}
 	}
 }
