@@ -62,7 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Shared\AssemblyInfo.Shared.cs">
+    <Compile Include="..\..\shared\AssemblyInfo.Shared.cs">
       <Link>Properties\AssemblyInfo.Shared.cs</Link>
     </Compile>
     <Compile Include="Extensions.cs" />
@@ -70,7 +70,7 @@
     <Compile Include="PlainTextReporter.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SpecFlow.Reporting\SpecFlow.Reporting.csproj">
+    <ProjectReference Include="..\..\SpecFlow.Reporting\SpecFlow.Reporting.csproj">
       <Project>{eaba391e-6b65-4e5c-8842-3d71a5f97b4f}</Project>
       <Name>SpecFlow.Reporting</Name>
     </ProjectReference>

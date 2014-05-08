@@ -93,15 +93,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SpecFlow.Reporting.Json\SpecFlow.Reporting.Json.csproj">
-      <Project>{C830C923-5398-4F28-99C2-1592EE5F4F7B}</Project>
+    <ProjectReference Include="..\plugins\SpecFlow.Reporting.Json\SpecFlow.Reporting.Json.csproj">
+      <Project>{c830c923-5398-4f28-99c2-1592ee5f4f7b}</Project>
       <Name>SpecFlow.Reporting.Json</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SpecFlow.Reporting.PlainText\SpecFlow.Reporting.PlainText.csproj">
+    <ProjectReference Include="..\plugins\SpecFlow.Reporting.PlainText\SpecFlow.Reporting.PlainText.csproj">
       <Project>{876e9f9f-2a95-413c-a230-678bb51fcdca}</Project>
       <Name>SpecFlow.Reporting.PlainText</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SpecFlow.Reporting.Xml\SpecFlow.Reporting.Xml.csproj">
+    <ProjectReference Include="..\plugins\SpecFlow.Reporting.Xml\SpecFlow.Reporting.Xml.csproj">
       <Project>{7dadfdb7-c67d-46fe-b989-c672c873fcd8}</Project>
       <Name>SpecFlow.Reporting.Xml</Name>
     </ProjectReference>
