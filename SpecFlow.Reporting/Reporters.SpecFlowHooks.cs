@@ -145,7 +145,7 @@ namespace SpecFlow.Reporting
 			foreach (var reporter in reporters)
 			{
 				reporter.Report.EndTime = CurrentRunTime;
-				RaiseEvent(FinishedFinished, reporter);
+				RaiseEvent(FinishedReport, reporter);
 			}
 		}
 	}

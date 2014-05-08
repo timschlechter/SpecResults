@@ -43,7 +43,7 @@ namespace SpecFlow.Reporting
 
 		public static event EventHandler<ReportEventArgs> FinishedFeature;
 
-		public static event EventHandler<ReportEventArgs> FinishedFinished;
+		public static event EventHandler<ReportEventArgs> FinishedReport;
 
 		#endregion Events
 
@@ -96,7 +96,7 @@ namespace SpecFlow.Reporting
 
 		internal static void OnFinishedReport(Reporter reporter)
 		{
-			RaiseEvent(FinishedFinished, reporter);
+			RaiseEvent(FinishedReport, reporter);
 		}
 
 		private static void RaiseEvent(
