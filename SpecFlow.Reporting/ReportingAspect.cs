@@ -50,7 +50,7 @@ namespace SpecFlow.Reporting
 				}
 				reporter.CurrentScenarioBlock.Steps.Add(step);
 				reporter.CurrentStep = step;
-				Reporters.OnStartingStep(reporter);
+				Reporters.OnStartedStep(reporter);
 			}
 
 			IMessage rtnMsg = next.SyncProcessMessage(msg);

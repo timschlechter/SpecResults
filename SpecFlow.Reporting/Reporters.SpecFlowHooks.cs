@@ -28,7 +28,7 @@ namespace SpecFlow.Reporting
 					reporter.Report.Generator = reporter.Name;
 					reporter.Report.StartTime = starttime;
 
-					RaiseEvent(StartingReport, reporter);
+					RaiseEvent(StartedReport, reporter);
 				}
 
 				testrunIsFirstFeature = false;
@@ -45,7 +45,7 @@ namespace SpecFlow.Reporting
 				reporter.Report.Features.Add(feature);
 				reporter.CurrentFeature = feature;
 
-				RaiseEvent(StartingFeature, reporter);
+				RaiseEvent(StartedFeature, reporter);
 			}
 		}
 
@@ -64,7 +64,7 @@ namespace SpecFlow.Reporting
 				reporter.CurrentFeature.Scenarios.Add(scenario);
 				reporter.CurrentScenario = scenario;
 
-				RaiseEvent(StartingScenario, reporter);
+				RaiseEvent(StartedScenario, reporter);
 			}
 		}
 
@@ -85,7 +85,7 @@ namespace SpecFlow.Reporting
 				}
 
 				reporter.CurrentScenarioBlock.StartTime = starttime;
-				RaiseEvent(StartingScenarioBlock, reporter);
+				RaiseEvent(StartedScenarioBlock, reporter);
 			}
 		}
 

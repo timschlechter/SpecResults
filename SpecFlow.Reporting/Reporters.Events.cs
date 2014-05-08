@@ -6,15 +6,15 @@ namespace SpecFlow.Reporting
 	{
 		#region Events
 
-		public static event EventHandler<ReporterEventArgs> StartingReport;
+		public static event EventHandler<ReporterEventArgs> StartedReport;
 
-		public static event EventHandler<ReporterEventArgs> StartingFeature;
+		public static event EventHandler<ReporterEventArgs> StartedFeature;
 
-		public static event EventHandler<ReporterEventArgs> StartingScenario;
+		public static event EventHandler<ReporterEventArgs> StartedScenario;
 
-		public static event EventHandler<ReporterEventArgs> StartingScenarioBlock;
+		public static event EventHandler<ReporterEventArgs> StartedScenarioBlock;
 
-		public static event EventHandler<ReporterEventArgs> StartingStep;
+		public static event EventHandler<ReporterEventArgs> StartedStep;
 
 		public static event EventHandler<ReporterEventArgs> FinishedStep;
 
@@ -32,27 +32,27 @@ namespace SpecFlow.Reporting
 
 		internal static void OnReportStarted(Reporter reporter)
 		{
-			RaiseEvent(StartingReport, reporter);
+			RaiseEvent(StartedReport, reporter);
 		}
 
-		internal static void OnStartingFeature(Reporter reporter)
+		internal static void OnStartedFeature(Reporter reporter)
 		{
-			RaiseEvent(StartingFeature, reporter);
+			RaiseEvent(StartedFeature, reporter);
 		}
 
-		internal static void OnStartingScenario(Reporter reporter)
+		internal static void OnStartedScenario(Reporter reporter)
 		{
-			RaiseEvent(StartingScenario, reporter);
+			RaiseEvent(StartedScenario, reporter);
 		}
 
-		internal static void OnStartingScenarioBlock(Reporter reporter)
+		internal static void OnStartedScenarioBlock(Reporter reporter)
 		{
-			RaiseEvent(StartingScenarioBlock, reporter);
+			RaiseEvent(StartedScenarioBlock, reporter);
 		}
 
-		internal static void OnStartingStep(Reporter reporter)
+		internal static void OnStartedStep(Reporter reporter)
 		{
-			RaiseEvent(StartingStep, reporter);
+			RaiseEvent(StartedStep, reporter);
 		}
 
 		internal static void OnFinishedStep(Reporter reporter)

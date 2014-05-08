@@ -1,24 +1,25 @@
 # Generating better SpecFlow reports
 
-[SpecFlow.Reporting](https://www.nuget.org/packages/SpecFlow.Reporting) was created to get better feedback from your automated SpecFlow tests. With unit tests most times reporting is only interesting for developers and testers. But when practicing BDD, the output of your automated tests might be valuable for the whole development team, management and pherhaps even end-users.
+[SpecFlow.Reporting](https://www.nuget.org/packages/SpecFlow.Reporting) was created to get better feedback from your automated [SpecFlow](http://www.specflow.org/) testsuite. With unit tests most times reporting is only interesting for developers and testers. But when practicing BDD, the output of your automated tests might be valuable for the whole development team, management and pherhaps even end-users.
 
-SpecFlow.Reporting makes it easy to extend SpecFlow by creating reporters which can write output in all kinds of formats, which can even be enriched with user data.
+SpecFlow.Reporting makes it easy to extend SpecFlow by creating reporters which can write output in all kinds of formats and can even be enriched with additional data.
 
 ## Table of contents
 
   -  [Usage](#usage)
-  -  [Creating your own reporters](#creating-your-own-reporters)
+  -  [Create your own reporter](#create-your-own-reporter)
   -  [Wanted reporters](#wanted-reporters)
 
 ## Usage
 
 Add one or more reporters to your SpecFlow project, for example:
+
   -  [Json](https://www.nuget.org/packages/SpecFlow.Reporting.Json/): reports in json format
   -  [Text](https://www.nuget.org/packages/SpecFlow.Reporting.Text/): reports in plain text format
   -  [Xml](https://www.nuget.org/packages/SpecFlow.Reporting.Xml/): reports in xml format
   -  Work in progress:
        -  [Xml.NUnit](https://www.nuget.org/packages/SpecFlow.Reporting.Xml.NUnit/): less technical reporting in NUnit's xml output format
-       -  [WebApp](https://www.nuget.org/packages/SpecFlow.Reporting.WebApp/): writes an interactive, responsive html/css/js-only web application, in which users can browse and search features, scenarios and steps.
+       -  [WebApp](https://www.nuget.org/packages/SpecFlow.Reporting.WebApp/): writes an interactive, responsive, client-side web application, in which users can browse and search features, scenarios and steps.
 
 Register the reporter in the stepflow section in your app.config:
 
@@ -45,6 +46,18 @@ public class StepDefinitions : ReportingStepDefinitions
 	{
 		Reporters.Add(new JsonReporter());
 
+		Reporters.StartedReport += (sender, args) => {
+			args.Report.UserData = new {
+				SomeKey: "some value"
+			};
+		};
+
+		Reporters.FinishedStep += (sender, args) => {
+			args.Step.UserData = new {
+				SomeKey: "some value"
+			};
+		};
+
 		Reporters.FinishedReport += (sender, args) => {
 			Console.WriteLine(args.Reporter.WriteToString());
 		};
@@ -57,7 +70,7 @@ public class StepDefinitions : ReportingStepDefinitions
 }	
 </pre>
 
-## Creating your own reporters
+## Create your own reporter
 
 Create a new project and add the [SpecFlow.Reporting package](https://www.nuget.org/packages/SpecFlow.Reporting)
 

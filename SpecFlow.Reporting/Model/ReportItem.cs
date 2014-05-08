@@ -12,6 +12,8 @@ namespace SpecFlow.Reporting
 
 		public object UserData { get; set; }
 
+		public object GeneratorData { get; set; }
+
 		public virtual TestResult Result { get; set; }
 
 		protected ReportItem()
