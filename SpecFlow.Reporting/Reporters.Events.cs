@@ -2,48 +2,29 @@
 
 namespace SpecFlow.Reporting
 {
-	#region Nested Type: ReportEventArgs
-
-	public class ReportEventArgs : EventArgs
-	{
-		public Reporter Reporter { get; internal set; }
-
-		public Report Report { get; internal set; }
-
-		public Feature Feature { get; internal set; }
-
-		public Scenario Scenario { get; internal set; }
-
-		public ScenarioBlock ScenarioBlock { get; internal set; }
-
-		public Step Step { get; internal set; }
-	}
-
-	#endregion Nested Type: ReportEventArgs
-
 	public partial class Reporters
 	{
 		#region Events
 
-		public static event EventHandler<ReportEventArgs> StartingReport;
+		public static event EventHandler<ReporterEventArgs> StartingReport;
 
-		public static event EventHandler<ReportEventArgs> StartingFeature;
+		public static event EventHandler<ReporterEventArgs> StartingFeature;
 
-		public static event EventHandler<ReportEventArgs> StartingScenario;
+		public static event EventHandler<ReporterEventArgs> StartingScenario;
 
-		public static event EventHandler<ReportEventArgs> StartingScenarioBlock;
+		public static event EventHandler<ReporterEventArgs> StartingScenarioBlock;
 
-		public static event EventHandler<ReportEventArgs> StartingStep;
+		public static event EventHandler<ReporterEventArgs> StartingStep;
 
-		public static event EventHandler<ReportEventArgs> FinishedStep;
+		public static event EventHandler<ReporterEventArgs> FinishedStep;
 
-		public static event EventHandler<ReportEventArgs> FinishedScenarioBlock;
+		public static event EventHandler<ReporterEventArgs> FinishedScenarioBlock;
 
-		public static event EventHandler<ReportEventArgs> FinishedScenario;
+		public static event EventHandler<ReporterEventArgs> FinishedScenario;
 
-		public static event EventHandler<ReportEventArgs> FinishedFeature;
+		public static event EventHandler<ReporterEventArgs> FinishedFeature;
 
-		public static event EventHandler<ReportEventArgs> FinishedReport;
+		public static event EventHandler<ReporterEventArgs> FinishedReport;
 
 		#endregion Events
 
@@ -100,13 +81,13 @@ namespace SpecFlow.Reporting
 		}
 
 		private static void RaiseEvent(
-			EventHandler<ReportEventArgs> handler, Reporter reporter)
+			EventHandler<ReporterEventArgs> handler, Reporter reporter)
 		{
 			if (handler != null)
 			{
 				handler(
 					null,
-					new ReportEventArgs
+					new ReporterEventArgs
 					{
 						Reporter = reporter,
 						Report = reporter.Report,

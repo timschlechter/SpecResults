@@ -5,11 +5,11 @@
 
 ## Usage
 
-Add one or more of the reporting plugins to your SpecFlow project:
+Add one or more reporting plugins to your SpecFlow project, for example:
  - [Json](https://www.nuget.org/packages/SpecFlow.Reporting.Json/): reports in json format
  - [Text](https://www.nuget.org/packages/SpecFlow.Reporting.Text/): reports in plain text format
  - [Xml](https://www.nuget.org/packages/SpecFlow.Reporting.Xml/): reports in xml format
- - [Xml.NUnit](https://www.nuget.org/packages/SpecFlow.Reporting.Xml.NUnit/): reports in NUnit's output xml format
+ - [Xml.NUnit](https://www.nuget.org/packages/SpecFlow.Reporting.Xml.NUnit/): reports in NUnit's xml output format
 
 Register the reporter in the stepflow section in your app.config:
 <pre>
@@ -23,7 +23,7 @@ Register the reporter in the stepflow section in your app.config:
 
 Make your existing [StepDefinitions class](https://github.com/techtalk/SpecFlow/wiki/Step-Definitions) inherit from [SpecFlow.Reporting.ReportingStepDefinitions](https://github.com/TimSchlechter/SpecFlow.Reporting/blob/master/SpecFlow.Reporting/ReportingStepDefinitions.cs)__
 
-Initialize the plugin(s) in [BeforeTestRun]:
+Initialize and add the plugin(s) in [BeforeTestRun]:
 <pre>
 [Binding]
 public partial class StepDefinitions : ReportingStepDefinitions
@@ -41,7 +41,7 @@ public partial class StepDefinitions : ReportingStepDefinitions
 }
 </pre>
 
-Register on one of the [Reporter events](https://github.com/TimSchlechter/SpecFlow.Reporting/blob/master/SpecFlow.Reporting/Reporter.Events.cs) to get notified something gets reported:
+Register on one of the [events](https://github.com/TimSchlechter/SpecFlow.Reporting/blob/master/SpecFlow.Reporting/Reporters.Events.cs) to get notified when something gets reported:
 <pre>
 [Binding]
 public class StepDefinitions : ReportingStepDefinitions
