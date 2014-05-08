@@ -1,17 +1,27 @@
-# SpecFlow.Reporting
+# Generating better SpecFlow reports
 
- - [Usage](#usage)
- - [Creating your own reporters](#creating-your-own-reporters)
+[SpecFlow.Reporting](https://www.nuget.org/packages/SpecFlow.Reporting) was created to get better feedback from your automated SpecFlow tests. With unit tests most times reporting is only interesting for developers and testers. But when practicing BDD, the output of your automated tests might be valuable for the whole development team, management and pherhaps even end-users.
+
+SpecFlow.Reporting makes it easy to extend SpecFlow by creating reporters which can write output in all kinds of formats, which can even be enriched with user data.
+
+## Table of contents
+
+  -  [Usage](#usage)
+  -  [Creating your own reporters](#creating-your-own-reporters)
+  -  [Wanted reporters](#wanted-reporters)
 
 ## Usage
 
-Add one or more reporting plugins to your SpecFlow project, for example:
- - [Json](https://www.nuget.org/packages/SpecFlow.Reporting.Json/): reports in json format
- - [Text](https://www.nuget.org/packages/SpecFlow.Reporting.Text/): reports in plain text format
- - [Xml](https://www.nuget.org/packages/SpecFlow.Reporting.Xml/): reports in xml format
- - [Xml.NUnit](https://www.nuget.org/packages/SpecFlow.Reporting.Xml.NUnit/): reports in NUnit's xml output format
+Add one or more reporters to your SpecFlow project, for example:
+  -  [Json](https://www.nuget.org/packages/SpecFlow.Reporting.Json/): reports in json format
+  -  [Text](https://www.nuget.org/packages/SpecFlow.Reporting.Text/): reports in plain text format
+  -  [Xml](https://www.nuget.org/packages/SpecFlow.Reporting.Xml/): reports in xml format
+  -  Work in progress:
+       -  [Xml.NUnit](https://www.nuget.org/packages/SpecFlow.Reporting.Xml.NUnit/): less technical reporting in NUnit's xml output format
+       -  [WebApp](https://www.nuget.org/packages/SpecFlow.Reporting.WebApp/): writes an interactive, responsive html/css/js-only web application, in which users can browse and search features, scenarios and steps.
 
 Register the reporter in the stepflow section in your app.config:
+
 <pre>
 &lt;specFlow&gt;
 	&lt;stepAssemblies&gt;
@@ -19,34 +29,19 @@ Register the reporter in the stepflow section in your app.config:
 	&lt;/stepAssemblies&gt;
 &lt;/specFlow&gt;
 </pre>
+
 <em>Remark: in the near future, this step will be performed automatically when installing the NuGet package</em>
 
 Make your existing [StepDefinitions class](https://github.com/techtalk/SpecFlow/wiki/Step-Definitions) inherit from [SpecFlow.Reporting.ReportingStepDefinitions](https://github.com/TimSchlechter/SpecFlow.Reporting/blob/master/SpecFlow.Reporting/ReportingStepDefinitions.cs)__
 
-Initialize and add the plugin(s) in [BeforeTestRun]:
-<pre>
-[Binding]
-public partial class StepDefinitions : ReportingStepDefinitions
-{
-	[BeforeTestRun]
-	public static void BeforeTestRun()
-	{
-		Reporters.Add(new JsonReporter());
-	}
-	
-	[Given(@"some example")]
-	public void GivenSomeExample()
-	{
-	}
-}
-</pre>
+Initialize and add the reporter(s) in [BeforeTestRun] and register on one of the [events](https://github.com/TimSchlechter/SpecFlow.Reporting/blob/master/SpecFlow.Reporting/Reporters.Events.cs) to get notified when something gets reported:
 
-Register on one of the [events](https://github.com/TimSchlechter/SpecFlow.Reporting/blob/master/SpecFlow.Reporting/Reporters.Events.cs) to get notified when something gets reported:
 <pre>
 [Binding]
 public class StepDefinitions : ReportingStepDefinitions
 {
-	public Steps()
+	[BeforeTestRun]
+	public static void BeforeTestRun()
 	{
 		Reporters.Add(new JsonReporter());
 
@@ -82,3 +77,10 @@ namespace SpecFlow.Reporting.MyFormat
 	}
 }
 </pre>
+
+## Wanted reporters
+
+  -  Xml.MsTest
+  -  Docx
+  -  Xlsx
+  -  ...
