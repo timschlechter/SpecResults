@@ -47,7 +47,7 @@ namespace SpecFlow.Reporting.Text
 				return str;
 			}
 
-			var lines = Regex.Split(str, Environment.NewLine);
+			var lines = str.Split('\n');
 
 			if (lines.Count() <= 1)
 			{
