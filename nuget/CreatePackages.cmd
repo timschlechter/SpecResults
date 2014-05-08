@@ -1,13 +1,19 @@
 del *.nupkg
 
-nuget pack ..\Specflow.Reporting\Specflow.Reporting.csproj -Build -Properties Configuration=Release
+cd ..\Specflow.Reporting
+nuget pack Specflow.Reporting.csproj -Build -Properties Configuration=Release -OutputDirectory ..\nuget
 
-nuget pack ..\plugins\Specflow.Reporting.PlainText\PlainText.csproj -Build -Properties Configuration=Release
+cd ..\plugins\Specflow.Reporting.PlainText
+nuget pack PlainText.csproj -Build -Properties Configuration=Release -OutputDirectory ..\..\nuget
 
-nuget pack ..\plugins\Specflow.Reporting.Json\Json.csproj -Build -Properties Configuration=Release
+cd ..\Specflow.Reporting.Json
+nuget pack Json.csproj -Build -Properties Configuration=Release -OutputDirectory ..\..\nuget
 
-nuget pack ..\plugins\Specflow.Reporting.Xml\Xml.csproj -Build -Properties Configuration=Release
+cd ..\Specflow.Reporting.Xml
+nuget pack Xml.csproj -Build -Properties Configuration=Release -OutputDirectory ..\..\nuget
 
-nuget pack ..\plugins\Specflow.Reporting.Xml.NUnit\Xml.NUnit.csproj -Build -Properties Configuration=Release -Version 0.0.0-alpha
+cd ..\Specflow.Reporting.Xml.NUnit
+nuget pack Xml.NUnit.csproj -Build -Properties Configuration=Release -OutputDirectory ..\..\nuget -Version 0.0.1-alpha
 
-nuget pack ..\plugins\Specflow.Reporting.WebApp\WebApp.csproj -Build -Properties Configuration=Release -Version 0.0.0-alpha
+cd ..\Specflow.Reporting.WebApp
+nuget pack WebApp.csproj -Build -Properties Configuration=Release -OutputDirectory ..\..\nuget -Version 0.0.1-alpha
