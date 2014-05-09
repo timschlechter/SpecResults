@@ -14,9 +14,9 @@ SpecFlow.Reporting makes it easy to extend SpecFlow by creating reporters which 
 
 Add one or more reporters to your SpecFlow project, for example:
 
-  -  [Json](https://www.nuget.org/packages/SpecFlow.Reporting.Json/): reports in json format ([example](https://github.com/TimSchlechter/SpecFlow.Reporting/blob/master/SpecFlow.Reporting.ApprovalTestSuite/Approvals/SpecFlow.Reporting.Json.JsonReporter/approval.txt))
-  -  [Text](https://www.nuget.org/packages/SpecFlow.Reporting.Text/): reports in plain text format ([example](https://github.com/TimSchlechter/SpecFlow.Reporting/blob/master/SpecFlow.Reporting.ApprovalTestSuite/Approvals/SpecFlow.Reporting.Text.PlainTextReporter/approval.txt))
-  -  [Xml](https://www.nuget.org/packages/SpecFlow.Reporting.Xml/): reports in xml format ([example](https://github.com/TimSchlechter/SpecFlow.Reporting/blob/master/SpecFlow.Reporting.ApprovalTestSuite/Approvals/SpecFlow.Reporting.Xml.XmlReporter/approval.txt))
+  -  [Json](https://www.nuget.org/packages/SpecFlow.Reporting.Json/): reports in json format ([example](https://github.com/TimSchlechter/SpecFlow.Reporting/blob/master/ApprovalTestSuite/approvals/SpecFlow.Reporting.Json.JsonReporter/approval.txt))
+  -  [Text](https://www.nuget.org/packages/SpecFlow.Reporting.Text/): reports in plain text format ([example](https://github.com/TimSchlechter/SpecFlow.Reporting/blob/master/ApprovalTestSuite/approvals/SpecFlow.Reporting.Text.PlainTextReporter/approval.txt))
+  -  [Xml](https://www.nuget.org/packages/SpecFlow.Reporting.Xml/): reports in xml format ([example](https://github.com/TimSchlechter/SpecFlow.Reporting/blob/master/ApprovalTestSuite/approvals/SpecFlow.Reporting.Xml.XmlReporter/approval.txt))
   -  Work in progress:
        -  [Xml.NUnit](https://www.nuget.org/packages/SpecFlow.Reporting.Xml.NUnit/): less technical reporting in NUnit's xml output format
        -  [WebApp](https://www.nuget.org/packages/SpecFlow.Reporting.WebApp/): writes an interactive, responsive, client-side web application, in which users can browse and search features, scenarios and steps.
