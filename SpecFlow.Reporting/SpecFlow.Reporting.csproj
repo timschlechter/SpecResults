@@ -66,7 +66,6 @@
       <Link>Properties\AssemblyInfo.Shared.cs</Link>
     </Compile>
     <Compile Include="ReporterEventArgs.cs" />
-    <Compile Include="Reporters.FactoryMethods.cs" />
     <Compile Include="ReportingAspect.cs" />
     <Compile Include="Model\ScenarioBlock.cs" />
     <Compile Include="Model\TaggedReportItem.cs" />

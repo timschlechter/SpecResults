@@ -1,4 +1,5 @@
-﻿using TechTalk.SpecFlow;
+﻿using System.Collections.Generic;
+using TechTalk.SpecFlow;
 
 namespace SpecFlow.Reporting
 {
@@ -24,9 +25,12 @@ namespace SpecFlow.Reporting
 			{
 				foreach (var reporter in reporters)
 				{
-					reporter.Report = CreateReport();
-					reporter.Report.Generator = reporter.Name;
-					reporter.Report.StartTime = starttime;
+					reporter.Report = new Report
+					{
+						Features = new List<Feature>(),
+						Generator = reporter.Name,
+						StartTime = starttime
+					};
 
 					RaiseEvent(StartedReport, reporter);
 				}
@@ -36,12 +40,15 @@ namespace SpecFlow.Reporting
 
 			foreach (var reporter in reporters)
 			{
-				var feature = CreateFeature();
-				feature.StartTime = starttime;
-				feature.Title = FeatureContext.Current.FeatureInfo.Title;
-				feature.Description = FeatureContext.Current.FeatureInfo.Description;
-				feature.Tags.AddRange(FeatureContext.Current.FeatureInfo.Tags);
-
+				var feature = new Feature
+				{
+					Tags = new List<string>(FeatureContext.Current.FeatureInfo.Tags),
+					Scenarios = new List<Scenario>(),
+					StartTime = starttime,
+					Title = FeatureContext.Current.FeatureInfo.Title,
+					Description = FeatureContext.Current.FeatureInfo.Description
+				};
+				
 				reporter.Report.Features.Add(feature);
 				reporter.CurrentFeature = feature;
 
@@ -56,10 +63,15 @@ namespace SpecFlow.Reporting
 
 			foreach (var reporter in reporters)
 			{
-				var scenario = CreateScenario();
-				scenario.StartTime = starttime;
-				scenario.Title = ScenarioContext.Current.ScenarioInfo.Title;
-				scenario.Tags.AddRange(ScenarioContext.Current.ScenarioInfo.Tags);
+				var scenario = new Scenario
+				{
+					Tags = new List<string>(ScenarioContext.Current.ScenarioInfo.Tags),
+					Given = new ScenarioBlock { Steps = new List<Step>() },
+					When = new ScenarioBlock { Steps = new List<Step>() },
+					Then = new ScenarioBlock { Steps = new List<Step>() },
+					StartTime = starttime,
+					Title = ScenarioContext.Current.ScenarioInfo.Title
+				};
 
 				reporter.CurrentFeature.Scenarios.Add(scenario);
 				reporter.CurrentScenario = scenario;

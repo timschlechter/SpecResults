@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Activation;
 using System.Runtime.Remoting.Contexts;
@@ -35,8 +36,12 @@ namespace SpecFlow.Reporting
 
 			foreach (var reporter in Reporters.reporters)
 			{
-				var step = Reporters.CreateStep();
-				step.StartTime = starttime;
+				var step = new Step
+				{
+					Steps = new List<Step>(),
+					StartTime = starttime
+				};
+
 				var attr = methodMessage.MethodBase.GetCustomAttributes(true).OfType<StepDefinitionBaseAttribute>().FirstOrDefault();
 				if (attr != null)
 				{
