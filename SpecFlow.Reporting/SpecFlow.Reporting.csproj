@@ -65,8 +65,14 @@
     <Compile Include="..\AssemblyInfo.Shared.cs">
       <Link>Properties\AssemblyInfo.Shared.cs</Link>
     </Compile>
-    <Compile Include="ReporterEventArgs.cs" />
-    <Compile Include="ReportingAspect.cs" />
+    <Compile Include="EventArgs\FeatureEventArgs.cs" />
+    <Compile Include="EventArgs\ScenarioBlockEventArgs.cs" />
+    <Compile Include="EventArgs\ScenarioEventArgs.cs" />
+    <Compile Include="EventArgs\StepEventArgs.cs" />
+    <Compile Include="ReportingAspect\ReportingAttribute.cs" />
+    <Compile Include="ReportingAspect\ReportingProperty.cs" />
+    <Compile Include="EventArgs\ReportEventArgs.cs" />
+    <Compile Include="ReportingAspect\ReportingMessageSink.cs" />
     <Compile Include="Model\ScenarioBlock.cs" />
     <Compile Include="Model\TaggedReportItem.cs" />
     <Compile Include="Model\Feature.cs" />

@@ -6,97 +6,86 @@ namespace SpecFlow.Reporting
 	{
 		#region Events
 
-		public static event EventHandler<ReporterEventArgs> StartedReport;
+		public static event EventHandler<ReportEventArgs> StartedReport;
 
-		public static event EventHandler<ReporterEventArgs> StartedFeature;
+		public static event EventHandler<ReportEventArgs> FinishedReport; 
+		
+		public static event EventHandler<FeatureEventArgs> StartedFeature;
 
-		public static event EventHandler<ReporterEventArgs> StartedScenario;
+		public static event EventHandler<FeatureEventArgs> FinishedFeature; 
+		
+		public static event EventHandler<ScenarioEventArgs> StartedScenario;
 
-		public static event EventHandler<ReporterEventArgs> StartedScenarioBlock;
+		public static event EventHandler<ScenarioEventArgs> FinishedScenario; 
+		
+		public static event EventHandler<ScenarioBlockEventArgs> StartedScenarioBlock;
 
-		public static event EventHandler<ReporterEventArgs> StartedStep;
+		public static event EventHandler<ScenarioBlockEventArgs> FinishedScenarioBlock;
 
-		public static event EventHandler<ReporterEventArgs> FinishedStep;
+		public static event EventHandler<StepEventArgs> StartedStep;
 
-		public static event EventHandler<ReporterEventArgs> FinishedScenarioBlock;
-
-		public static event EventHandler<ReporterEventArgs> FinishedScenario;
-
-		public static event EventHandler<ReporterEventArgs> FinishedFeature;
-
-		public static event EventHandler<ReporterEventArgs> FinishedReport;
+		public static event EventHandler<StepEventArgs> FinishedStep;
 
 		#endregion Events
 
 		#region Event Raising
 
-		internal static void OnReportStarted(Reporter reporter)
+		internal static void OnStartedReport(Reporter reporter)
 		{
-			RaiseEvent(StartedReport, reporter);
-		}
-
-		internal static void OnStartedFeature(Reporter reporter)
-		{
-			RaiseEvent(StartedFeature, reporter);
-		}
-
-		internal static void OnStartedScenario(Reporter reporter)
-		{
-			RaiseEvent(StartedScenario, reporter);
-		}
-
-		internal static void OnStartedScenarioBlock(Reporter reporter)
-		{
-			RaiseEvent(StartedScenarioBlock, reporter);
-		}
-
-		internal static void OnStartedStep(Reporter reporter)
-		{
-			RaiseEvent(StartedStep, reporter);
-		}
-
-		internal static void OnFinishedStep(Reporter reporter)
-		{
-			RaiseEvent(FinishedStep, reporter);
-		}
-
-		internal static void OnFinishedScenarioBlock(Reporter reporter)
-		{
-			RaiseEvent(FinishedScenarioBlock, reporter);
-		}
-
-		internal static void OnFinishedScenario(Reporter reporter)
-		{
-			RaiseEvent(FinishedScenario, reporter);
-		}
-
-		internal static void OnFinishedFeature(Reporter reporter)
-		{
-			RaiseEvent(FinishedFeature, reporter);
+			RaiseEvent(StartedReport, new ReportEventArgs(reporter));
 		}
 
 		internal static void OnFinishedReport(Reporter reporter)
 		{
-			RaiseEvent(FinishedReport, reporter);
+			RaiseEvent(FinishedReport, new ReportEventArgs(reporter));
 		}
 
-		private static void RaiseEvent(
-			EventHandler<ReporterEventArgs> handler, Reporter reporter)
+		internal static void OnStartedFeature(Reporter reporter)
+		{
+			RaiseEvent(StartedFeature, new FeatureEventArgs(reporter));
+		}
+
+		internal static void OnFinishedFeature(Reporter reporter)
+		{
+			RaiseEvent(FinishedFeature, new FeatureEventArgs(reporter));
+		}
+
+		internal static void OnStartedScenario(Reporter reporter)
+		{
+			RaiseEvent(StartedScenario, new ScenarioEventArgs(reporter));
+		}
+
+		internal static void OnFinishedScenario(Reporter reporter)
+		{
+			RaiseEvent(FinishedScenario, new ScenarioEventArgs(reporter));
+		}
+
+		internal static void OnStartedScenarioBlock(Reporter reporter)
+		{
+			RaiseEvent(StartedScenarioBlock, new ScenarioBlockEventArgs(reporter));
+		}
+
+		internal static void OnFinishedScenarioBlock(Reporter reporter)
+		{
+			RaiseEvent(FinishedScenarioBlock, new ScenarioBlockEventArgs(reporter));
+		}
+
+		internal static void OnStartedStep(Reporter reporter)
+		{
+			RaiseEvent(StartedStep, new StepEventArgs(reporter));
+		}
+
+		internal static void OnFinishedStep(Reporter reporter)
+		{
+			RaiseEvent(FinishedStep, new StepEventArgs(reporter));
+		}
+
+		private static void RaiseEvent<T>(EventHandler<T> handler, T args)
+			where T : ReportEventArgs
 		{
 			if (handler != null)
 			{
-				handler(
-					null,
-					new ReporterEventArgs
-					{
-						Reporter = reporter,
-						Report = reporter.Report,
-						Feature = reporter.CurrentFeature,
-						Scenario = reporter.CurrentScenario,
-						ScenarioBlock = reporter.CurrentScenarioBlock,
-						Step = reporter.CurrentStep
-					}
-				);
+				handler(null, args);
 			}
 		}
 

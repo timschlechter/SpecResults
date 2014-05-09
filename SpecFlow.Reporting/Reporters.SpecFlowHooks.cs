@@ -32,7 +32,7 @@ namespace SpecFlow.Reporting
 						StartTime = starttime
 					};
 
-					RaiseEvent(StartedReport, reporter);
+					OnStartedReport(reporter);
 				}
 
 				testrunIsFirstFeature = false;
@@ -52,7 +52,7 @@ namespace SpecFlow.Reporting
 				reporter.Report.Features.Add(feature);
 				reporter.CurrentFeature = feature;
 
-				RaiseEvent(StartedFeature, reporter);
+				OnStartedFeature(reporter);
 			}
 		}
 
@@ -76,7 +76,7 @@ namespace SpecFlow.Reporting
 				reporter.CurrentFeature.Scenarios.Add(scenario);
 				reporter.CurrentScenario = scenario;
 
-				RaiseEvent(StartedScenario, reporter);
+				OnStartedScenario(reporter);
 			}
 		}
 
@@ -97,20 +97,10 @@ namespace SpecFlow.Reporting
 				}
 
 				reporter.CurrentScenarioBlock.StartTime = starttime;
-				RaiseEvent(StartedScenarioBlock, reporter);
+				OnStartedScenarioBlock(reporter);
 			}
 		}
-
-		[BeforeStep]
-		internal static void BeforeStep()
-		{
-		}
-
-		[AfterStep]
-		internal static void AfterStep()
-		{
-		}
-
+		
 		[AfterScenarioBlock]
 		internal static void AfterScenarioBlock()
 		{
@@ -119,7 +109,7 @@ namespace SpecFlow.Reporting
 			{
 				var scenarioblock = reporter.CurrentScenarioBlock;
 				scenarioblock.EndTime = endtime;
-				RaiseEvent(FinishedScenarioBlock, reporter);
+				OnFinishedScenarioBlock(reporter);
 				reporter.CurrentScenarioBlock = null;
 			}
 		}
@@ -131,7 +121,7 @@ namespace SpecFlow.Reporting
 			{
 				var scenario = reporter.CurrentScenario;
 				scenario.EndTime = CurrentRunTime;
-				RaiseEvent(FinishedScenario, reporter);
+				OnFinishedScenario(reporter);
 				reporter.CurrentScenario = null;
 			}
 		}
@@ -143,7 +133,7 @@ namespace SpecFlow.Reporting
 			{
 				var feature = reporter.CurrentFeature;
 				feature.EndTime = CurrentRunTime;
-				RaiseEvent(FinishedFeature, reporter);
+				OnFinishedFeature(reporter);
 				reporter.CurrentFeature = null;
 			}
 		}
@@ -154,7 +144,7 @@ namespace SpecFlow.Reporting
 			foreach (var reporter in reporters)
 			{
 				reporter.Report.EndTime = CurrentRunTime;
-				RaiseEvent(FinishedReport, reporter);
+				OnFinishedReport(reporter);
 			}
 		}
 	}

@@ -8,11 +8,11 @@ using TechTalk.SpecFlow;
 
 namespace SpecFlow.Reporting
 {
-	internal class ReportingAspect : IMessageSink
+	internal class ReportingMessageSink : IMessageSink
 	{
 		private IMessageSink next;
 
-		public ReportingAspect(IMessageSink next)
+		public ReportingMessageSink(IMessageSink next)
 		{
 			this.next = next;
 		}
@@ -82,60 +82,6 @@ namespace SpecFlow.Reporting
 			}
 
 			return mrm;
-		}
-	}
-
-	internal class ReportingProperty : IContextProperty, IContributeObjectSink
-	{
-		public IMessageSink GetObjectSink(MarshalByRefObject o, IMessageSink next)
-		{
-			return new ReportingAspect(next);
-		}
-
-		public void Freeze(Context newContext)
-		{
-		}
-
-		public bool IsNewContextOK(Context newCtx)
-		{
-			var p = newCtx.GetProperty("Reporting") as ReportingProperty;
-			if (p == null)
-				return false;
-			return true;
-		}
-
-		public string Name
-		{
-			get { return "Reporting"; }
-		}
-	}
-
-	internal class ReportingAttribute : ContextAttribute
-	{
-		public ReportingAttribute()
-			: base("Reporting")
-		{
-		}
-
-		public override void GetPropertiesForNewContext(IConstructionCallMessage ccm)
-		{
-			ccm.ContextProperties.Add(new ReportingProperty());
-		}
-
-		public override bool IsContextOK(Context ctx, System.Runtime.Remoting.Activation.IConstructionCallMessage ctorMsg)
-		{
-			var p = ctx.GetProperty("Reporting") as ReportingProperty;
-			if (p == null)
-				return false;
-			return true;
-		}
-
-		public override bool IsNewContextOK(Context newCtx)
-		{
-			var p = newCtx.GetProperty("Reporting") as ReportingProperty;
-			if (p == null)
-				return false;
-			return true;
 		}
 	}
 }
