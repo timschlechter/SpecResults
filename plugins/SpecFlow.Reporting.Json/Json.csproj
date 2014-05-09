@@ -66,7 +66,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\shared\AssemblyInfo.Shared.cs">
+    <Compile Include="..\..\AssemblyInfo.Shared.cs">
       <Link>Properties\AssemblyInfo.Shared.cs</Link>
     </Compile>
     <Compile Include="Extensions.cs" />

@@ -11,8 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlow.Reporting.ApprovalTestSuite", "SpecFlow.Reporting.ApprovalTestSuite\SpecFlow.Reporting.ApprovalTestSuite.csproj", "{BBA703FA-94C4-437F-9961-2A321163988A}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{22192E5C-EFF7-4A5B-B6E9-D643AB6EA713}"
 	ProjectSection(SolutionItems) = preProject
 		nuget\CreatePackages.cmd = nuget\CreatePackages.cmd
@@ -36,6 +34,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xml.NUnit", "plugins\SpecFl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "Plugins\SpecFlow.Reporting.WebApp\WebApp.csproj", "{EA09E3A4-3B14-4CE5-A67E-F1CE9FE17BF8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApprovalTestSuite", "ApprovalTestSuite\ApprovalTestSuite.csproj", "{BBA703FA-94C4-437F-9961-2A321163988A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Build Nuget Packages|Any CPU = Build Nuget Packages|Any CPU
@@ -52,13 +52,6 @@ Global
 		{EABA391E-6B65-4E5C-8842-3D71A5F97B4F}.NuGet|Any CPU.Build.0 = NuGet|Any CPU
 		{EABA391E-6B65-4E5C-8842-3D71A5F97B4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EABA391E-6B65-4E5C-8842-3D71A5F97B4F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BBA703FA-94C4-437F-9961-2A321163988A}.Build Nuget Packages|Any CPU.ActiveCfg = Build Nuget Packages|Any CPU
-		{BBA703FA-94C4-437F-9961-2A321163988A}.Build Nuget Packages|Any CPU.Build.0 = Build Nuget Packages|Any CPU
-		{BBA703FA-94C4-437F-9961-2A321163988A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BBA703FA-94C4-437F-9961-2A321163988A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BBA703FA-94C4-437F-9961-2A321163988A}.NuGet|Any CPU.ActiveCfg = NuGet|Any CPU
-		{BBA703FA-94C4-437F-9961-2A321163988A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BBA703FA-94C4-437F-9961-2A321163988A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C830C923-5398-4F28-99C2-1592EE5F4F7B}.Build Nuget Packages|Any CPU.ActiveCfg = Build Nuget Packages|Any CPU
 		{C830C923-5398-4F28-99C2-1592EE5F4F7B}.Build Nuget Packages|Any CPU.Build.0 = Build Nuget Packages|Any CPU
 		{C830C923-5398-4F28-99C2-1592EE5F4F7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -99,6 +92,14 @@ Global
 		{EA09E3A4-3B14-4CE5-A67E-F1CE9FE17BF8}.NuGet|Any CPU.Build.0 = NuGet|Any CPU
 		{EA09E3A4-3B14-4CE5-A67E-F1CE9FE17BF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA09E3A4-3B14-4CE5-A67E-F1CE9FE17BF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBA703FA-94C4-437F-9961-2A321163988A}.Build Nuget Packages|Any CPU.ActiveCfg = Build Nuget Packages|Any CPU
+		{BBA703FA-94C4-437F-9961-2A321163988A}.Build Nuget Packages|Any CPU.Build.0 = Build Nuget Packages|Any CPU
+		{BBA703FA-94C4-437F-9961-2A321163988A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBA703FA-94C4-437F-9961-2A321163988A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBA703FA-94C4-437F-9961-2A321163988A}.NuGet|Any CPU.ActiveCfg = NuGet|Any CPU
+		{BBA703FA-94C4-437F-9961-2A321163988A}.NuGet|Any CPU.Build.0 = NuGet|Any CPU
+		{BBA703FA-94C4-437F-9961-2A321163988A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBA703FA-94C4-437F-9961-2A321163988A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

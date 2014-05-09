@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\shared\AssemblyInfo.Shared.cs">
+    <Compile Include="..\..\AssemblyInfo.Shared.cs">
       <Link>AssemblyInfo.Shared.cs</Link>
     </Compile>
     <Compile Include="NUnitXmlReporter.cs" />
