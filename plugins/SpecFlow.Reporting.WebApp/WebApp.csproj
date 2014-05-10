@@ -76,7 +76,7 @@
     <Compile Include="WebAppReporterSettings.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="src\" />
+    <Folder Include="src\modules\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\SpecFlow.Reporting\SpecFlow.Reporting.csproj">
@@ -96,10 +96,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="dist\index.html" />
+    <None Include="src\app.controller.js" />
+    <None Include="src\app.js" />
+    <None Include="src\app.routes.js" />
+    <None Include="src\index.html" />
+    <None Include="src\styles\docs.min.css" />
+    <None Include="src\views\dashboard.controller.js" />
+    <None Include="src\views\dashboard.html" />
     <None Include="dist\templates.js" />
     <None Include="dist\styles.css" />
     <None Include="dist\scripts.js" />
     <None Include="packages.config" />
+    <None Include="src\styles\styles.less" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
