@@ -1,0 +1,29 @@
+{
+    "name": "SpecFlow.Reporting.WebApp",
+    "version": "0.0.0",
+    "description": "",
+    "main": "gruntfile.js",
+    "directories": {
+        "test": "test"
+    },
+    "dependencies": {
+        "grunt": "~0.4.4"
+    },
+    "devDependencies": {
+        "grunt-contrib-uglify": "~0.4.0",
+        "grunt-contrib-watch": "~0.6.1",
+        "grunt-contrib-copy": "~0.5.0",
+        "grunt-angular-templates": "~0.5.4",
+        "grunt-contrib-less": "~0.11.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/TimSchlechter/SpecFlow.Reporting.git"
+    },
+    "author": "Tim Schlechter",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/TimSchlechter/SpecFlow.Reporting/issues"
+    },
+    "banner": "/*\n * <%= pkg.name %> v<%= pkg.version %> by <%= pkg.author %>\n * <%= pkg.license.url %>\n */\n"
+}

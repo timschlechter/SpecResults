@@ -12,7 +12,7 @@ namespace SpecFlow.Reporting
 			}
 		}
 
-		public Report Report { get; internal set; }
+		public Report Report { get; set; }
 
 		public Feature CurrentFeature { get; internal set; }
 

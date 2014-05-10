@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SpecFlow.Reporting
+﻿namespace SpecFlow.Reporting
 {
 	public class FeatureEventArgs : ReportEventArgs
 	{

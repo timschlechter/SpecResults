@@ -178,3 +178,6 @@ FakesAssemblies/
 
 **/nuget/lib/**/*.*
 *.nupkg
+
+node_modules
+bower_components

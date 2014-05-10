@@ -8,16 +8,16 @@ namespace SpecFlow.Reporting
 
 		public static event EventHandler<ReportEventArgs> StartedReport;
 
-		public static event EventHandler<ReportEventArgs> FinishedReport; 
-		
+		public static event EventHandler<ReportEventArgs> FinishedReport;
+
 		public static event EventHandler<FeatureEventArgs> StartedFeature;
 
-		public static event EventHandler<FeatureEventArgs> FinishedFeature; 
-		
+		public static event EventHandler<FeatureEventArgs> FinishedFeature;
+
 		public static event EventHandler<ScenarioEventArgs> StartedScenario;
 
-		public static event EventHandler<ScenarioEventArgs> FinishedScenario; 
-		
+		public static event EventHandler<ScenarioEventArgs> FinishedScenario;
+
 		public static event EventHandler<ScenarioBlockEventArgs> StartedScenarioBlock;
 
 		public static event EventHandler<ScenarioBlockEventArgs> FinishedScenarioBlock;

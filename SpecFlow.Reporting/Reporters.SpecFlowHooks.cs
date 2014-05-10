@@ -48,7 +48,7 @@ namespace SpecFlow.Reporting
 					Title = FeatureContext.Current.FeatureInfo.Title,
 					Description = FeatureContext.Current.FeatureInfo.Description
 				};
-				
+
 				reporter.Report.Features.Add(feature);
 				reporter.CurrentFeature = feature;
 
@@ -100,7 +100,7 @@ namespace SpecFlow.Reporting
 				OnStartedScenarioBlock(reporter);
 			}
 		}
-		
+
 		[AfterScenarioBlock]
 		internal static void AfterScenarioBlock()
 		{

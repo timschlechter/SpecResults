@@ -50,6 +50,10 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -63,9 +67,39 @@
       <Link>Properties\AssemblyInfo.Shared.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="WebAppReporter.cs" />
+    <Compile Include="WebAppReporterSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SpecFlow.Reporting\SpecFlow.Reporting.csproj">
+      <Project>{eaba391e-6b65-4e5c-8842-3d71a5f97b4f}</Project>
+      <Name>SpecFlow.Reporting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SpecFlow.Reporting.Json\Json.csproj">
+      <Project>{c830c923-5398-4f28-99c2-1592ee5f4f7b}</Project>
+      <Name>Json</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dist\index.html" />
+    <None Include="dist\templates.js" />
+    <None Include="dist\styles.css" />
+    <None Include="dist\scripts.js" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
