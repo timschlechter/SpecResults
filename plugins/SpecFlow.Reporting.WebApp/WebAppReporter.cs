@@ -64,6 +64,34 @@ namespace SpecFlow.Reporting.WebApp
 				path: Path.Combine(folderPath, "report.js"),
 				contents: string.Format("var report = {0};", JsonReporter.WriteToString())
 			);
+
+			
+
+			var fontsPath = Path.Combine(folderPath, "fonts");
+			if (!Directory.Exists(fontsPath))
+			{
+				Directory.CreateDirectory(fontsPath);
+			}
+
+			File.WriteAllBytes(
+				path: Path.Combine(fontsPath, "glyphicons_halflings_regular.eot"),
+				bytes: Resources.glyphicons_halflings_regular_eot
+			);
+
+			File.WriteAllBytes(
+				path: Path.Combine(fontsPath, "glyphicons_halflings_regular.svg"),
+				bytes: Resources.glyphicons_halflings_regular_svg
+			);
+
+			File.WriteAllBytes(
+				path: Path.Combine(fontsPath, "glyphicons_halflings_regular.ttf"),
+				bytes: Resources.glyphicons_halflings_regular_ttf
+			);
+
+			File.WriteAllBytes(
+				path: Path.Combine(fontsPath, "glyphicons_halflings_regular.woff"),
+				bytes: Resources.glyphicons_halflings_regular_woff
+			);
 		}
 
 		private string ApplySettings(string contents)

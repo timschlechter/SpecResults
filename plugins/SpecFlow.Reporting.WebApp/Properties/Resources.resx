@@ -118,6 +118,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="glyphicons_halflings_regular_eot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\dist\fonts\glyphicons-halflings-regular.eot;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="glyphicons_halflings_regular_svg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\dist\fonts\glyphicons-halflings-regular.svg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="glyphicons_halflings_regular_ttf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\dist\fonts\glyphicons-halflings-regular.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="glyphicons_halflings_regular_woff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\dist\fonts\glyphicons-halflings-regular.woff;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="index" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\dist\index.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>

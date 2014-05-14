@@ -26,10 +26,13 @@ module.exports = function(grunt) {
                         'bower_components/uri.js/src/URI.js',
                         'bower_components/bootstrap/js/collapse.js',
                         'bower_components/bootstrap/js/dropdown.js',
+                        'bower_components/angular-ui-bootstrap-bower/ui-bootstrap-tpls.js',
                         'src/app.js',
-                        'src/app.controller.js',
                         'src/app.routes.js',
-                        'src/views/dashboard.controller.js'
+                        'src/reportService.js',
+                        'src/views/dashboard.controller.js',
+                        'src/views/scenario.controller.js',
+                        'src/templates.js'
                     ]
                 }
             }
@@ -42,20 +45,20 @@ module.exports = function(grunt) {
                     collapseBooleanAttributes: true
                 },
                 url: function(url) {
-                    return url.replace('app/', '');
+                    return url.replace('src/', '');
                 }
             },
             build: {
                 src: 'src/**/*.tpl.html',
-                dest: 'dist/templates.js'
+                dest: 'src/templates.js'
             }
         },
         copy: {
             build: {
-                files: [{
-                    src: ['src/index.html'],
-                    dest: 'dist/index.html'
-                }, ]
+                files: [
+                    { src: ['src/index.html'], dest: 'dist/index.html' },
+                    { expand:true, cwd: 'bower_components/bootstrap/', src: ['fonts/**'], dest: 'dist/' }
+                ]
             }
         },
         watch: {
@@ -84,5 +87,5 @@ module.exports = function(grunt) {
         },
     });
 
-    grunt.registerTask('build', ['uglify', 'ngtemplates', 'copy', 'less']);
+    grunt.registerTask('build', ['ngtemplates', 'uglify', 'copy', 'less']);
 };

@@ -4,11 +4,17 @@
 		'$routeProvider',
 		function($routeProvider) {
 			$routeProvider.
-				when('/features', {
-					templateUrl: 'views/features.tpl.html'
+				when('/dashboard', {
+					templateUrl: 'views/dashboard.tpl.html'
+				}).
+				when('/dashboard/feature/:featureId', {
+					templateUrl: 'views/dashboard.tpl.html'
+				}).
+				when('/features/:featureId/scenarios/:scenarioId', {
+					templateUrl: 'views/scenario.tpl.html'
 				}).
 				otherwise({
-					redirectTo: '/features'
+					redirectTo: '/dashboard'
 				});
 		}
 	]);

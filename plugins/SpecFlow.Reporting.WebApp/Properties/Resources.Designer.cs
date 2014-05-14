@@ -61,19 +61,63 @@ namespace SpecFlow.Reporting.WebApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] glyphicons_halflings_regular_eot {
+            get {
+                object obj = ResourceManager.GetObject("glyphicons_halflings_regular_eot", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] glyphicons_halflings_regular_svg {
+            get {
+                object obj = ResourceManager.GetObject("glyphicons_halflings_regular_svg", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] glyphicons_halflings_regular_ttf {
+            get {
+                object obj = ResourceManager.GetObject("glyphicons_halflings_regular_ttf", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] glyphicons_halflings_regular_woff {
+            get {
+                object obj = ResourceManager.GetObject("glyphicons_halflings_regular_woff", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
-        ///&lt;html ng-app=&quot;app&quot; ng-controller=&quot;AppController&quot;&gt;
+        ///&lt;html ng-app=&quot;app&quot;&gt;
         ///
         ///&lt;head&gt;
         ///    &lt;title&gt;__TITLE__&lt;/title&gt;
         ///    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-        ///    &lt;link href=&quot;styles.css?v=0.0.0-2014-05-10T01:36:08.458Z&quot; rel=&quot;stylesheet&quot;&gt;
+        ///    &lt;link href=&quot;styles.css?v=__VERSION__&quot; rel=&quot;stylesheet&quot;&gt;
         ///&lt;/head&gt;
         ///
-        ///&lt;body data-spy=&quot;scroll&quot; data-target=&quot;.scenario-list&quot;&gt;
-        ///    &lt;nav class=&quot;navbar navbar-default navbar-fixed-top navbar-inverse&quot; role=&quot;navigation&quot;&gt;
-        ///        &lt;div class=&quot;container&quot;&gt;
-        ///            &lt;!-- Brand and toggle get grouped for better m [rest of string was truncated]&quot;;.
+        ///&lt;body ng-view&gt;
+        ///
+        ///    &lt;script src=&quot;scripts.js?v=__VERSION__&quot;&gt;&lt;/script&gt;
+        ///    &lt;script src=&quot;report.js?v=__VERSION__&quot;&gt;&lt;/script&gt;
+        ///&lt;/body&gt;
+        ///
+        ///&lt;/html&gt;
+        ///.
         /// </summary>
         internal static string index {
             get {
@@ -104,7 +148,11 @@ namespace SpecFlow.Reporting.WebApp.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to angular.module(&apos;app&apos;).run([&apos;$templateCache&apos;, function($templateCache) {
+        ///  &apos;use strict&apos;;
+        ///
+        ///  $templateCache.put(&apos;views/dashboard.tpl.html&apos;,
+        ///    &quot;&lt;div ng-if=\&quot;selectedScenario\&quot; class=\&quot;row\&quot; ng-controller=\&quot;DashboardController\&quot;&gt;&lt;div class=\&quot;col-md-3 sidebar\&quot;&gt;&lt;div class=\&quot;alert alert-info feature\&quot;&gt;&lt;h4&gt;Feature: {{selectedFeature.title}}&lt;/h4&gt;{{selectedFeature.description}}&lt;/div&gt;&lt;/div&gt;&lt;div class=\&quot;col-md-9\&quot;&gt;&lt;div class=\&quot;bs-docs-sidebar scenario-summary\&quot;&gt;&lt;h3&gt;Scenario: {{selectedScenario.title}}&lt;/h3&gt;&lt;ul cla [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string templates {
             get {

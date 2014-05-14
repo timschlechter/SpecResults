@@ -18,8 +18,11 @@ namespace SpecFlow.Reporting.WebApp.Showcase
 			var webApp = new WebAppReporter();
 			webApp.Settings.Title = "WebAppReporter Showcase";
 			Reporters.Add(webApp);
-
-			Directory.Delete("screenshots", true);
+			
+			if (Directory.Exists("screenshots"))
+			{
+				Directory.Delete("screenshots", true);
+			}
 
 			Reporters.FinishedStep += (sender, args) => {
 				var path = Path.Combine("screenshots", Guid.NewGuid().ToString() + ".png");
@@ -36,6 +39,7 @@ namespace SpecFlow.Reporting.WebApp.Showcase
 				if (reporter != null)
 				{
 					reporter.WriteToFolder("app");
+					Directory.Move("screenshots", @"app\screenshots");
 				}
 			};
 

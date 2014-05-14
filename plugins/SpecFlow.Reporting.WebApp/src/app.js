@@ -1,7 +1,8 @@
 (function(angular) {
     'use strict';
     angular.module('app', [
-        'ngRoute'
+        'ngRoute',
+        'ui.bootstrap'
     ]).filter('truncate', function () {
         return function (text, length, end) {
             if (isNaN(length))
