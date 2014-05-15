@@ -146,18 +146,5 @@ namespace SpecFlow.Reporting.WebApp.Properties {
                 return ResourceManager.GetString("styles", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to angular.module(&apos;app&apos;).run([&apos;$templateCache&apos;, function($templateCache) {
-        ///  &apos;use strict&apos;;
-        ///
-        ///  $templateCache.put(&apos;views/dashboard.tpl.html&apos;,
-        ///    &quot;&lt;div ng-if=\&quot;selectedScenario\&quot; class=\&quot;row\&quot; ng-controller=\&quot;DashboardController\&quot;&gt;&lt;div class=\&quot;col-md-3 sidebar\&quot;&gt;&lt;div class=\&quot;alert alert-info feature\&quot;&gt;&lt;h4&gt;Feature: {{selectedFeature.title}}&lt;/h4&gt;{{selectedFeature.description}}&lt;/div&gt;&lt;/div&gt;&lt;div class=\&quot;col-md-9\&quot;&gt;&lt;div class=\&quot;bs-docs-sidebar scenario-summary\&quot;&gt;&lt;h3&gt;Scenario: {{selectedScenario.title}}&lt;/h3&gt;&lt;ul cla [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string templates {
-            get {
-                return ResourceManager.GetString("templates", resourceCulture);
-            }
-        }
     }
 }

@@ -1,11 +1,6 @@
 ﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SpecFlow.Reporting.WebApp.Showcase
 {
@@ -30,9 +25,9 @@ namespace SpecFlow.Reporting.WebApp.Showcase
 				string screenshotFilePath = Path.Combine(outputFile);
 
 				screenshot.SaveAsFile(screenshotFilePath, ImageFormat.Png);
-			}		
+			}
 		}
 
-		#endregion
+		#endregion IWebDriver
 	}
 }

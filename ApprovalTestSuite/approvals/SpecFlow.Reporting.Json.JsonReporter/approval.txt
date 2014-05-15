@@ -3,6 +3,7 @@
   "features": [
     {
       "description": "In order to get information about test results\nAs a developer\nI want to generate reports",
+      "description_html": "<p>In order to get information about test results<br />As a developer<br />I want to generate reports</p>",
       "scenarios": [
         {
           "given": {

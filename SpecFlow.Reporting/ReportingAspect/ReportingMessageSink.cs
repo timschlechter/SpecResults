@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using TechTalk.SpecFlow;
@@ -58,6 +59,8 @@ namespace SpecFlow.Reporting
 			IMessage rtnMsg = next.SyncProcessMessage(msg);
 			IMethodReturnMessage mrm = (rtnMsg as IMethodReturnMessage);
 
+			var endtime = DateTime.Now;
+
 			TestResult testResult;
 			if (mrm.Exception is PendingStepException)
 			{
@@ -74,6 +77,7 @@ namespace SpecFlow.Reporting
 
 			foreach (var reporter in Reporters.reporters)
 			{
+				reporter.CurrentStep.EndTime = endtime;
 				reporter.CurrentStep.Result = testResult;
 				Reporters.OnFinishedStep(reporter);
 			}

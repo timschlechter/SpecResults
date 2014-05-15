@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace SpecFlow.Reporting.WebApp
 {
@@ -18,5 +15,11 @@ namespace SpecFlow.Reporting.WebApp
 		{
 			return Guid.NewGuid().ToString();
 		}
+
+		public string StepDetailsTemplateFile { get; set; }
+
+		public string CssFile { get; set; }
+
+		public string DashboardTextFile { get; set; }
 	}
 }

@@ -10,21 +10,26 @@ namespace SpecFlow.Reporting.WebApp.Showcase
 	[Binding]
 	public class StepDefinitions : ReportingStepDefinitions
 	{
-		static IWebDriver WebDriver { get; set; }
+		private static IWebDriver WebDriver { get; set; }
 
 		[BeforeTestRun]
 		public static void BeforeTestRun()
 		{
 			var webApp = new WebAppReporter();
 			webApp.Settings.Title = "WebAppReporter Showcase";
+			webApp.Settings.StepDetailsTemplateFile = @"templates\step-details.tpl.html";
+			webApp.Settings.CssFile = @"templates\styles.css";
+			webApp.Settings.DashboardTextFile = @"templates\dashboard-text.md";
+
 			Reporters.Add(webApp);
-			
+
 			if (Directory.Exists("screenshots"))
 			{
 				Directory.Delete("screenshots", true);
 			}
 
-			Reporters.FinishedStep += (sender, args) => {
+			Reporters.FinishedStep += (sender, args) =>
+			{
 				var path = Path.Combine("screenshots", Guid.NewGuid().ToString() + ".png");
 				WebDriver.TakeScreenshot(path);
 				args.Step.UserData = new
@@ -38,7 +43,8 @@ namespace SpecFlow.Reporting.WebApp.Showcase
 				var reporter = args.Reporter as WebAppReporter;
 				if (reporter != null)
 				{
-					reporter.WriteToFolder("app");
+					reporter.WriteToFolder("app", true);
+
 					Directory.Move("screenshots", @"app\screenshots");
 				}
 			};
@@ -83,7 +89,7 @@ namespace SpecFlow.Reporting.WebApp.Showcase
 
 		[Then(@"I can read the instructions on how to install the package")]
 		public void ThenICanReadTheInstructionsOnHowToInstallThePackage()
-		{			
+		{
 		}
 	}
 }

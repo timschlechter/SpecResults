@@ -1,9 +1,9 @@
-﻿using System;
-using TechTalk.SpecFlow;
+﻿using SpecFlow.Reporting.Json;
 using SpecFlow.Reporting.Text;
-using SpecFlow.Reporting.Json;
 using SpecFlow.Reporting.Xml;
 using SpecFlow.Reporting.Xml.NUnit;
+using System;
+using TechTalk.SpecFlow;
 
 namespace SpecFlow.Reporting.Tests
 {

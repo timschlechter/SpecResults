@@ -33,8 +33,9 @@ namespace SpecFlow.Reporting.WebApp.Showcase
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Json reporting", "In order to get testresults in JSON format\r\nAs a developer\r\nI want to learn about" +
-                    " SpecFlow.Reporting.Json", ProgrammingLanguage.CSharp, new string[] {
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Json reporting", "Story\r\n=====\r\nIn order to get testresults in JSON format\r\nAs a developer\r\nI want " +
+                    "to learn about [SpecFlow.Reporting.Json](https://www.nuget.org/packages/SpecFlow" +
+                    ".Reporting.Json/)", ProgrammingLanguage.CSharp, new string[] {
                         "Plugin"});
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -68,23 +69,23 @@ namespace SpecFlow.Reporting.WebApp.Showcase
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Install the SpecFlow.Reporting.Json package")]
+        [NUnit.Framework.DescriptionAttribute("Learn how to install the SpecFlow.Reporting.Json package")]
         [NUnit.Framework.CategoryAttribute("Howto:install")]
-        public virtual void InstallTheSpecFlow_Reporting_JsonPackage()
+        public virtual void LearnHowToInstallTheSpecFlow_Reporting_JsonPackage()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Install the SpecFlow.Reporting.Json package", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Learn how to install the SpecFlow.Reporting.Json package", new string[] {
                         "Howto:install"});
-#line 8
-this.ScenarioSetup(scenarioInfo);
-#line 9
- testRunner.Given("I\'m on \"http://nuget.org\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 10
- testRunner.When("I enter searchtext \"SpecFlow.Reporting.Json\" in \"searchBoxInput\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+this.ScenarioSetup(scenarioInfo);
 #line 11
- testRunner.And("I click the search button \"searchBoxSubmit\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("I\'m on \"http://nuget.org\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 12
- testRunner.And("I click the result with title \"SpecFlow.Reporting.Json\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("I enter searchtext \"SpecFlow.Reporting.Json\" in \"searchBoxInput\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 13
+ testRunner.And("I click the search button \"searchBoxSubmit\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 14
+ testRunner.And("I click the result with title \"SpecFlow.Reporting.Json\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 15
  testRunner.Then("I can read the instructions on how to install the package", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

@@ -3,6 +3,7 @@ var report = {
   "features": [
     {
       "description": "In order to get testresults in JSON format\r\nAs a developer\r\nI want to learn about SpecFlow.Reporting.Json",
+      "description_html": "<p>In order to get testresults in JSON format\r<br />As a developer\r<br />I want to learn about SpecFlow.Reporting.Json</p>",
       "scenarios": [
         {
           "given": {
@@ -11,16 +12,16 @@ var report = {
               {
                 "steps": [],
                 "title": "I'm on \"http://nuget.org\"",
-                "start_time": "2014-05-14T19:33:51.897+02:00",
-                "end_time": "0001-01-01T00:00:00",
+                "start_time": "2014-05-15T21:09:50.29+02:00",
+                "end_time": "2014-05-15T21:09:52.009+02:00",
                 "user_data": {
-                  "screenshot": "screenshots\\01b64e2d-7b94-4f18-bd59-f5560995165d.png"
+                  "screenshot": "screenshots\\2abea1f5-faac-4a87-add0-bfc1a1cc0503.png"
                 },
                 "result": "OK"
               }
             ],
-            "start_time": "2014-05-14T19:33:51.856+02:00",
-            "end_time": "2014-05-14T19:33:53.928+02:00"
+            "start_time": "2014-05-15T21:09:50.249+02:00",
+            "end_time": "2014-05-15T21:09:52.477+02:00"
           },
           "when": {
             "result": "OK",
@@ -28,36 +29,36 @@ var report = {
               {
                 "steps": [],
                 "title": "I enter searchtext \"SpecFlow.Reporting.Json\" in \"searchBoxInput\"",
-                "start_time": "2014-05-14T19:33:53.942+02:00",
-                "end_time": "0001-01-01T00:00:00",
+                "start_time": "2014-05-15T21:09:52.485+02:00",
+                "end_time": "2014-05-15T21:09:52.606+02:00",
                 "user_data": {
-                  "screenshot": "screenshots\\f23e318e-fd7f-4e93-89ce-a7f2b42fd9e3.png"
+                  "screenshot": "screenshots\\96297f65-f0a8-4fc6-a948-b719a61fe9c9.png"
                 },
                 "result": "OK"
               },
               {
                 "steps": [],
                 "title": "I click the search button \"searchBoxSubmit\"",
-                "start_time": "2014-05-14T19:33:54.464+02:00",
-                "end_time": "0001-01-01T00:00:00",
+                "start_time": "2014-05-15T21:09:53.163+02:00",
+                "end_time": "2014-05-15T21:10:02.712+02:00",
                 "user_data": {
-                  "screenshot": "screenshots\\ed738957-1f81-4616-90fc-a69630ae8ccb.png"
+                  "screenshot": "screenshots\\b685381b-7f2e-485d-a95a-f6b0fee98e57.png"
                 },
                 "result": "OK"
               },
               {
                 "steps": [],
                 "title": "I click the result with title \"SpecFlow.Reporting.Json\"",
-                "start_time": "2014-05-14T19:34:02.591+02:00",
-                "end_time": "0001-01-01T00:00:00",
+                "start_time": "2014-05-15T21:10:02.995+02:00",
+                "end_time": "2014-05-15T21:10:04.279+02:00",
                 "user_data": {
-                  "screenshot": "screenshots\\f8710b05-8dd0-4fb0-b92a-87d16088f10c.png"
+                  "screenshot": "screenshots\\de307905-e9d1-49c6-8ade-fc89326f4eb8.png"
                 },
                 "result": "OK"
               }
             ],
-            "start_time": "2014-05-14T19:33:53.929+02:00",
-            "end_time": "2014-05-14T19:34:04.147+02:00"
+            "start_time": "2014-05-15T21:09:52.477+02:00",
+            "end_time": "2014-05-15T21:10:04.681+02:00"
           },
           "then": {
             "result": "OK",
@@ -65,24 +66,24 @@ var report = {
               {
                 "steps": [],
                 "title": "I can read the instructions on how to install the package",
-                "start_time": "2014-05-14T19:34:04.15+02:00",
-                "end_time": "0001-01-01T00:00:00",
+                "start_time": "2014-05-15T21:10:04.684+02:00",
+                "end_time": "2014-05-15T21:10:04.684+02:00",
                 "user_data": {
-                  "screenshot": "screenshots\\c504ec57-3f91-40bd-9bbf-8ab232114b6c.png"
+                  "screenshot": "screenshots\\afb85f09-3c6a-4cd8-898a-cdbdbad18fc7.png"
                 },
                 "result": "OK"
               }
             ],
-            "start_time": "2014-05-14T19:34:04.147+02:00",
-            "end_time": "2014-05-14T19:34:04.542+02:00"
+            "start_time": "2014-05-15T21:10:04.681+02:00",
+            "end_time": "2014-05-15T21:10:05.111+02:00"
           },
           "result": "OK",
           "tags": [
             "Howto:install"
           ],
           "title": "Install the SpecFlow.Reporting.Json package",
-          "start_time": "2014-05-14T19:33:51.853+02:00",
-          "end_time": "2014-05-14T19:34:04.544+02:00"
+          "start_time": "2014-05-15T21:09:50.247+02:00",
+          "end_time": "2014-05-15T21:10:05.112+02:00"
         }
       ],
       "result": "OK",
@@ -90,11 +91,11 @@ var report = {
         "Plugin"
       ],
       "title": "Json reporting",
-      "start_time": "2014-05-14T19:33:51.841+02:00",
-      "end_time": "2014-05-14T19:34:04.554+02:00"
+      "start_time": "2014-05-15T21:09:50.234+02:00",
+      "end_time": "2014-05-15T21:10:05.122+02:00"
     }
   ],
   "result": "OK",
-  "start_time": "2014-05-14T19:33:51.841+02:00",
-  "end_time": "2014-05-14T19:34:05.595+02:00"
+  "start_time": "2014-05-15T21:09:50.234+02:00",
+  "end_time": "2014-05-15T21:10:06.664+02:00"
 };

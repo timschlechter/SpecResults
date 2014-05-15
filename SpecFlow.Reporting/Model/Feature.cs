@@ -6,6 +6,8 @@ namespace SpecFlow.Reporting
 	{
 		public string Description { get; set; }
 
+		public string DescriptionHtml { get { return Markdown.ToHtml(Description); } }
+
 		public List<Scenario> Scenarios { get; set; }
 
 		public override TestResult Result

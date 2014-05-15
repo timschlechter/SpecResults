@@ -1,56 +1,61 @@
 <div ng-controller="ScenarioController">
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container-fluid">
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="navbar-left">
-                <div class="navbar-left">
-                    <a href="#/dashboard/feature/{{feature.id}}" role="button" class="btn btn-default navbar-btn">
-                        <span class="glyphicon glyphicon-chevron-left"></span> Back</button>
-                </div>                
-            </div>
-            <div class="collapse navbar-collapse text-center">
-                <p class="navbar-text">{{feature.title}}</p>
-            </div>
-        </div>
-    </nav>
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="navbar-left">
+				<div class="navbar-left">
+					<a href="#/dashboard/feature/{{feature.id}}" role="button" class="btn btn-default navbar-btn">
+						<span class="glyphicon glyphicon-chevron-left"></span>Back</button>
+				</div>
+			</div>
+			<div class="collapse navbar-collapse text-center">
+				<p class="navbar-text">{{feature.title}}</p>
+			</div>
+		</div>
+	</nav>
 
-    <div class="container">
-        <h4>Scenario: {{scenario.title}}</h4>
+	<div class="container">
+		<h4>Scenario: {{scenario.title}}</h4>
 
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Given</h3>
-          </div>
-          <div class="panel-body">
-            <div class="step-details" ng-include="'step-details'" ng-repeat="step in scenario.given.steps"></div>
-          </div>
-        </div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Given</h3>
+			</div>
+			<div class="panel-body">
+                <ul class="list-group">
+    				<li class="list-group-item step-details" ng-include="'step-details'" ng-repeat="step in scenario.given.steps"></li>
+                </ul>
+			</div>
+		</div>
 
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">When</h3>
-          </div>
-          <div class="panel-body">
-            <div class="step-details" ng-include="'step-details'" ng-repeat="step in scenario.when.steps"></div>
-          </div>
-        </div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">When</h3>
+			</div>
+			<div class="panel-body">
+                <ul class="list-group">
+    				<li class="list-group-item step-details" ng-include="'step-details'" ng-repeat="step in scenario.when.steps"></li>
+                </ul>
+			</div>
+		</div>
 
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Then</h3>
-          </div>
-          <div class="panel-body">
-            <div class="step-details" ng-include="'step-details'" ng-repeat="step in scenario.then.steps"></div>
-          </div>
-        </div>        
-    </div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Then</h3>
+			</div>
+			<div class="panel-body">
+				<ul class="list-group">
+					<li class="list-group-item step-details" ng-include="'step-details'" ng-repeat="step in scenario.then.steps"></li>
+				</ul>
+			</div>
+		</div>
+	</div>
 
-    <script id="step-details" type="text/ng-template">    
-        <figure ng-if="step.user_data.screenshot">
-            <div class="screenshot-container">
-                <img class="screenshot" alt="{{step.title}}" title="{{step.title}}" ng-src="{{step.user_data.screenshot}}"></img>
-            </div>
-            <figcaption class="text-muted">{{step.title}}</figcaption>
-        </figure>    
-    </script>
+	<script id="step-details" type="text/ng-template">
+		<!-- step-details-marker: begin -->
+		{{step.title}} <small class="text-muted"><em>completed in {{step.duration}} ms</em></small>
+        <result-badge result="step.result"></result-badge>
+
+		<!-- step-details-marker: end -->
+	</script>
 </div>
