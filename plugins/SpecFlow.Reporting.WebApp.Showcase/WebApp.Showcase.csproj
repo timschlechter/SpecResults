@@ -30,8 +30,28 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MarkdownDeep, Version=1.5.4615.26275, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\MarkdownDeep.NET.1.5\lib\.NetFramework 3.5\MarkdownDeep.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="SpecFlow.Reporting, Version=0.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\SpecFlow.Reporting.0.4.0.0\lib\net40\SpecFlow.Reporting.dll</HintPath>
+    </Reference>
+    <Reference Include="SpecFlow.Reporting.Json, Version=0.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\SpecFlow.Reporting.Json.0.4.1.0\lib\net40\SpecFlow.Reporting.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SpecFlow.Reporting.WebApp, Version=0.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\SpecFlow.Reporting.WebApp.0.4.1.0\lib\net40\SpecFlow.Reporting.WebApp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -62,20 +82,6 @@
     <Compile Include="StepDefinitions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SpecFlow.Reporting.Json\Json.csproj">
-      <Project>{c830c923-5398-4f28-99c2-1592ee5f4f7b}</Project>
-      <Name>Json</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SpecFlow.Reporting.WebApp\WebApp.csproj">
-      <Project>{ea09e3a4-3b14-4ce5-a67e-f1ce9fe17bf8}</Project>
-      <Name>WebApp</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\SpecFlow.Reporting\SpecFlow.Reporting.csproj">
-      <Project>{eaba391e-6b65-4e5c-8842-3d71a5f97b4f}</Project>
-      <Name>SpecFlow.Reporting</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
     <None Include="Json_reporting.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
@@ -83,7 +89,14 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="dist\index.html" />
+    <Content Include="src\reportService.js" />
+    <Content Include="src\views\dashboard.tpl.html" />
+    <Content Include="src\views\scenario.controller.js" />
+    <Content Include="src\views\scenario.tpl.html" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="templates\dashboard-text.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

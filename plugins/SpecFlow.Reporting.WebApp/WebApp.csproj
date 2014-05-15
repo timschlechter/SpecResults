@@ -50,9 +50,21 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MarkdownDeep, Version=1.5.4615.26275, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\MarkdownDeep.NET.1.5\lib\.NetFramework 3.5\MarkdownDeep.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Newtonsoft.Json.6.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SpecFlow.Reporting, Version=0.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\SpecFlow.Reporting.0.4.0.0\lib\net40\SpecFlow.Reporting.dll</HintPath>
+    </Reference>
+    <Reference Include="SpecFlow.Reporting.Json, Version=0.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\SpecFlow.Reporting.Json.0.4.1.0\lib\net40\SpecFlow.Reporting.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -61,6 +73,10 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="TechTalk.SpecFlow, Version=1.9.0.77, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\SpecFlow.1.9.0\lib\net35\TechTalk.SpecFlow.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\AssemblyInfo.Shared.cs">
@@ -79,16 +95,6 @@
     <Folder Include="src\modules\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SpecFlow.Reporting\SpecFlow.Reporting.csproj">
-      <Project>{eaba391e-6b65-4e5c-8842-3d71a5f97b4f}</Project>
-      <Name>SpecFlow.Reporting</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SpecFlow.Reporting.Json\Json.csproj">
-      <Project>{c830c923-5398-4f28-99c2-1592ee5f4f7b}</Project>
-      <Name>Json</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -101,6 +107,7 @@
     <Content Include="src\views\dashboard.tpl.html" />
     <Content Include="src\views\scenario.controller.js" />
     <Content Include="src\views\scenario.tpl.html" />
+    <None Include="App.config" />
     <None Include="dist\fonts\glyphicons-halflings-regular.eot" />
     <None Include="dist\fonts\glyphicons-halflings-regular.ttf" />
     <None Include="dist\fonts\glyphicons-halflings-regular.woff" />
@@ -116,6 +123,7 @@
     <None Include="dist\scripts.js" />
     <None Include="packages.config" />
     <None Include="src\styles\styles.less" />
+    <None Include="WebApp.nuspec" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
