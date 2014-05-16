@@ -58,13 +58,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Newtonsoft.Json.6.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="SpecFlow.Reporting, Version=0.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SpecFlow.Reporting, Version=0.4.4.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\SpecFlow.Reporting.0.4.0.0\lib\net40\SpecFlow.Reporting.dll</HintPath>
+      <HintPath>..\..\packages\SpecFlow.Reporting.0.4.4.0\lib\net40\SpecFlow.Reporting.dll</HintPath>
     </Reference>
-    <Reference Include="SpecFlow.Reporting.Json, Version=0.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SpecFlow.Reporting.Json, Version=0.4.4.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\SpecFlow.Reporting.Json.0.4.1.0\lib\net40\SpecFlow.Reporting.Json.dll</HintPath>
+      <HintPath>..\..\packages\SpecFlow.Reporting.Json.0.4.4.0\lib\net40\SpecFlow.Reporting.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
