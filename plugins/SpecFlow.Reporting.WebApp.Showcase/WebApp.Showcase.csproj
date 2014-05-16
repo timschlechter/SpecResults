@@ -92,6 +92,7 @@
   <ItemGroup>
     <None Include="templates\dashboard-text.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="templates\step-details.tpl.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
