@@ -13,7 +13,8 @@
 		<accordion close-others="oneAtATime">
             <accordion-group ng-repeat="feature in report.features" is-open="feature.$$isOpen">
                 <accordion-heading>
-                    {{feature.title}}
+                    {{feature.title}} <small class="text-muted"><em>completed in {{feature.duration}} ms</em></small>
+					<result-badge result="feature.result"></result-badge>
                 </accordion-heading>
 
                 <div ng-bind-html="feature.description_html | trusted">
@@ -21,7 +22,10 @@
 
                 <h3>Scenarios</h3>
                 <div class="list-group">
-                    <a ng-repeat="scenario in feature.scenarios" class="list-group-item" href="#/features/{{feature.id}}/scenarios/{{scenario.id}}">{{scenario.title}}</a>
+                    <a ng-repeat="scenario in feature.scenarios" class="list-group-item" href="#/features/{{feature.id}}/scenarios/{{scenario.id}}">
+						{{scenario.title}}<small class="text-muted"> <em>completed in {{scenario.duration}} ms</em></small>
+						<result-badge result="feature.result"></result-badge>
+					</a>
                 </div>
             </accordion-group>
         </accordion>

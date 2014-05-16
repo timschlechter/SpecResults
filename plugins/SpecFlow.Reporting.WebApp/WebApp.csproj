@@ -91,9 +91,7 @@
     <Compile Include="WebAppReporter.cs" />
     <Compile Include="WebAppReporterSettings.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="src\modules\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -101,28 +99,8 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="dist\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="dist\index.html" />
-    <Content Include="src\reportService.js" />
-    <Content Include="src\views\dashboard.tpl.html" />
-    <Content Include="src\views\scenario.controller.js" />
-    <Content Include="src\views\scenario.tpl.html" />
     <None Include="App.config" />
-    <None Include="dist\fonts\glyphicons-halflings-regular.eot" />
-    <None Include="dist\fonts\glyphicons-halflings-regular.ttf" />
-    <None Include="dist\fonts\glyphicons-halflings-regular.woff" />
-    <None Include="gruntfile.js" />
-    <None Include="bower.json" />
-    <None Include="package.json" />
-    <None Include="src\app.js" />
-    <None Include="src\app.routes.js" />
-    <None Include="src\index.html" />
-    <None Include="src\styles\docs.min.css" />
-    <None Include="src\views\dashboard.controller.js" />
-    <None Include="dist\styles.css" />
-    <None Include="dist\scripts.js" />
     <None Include="packages.config" />
-    <None Include="src\styles\styles.less" />
     <None Include="WebApp.nuspec" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
