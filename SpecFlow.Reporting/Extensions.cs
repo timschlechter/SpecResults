@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 using TechTalk.SpecFlow;
 
@@ -55,6 +57,17 @@ namespace SpecFlow.Reporting
 		{
 			var first = s.IndexOf(find);
 			return s.Substring(0, first) + replace + s.Substring(first + find.Length);
+		}
+
+		internal static string GetParamName(this MethodInfo method, int index)
+		{
+			string retVal = string.Empty;
+
+			if (method != null && method.GetParameters().Length > index)
+				retVal = method.GetParameters()[index].Name;
+
+
+			return retVal;
 		}
 	}
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.Remoting.Messaging;
 using TechTalk.SpecFlow;
 
@@ -43,12 +44,46 @@ namespace SpecFlow.Reporting
 				var attr = methodMessage.MethodBase.GetCustomAttributes(true).OfType<StepDefinitionBaseAttribute>().FirstOrDefault();
 				if (attr != null)
 				{
-					step.Title = attr.Regex;
-
-					var args = (object[])msg.Properties["__Args"];
-					for (int i = 0; i < args.Length; i++)
+					// Handle regex style
+					if (!String.IsNullOrEmpty(attr.Regex))
 					{
-						step.Title = step.Title.ReplaceFirst("(.*)", args[i].ToString());
+						step.Title = attr.Regex;
+
+						var args = (object[])msg.Properties["__Args"];
+						for (int i = 0; i < args.Length; i++)
+						{
+							step.Title = step.Title.ReplaceFirst("(.*)", args[i].ToString());
+						}
+					}
+					else
+					{
+						if (methodMessage.MethodName.Contains('_'))
+						{
+							// underscore style
+							step.Title = methodMessage.MethodName.Replace("_", " ");
+							step.Title = step.Title.Substring(step.Title.IndexOf(' ') + 1);
+
+							var methodInfo = methodMessage.MethodBase as MethodInfo;
+							var args = methodMessage.Args.ToArray();
+							for (int i = 0; i < args.Length; i++)
+							{
+								var name = methodInfo.GetParamName(i).ToUpper();
+								var value = args[i].ToString();
+								if (step.Title.Contains(name + " "))
+								{
+									step.Title = step.Title.ReplaceFirst(name + " ", value + " ");
+								}
+								else
+								{
+									step.Title = step.Title.ReplaceFirst(" " + name, " " + value);
+								}
+							}
+						}
+						else
+						{
+							// pascal naming style
+							throw new NotSupportedException("Pascal naming style not supported yet");
+						}
 					}
 				}
 				reporter.CurrentScenarioBlock.Steps.Add(step);

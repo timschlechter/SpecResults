@@ -58,5 +58,21 @@ namespace SpecFlow.Reporting.Tests
 		{
 			ScenarioContext.Current.Pending();
 		}
+
+		[When]
+		public void When_a_step_uses_method_name_style()
+		{
+		}
+
+		[When]
+		public void When_a_step_uses_method_name_style_with_a_P0(string p0)
+		{			
+		}
+		[When]
+		public void When_a_step_uses_P0_with_P1_parameters(string p0, string p1)
+		{
+			ScenarioContext.Current.Pending();
+		}
+
 	}
 }

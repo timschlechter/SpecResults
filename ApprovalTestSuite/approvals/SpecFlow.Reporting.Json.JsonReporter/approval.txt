@@ -2,8 +2,8 @@
   "generator": "SpecFlow.Reporting.Json.JsonReporter",
   "features": [
     {
-      "description": "In order to get information about test results\nAs a developer\nI want to generate reports",
-      "description_html": "<p>In order to get information about test results<br />As a developer<br />I want to generate reports</p>",
+      "description": "In order to get information about test results\r\nAs a developer\r\nI want to generate reports",
+      "description_html": "<p>In order to get information about test results\r<br />As a developer\r<br />I want to generate reports</p>",
       "scenarios": [
         {
           "given": {
@@ -13,7 +13,7 @@
                 "steps": [],
                 "title": "a scenario is specified",
                 "start_time": "0001-01-01T00:00:00",
-                "end_time": "0001-01-01T00:00:00",
+                "end_time": "2014-05-16T21:57:52.819+02:00",
                 "result": "OK"
               }
             ],
@@ -27,7 +27,7 @@
                 "steps": [],
                 "title": "the tests run",
                 "start_time": "0001-01-01T00:00:00",
-                "end_time": "0001-01-01T00:00:00",
+                "end_time": "2014-05-16T21:57:52.846+02:00",
                 "result": "OK"
               }
             ],
@@ -41,7 +41,7 @@
                 "steps": [],
                 "title": "a report is generated",
                 "start_time": "0001-01-01T00:00:00",
-                "end_time": "0001-01-01T00:00:00",
+                "end_time": "2014-05-16T21:57:52.85+02:00",
                 "result": "OK"
               }
             ],
@@ -62,7 +62,7 @@
                 "steps": [],
                 "title": "a scenario is specified",
                 "start_time": "0001-01-01T00:00:00",
-                "end_time": "0001-01-01T00:00:00",
+                "end_time": "2014-05-16T21:57:52.86+02:00",
                 "result": "OK"
               }
             ],
@@ -76,7 +76,7 @@
                 "steps": [],
                 "title": "a step is not implemented",
                 "start_time": "0001-01-01T00:00:00",
-                "end_time": "0001-01-01T00:00:00",
+                "end_time": "2014-05-16T21:57:52.861+02:00",
                 "result": "Pending"
               }
             ],
@@ -103,7 +103,7 @@
                 "steps": [],
                 "title": "a \"awesome\" scenario is specified",
                 "start_time": "0001-01-01T00:00:00",
-                "end_time": "0001-01-01T00:00:00",
+                "end_time": "2014-05-16T21:57:52.877+02:00",
                 "result": "OK"
               }
             ],
@@ -117,7 +117,7 @@
                 "steps": [],
                 "title": "the tests with \"multiple\" parameters run \"smoothly\"",
                 "start_time": "0001-01-01T00:00:00",
-                "end_time": "0001-01-01T00:00:00",
+                "end_time": "2014-05-16T21:57:52.878+02:00",
                 "result": "OK"
               }
             ],
@@ -131,7 +131,7 @@
                 "steps": [],
                 "title": "\"1\" report is generated",
                 "start_time": "0001-01-01T00:00:00",
-                "end_time": "0001-01-01T00:00:00",
+                "end_time": "2014-05-16T21:57:52.88+02:00",
                 "result": "OK"
               }
             ],
@@ -141,6 +141,54 @@
           "result": "OK",
           "tags": [],
           "title": "Steps contain arguments",
+          "start_time": "0001-01-01T00:00:00",
+          "end_time": "0001-01-01T00:00:00"
+        },
+        {
+          "given": {
+            "result": "OK",
+            "steps": [
+              {
+                "steps": [],
+                "title": "a scenario is specified",
+                "start_time": "0001-01-01T00:00:00",
+                "end_time": "2014-05-16T21:57:52.881+02:00",
+                "result": "OK"
+              }
+            ],
+            "start_time": "0001-01-01T00:00:00",
+            "end_time": "0001-01-01T00:00:00"
+          },
+          "when": {
+            "result": "Pending",
+            "steps": [
+              {
+                "steps": [],
+                "title": "a step uses method name style",
+                "start_time": "0001-01-01T00:00:00",
+                "end_time": "2014-05-16T21:57:52.882+02:00",
+                "result": "OK"
+              },
+              {
+                "steps": [],
+                "title": "a step uses method-name style with two parameters",
+                "start_time": "0001-01-01T00:00:00",
+                "end_time": "2014-05-16T21:57:52.883+02:00",
+                "result": "Pending"
+              }
+            ],
+            "start_time": "0001-01-01T00:00:00",
+            "end_time": "0001-01-01T00:00:00"
+          },
+          "then": {
+            "result": "OK",
+            "steps": [],
+            "start_time": "0001-01-01T00:00:00",
+            "end_time": "0001-01-01T00:00:00"
+          },
+          "result": "Pending",
+          "tags": [],
+          "title": "Step uses method-name style",
           "start_time": "0001-01-01T00:00:00",
           "end_time": "0001-01-01T00:00:00"
         }

@@ -17,3 +17,9 @@ Scenario: Step is not implemented
 	Given a scenario is specified
 	When a step is not implemented
 	Then a report is generated
+
+Scenario: Step uses method-name style
+	Given a scenario is specified
+	When a step uses method-name style
+	When a step uses method-name style with two parameters
+	Then a report is generated
