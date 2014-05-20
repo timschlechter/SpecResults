@@ -94,20 +94,20 @@ namespace SpecFlow.Reporting
 			IMessage rtnMsg = next.SyncProcessMessage(msg);
 			IMethodReturnMessage mrm = (rtnMsg as IMethodReturnMessage);
 
-			var endtime = DateTime.Now;
+			var endtime = Reporters.CurrentRunTime;
 
 			TestResult testResult;
 			if (mrm.Exception is PendingStepException)
 			{
 				testResult = TestResult.Pending;
 			}
-			else if (ScenarioContext.Current.TestError == null)
+			else if (mrm.Exception != null)
 			{
-				testResult = TestResult.OK;
+				testResult = TestResult.Error;
 			}
 			else
 			{
-				testResult = TestResult.Error;
+				testResult = TestResult.OK;
 			}
 
 			foreach (var reporter in Reporters.reporters)

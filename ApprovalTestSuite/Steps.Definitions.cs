@@ -74,5 +74,12 @@ namespace SpecFlow.Reporting.Tests
 			ScenarioContext.Current.Pending();
 		}
 
+		[When(@"a step throws an exception")]
+		public void WhenAStepThrowsAnException()
+		{
+			throw new Exception("Error!");
+		}
+
+
 	}
 }

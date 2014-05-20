@@ -18,6 +18,11 @@ Scenario: Step is not implemented
 	When a step is not implemented
 	Then a report is generated
 
+Scenario: Step throws an exception
+	Given a scenario is specified
+	When a step throws an exception
+	Then a report is generated
+
 Scenario: Step uses method-name style
 	Given a scenario is specified
 	When a step uses method-name style
