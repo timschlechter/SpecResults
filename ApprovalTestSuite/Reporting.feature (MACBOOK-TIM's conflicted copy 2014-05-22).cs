@@ -117,36 +117,19 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Step throws an exception")]
-        public virtual void StepThrowsAnException()
+        [NUnit.Framework.DescriptionAttribute("Step uses method-name style")]
+        public virtual void StepUsesMethod_NameStyle()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Step throws an exception", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Step uses method-name style", ((string[])(null)));
 #line 21
 this.ScenarioSetup(scenarioInfo);
 #line 22
  testRunner.Given("a scenario is specified", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 23
- testRunner.When("a step throws an exception", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 24
- testRunner.Then("a report is generated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Step uses method-name style")]
-        public virtual void StepUsesMethod_NameStyle()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Step uses method-name style", ((string[])(null)));
-#line 26
-this.ScenarioSetup(scenarioInfo);
-#line 27
- testRunner.Given("a scenario is specified", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 28
  testRunner.When("a step uses method-name style", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 29
+#line 24
  testRunner.When("a step uses method-name style with two parameters", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 30
+#line 25
  testRunner.Then("a report is generated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -157,26 +140,29 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void TableParam()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Table param", ((string[])(null)));
-#line 32
+#line 27
 this.ScenarioSetup(scenarioInfo);
-#line 33
+#line 28
  testRunner.Given("a scenario is specified", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Id",
-                        "Name"});
+                        "Field",
+                        "Value"});
             table1.AddRow(new string[] {
-                        "1",
-                        "John Doe"});
+                        "Name",
+                        "John Galt"});
             table1.AddRow(new string[] {
-                        "2",
-                        "Some Dude"});
+                        "Birthdate",
+                        "2/2/1902"});
             table1.AddRow(new string[] {
-                        "3",
-                        "Any Guy"});
-#line 34
+                        "HeightInInches",
+                        "72"});
+            table1.AddRow(new string[] {
+                        "BankAccountBalance",
+                        "1234.56"});
+#line 29
  testRunner.When("the a step contains a table:", ((string)(null)), table1, "When ");
-#line 39
+#line 35
  testRunner.Then("a report is generated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

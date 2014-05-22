@@ -73,6 +73,7 @@
     <Compile Include="EventArgs\ScenarioEventArgs.cs" />
     <Compile Include="EventArgs\StepEventArgs.cs" />
     <Compile Include="Markdown.cs" />
+    <Compile Include="Model\TableParam.cs" />
     <Compile Include="ReportingAspect\ReportingAttribute.cs" />
     <Compile Include="ReportingAspect\ReportingProperty.cs" />
     <Compile Include="EventArgs\ReportEventArgs.cs" />

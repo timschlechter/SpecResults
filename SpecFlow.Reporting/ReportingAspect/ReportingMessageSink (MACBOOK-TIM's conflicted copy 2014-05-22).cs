@@ -56,14 +56,11 @@ namespace SpecFlow.Reporting
 							var table = arg as TechTalk.SpecFlow.Table;
 							if (table != null)
 							{
-								step.Table = new TableParam
-								{
-									Columns = table.Header.ToList(),
-									Rows = table.Rows.Select(x => x.Keys.ToDictionary(
-										k => k,
-										k => x[k]
-									)).ToList()
-								};
+								//step.Table = new Table
+								//{
+								//	Header = table.Header.ToList(),
+								//	Rows = table.Rows.Select(x => x.Values.ToList()).ToList()
+								//};
 							}
 							else
 							{
@@ -110,20 +107,20 @@ namespace SpecFlow.Reporting
 			IMessage rtnMsg = next.SyncProcessMessage(msg);
 			IMethodReturnMessage mrm = (rtnMsg as IMethodReturnMessage);
 
-			var endtime = Reporters.CurrentRunTime;
+			var endtime = DateTime.Now;
 
 			TestResult testResult;
 			if (mrm.Exception is PendingStepException)
 			{
 				testResult = TestResult.Pending;
 			}
-			else if (mrm.Exception != null)
+			else if (ScenarioContext.Current.TestError == null)
 			{
-				testResult = TestResult.Error;				
+				testResult = TestResult.OK;
 			}
 			else
 			{
-				testResult = TestResult.OK;
+				testResult = TestResult.Error;
 			}
 
 			foreach (var reporter in Reporters.reporters)

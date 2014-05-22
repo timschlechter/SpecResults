@@ -74,17 +74,10 @@ namespace SpecFlow.Reporting.Tests
 			ScenarioContext.Current.Pending();
 		}
 
-		[When(@"a step throws an exception")]
-		public void WhenAStepThrowsAnException()
-		{
-			throw new Exception("Error!");
-		}
-
 		[When(@"the a step contains a table:")]
-		public void WhenTheAStepContainsATable(Table table)
+		public void WhenTheAStepContainsATable(TableParam table)
 		{
 		}
-
 
 	}
 }

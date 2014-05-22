@@ -18,11 +18,6 @@ Scenario: Step is not implemented
 	When a step is not implemented
 	Then a report is generated
 
-Scenario: Step throws an exception
-	Given a scenario is specified
-	When a step throws an exception
-	Then a report is generated
-
 Scenario: Step uses method-name style
 	Given a scenario is specified
 	When a step uses method-name style
@@ -32,8 +27,9 @@ Scenario: Step uses method-name style
 Scenario: Table param
 	Given a scenario is specified
 	When the a step contains a table:
-	| Id | Name      |
-	| 1  | John Doe  |
-	| 2  | Some Dude |
-	| 3  | Any Guy   |
+	| Field              | Value      |
+	| Name               | John Galt  |
+	| Birthdate          | 2/2/1902   |
+	| HeightInInches     | 72         |
+	| BankAccountBalance | 1234.56    |
 	Then a report is generated
