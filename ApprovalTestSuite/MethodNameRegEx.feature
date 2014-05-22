@@ -1,4 +1,4 @@
-﻿Feature: Generate reports
+﻿Feature: MethodNameRegEx
 	In order to get information about test results
 	As a developer
 	I want to generate reports
@@ -21,12 +21,6 @@ Scenario: Step is not implemented
 Scenario: Step throws an exception
 	Given a scenario is specified
 	When a step throws an exception
-	Then a report is generated
-
-Scenario: Step uses method-name style
-	Given a scenario is specified
-	When a step uses method-name style
-	When a step uses method-name style with two parameters
 	Then a report is generated
 
 Scenario: Table param

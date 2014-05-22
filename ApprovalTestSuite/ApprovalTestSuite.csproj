@@ -75,10 +75,15 @@
     <Compile Include="..\AssemblyInfo.Shared.cs">
       <Link>Properties\AssemblyInfo.Shared.cs</Link>
     </Compile>
-    <Compile Include="Reporting.feature.cs">
+    <Compile Include="MethodNameUnderscores.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Reporting.feature</DependentUpon>
+      <DependentUpon>MethodNameUnderscores.feature</DependentUpon>
+    </Compile>
+    <Compile Include="MethodNameRegEx.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MethodNameRegEx.feature</DependentUpon>
     </Compile>
     <Compile Include="Steps.ApprovalTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -86,10 +91,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
-    <None Include="Reporting.feature">
+    <None Include="MethodNameUnderscores.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>Reporting.feature.cs</LastGenOutput>
+      <LastGenOutput>MethodNameUnderscores.feature.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="MethodNameRegEx.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>MethodNameRegEx.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

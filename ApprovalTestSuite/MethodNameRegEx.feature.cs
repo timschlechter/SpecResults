@@ -19,20 +19,20 @@ namespace SpecFlow.Reporting.ApprovalTestSuite
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Generate reports")]
-    public partial class GenerateReportsFeature
+    [NUnit.Framework.DescriptionAttribute("MethodNameRegEx")]
+    public partial class MethodNameRegExFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "Reporting.feature"
+#line 1 "MethodNameRegEx.feature"
 #line hidden
         
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Generate reports", "In order to get information about test results\r\nAs a developer\r\nI want to generat" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "MethodNameRegEx", "In order to get information about test results\r\nAs a developer\r\nI want to generat" +
                     "e reports", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -134,32 +134,13 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Step uses method-name style")]
-        public virtual void StepUsesMethod_NameStyle()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Step uses method-name style", ((string[])(null)));
-#line 26
-this.ScenarioSetup(scenarioInfo);
-#line 27
- testRunner.Given("a scenario is specified", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 28
- testRunner.When("a step uses method-name style", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 29
- testRunner.When("a step uses method-name style with two parameters", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 30
- testRunner.Then("a report is generated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Table param")]
         public virtual void TableParam()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Table param", ((string[])(null)));
-#line 32
+#line 26
 this.ScenarioSetup(scenarioInfo);
-#line 33
+#line 27
  testRunner.Given("a scenario is specified", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -174,9 +155,9 @@ this.ScenarioSetup(scenarioInfo);
             table1.AddRow(new string[] {
                         "3",
                         "Any Guy"});
-#line 34
+#line 28
  testRunner.When("the a step contains a table:", ((string)(null)), table1, "When ");
-#line 39
+#line 33
  testRunner.Then("a report is generated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

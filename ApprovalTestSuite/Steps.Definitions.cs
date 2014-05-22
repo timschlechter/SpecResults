@@ -71,7 +71,6 @@ namespace SpecFlow.Reporting.Tests
 		[When]
 		public void When_a_step_uses_P0_with_P1_parameters(string p0, string p1)
 		{
-			ScenarioContext.Current.Pending();
 		}
 
 		[When(@"a step throws an exception")]
