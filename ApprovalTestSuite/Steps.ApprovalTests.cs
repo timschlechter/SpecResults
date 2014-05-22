@@ -25,7 +25,7 @@ namespace SpecFlow.Reporting.Tests
 
 			public ReportingApprovalNamer(Reporter reporter)
 			{
-				SourcePath = Path.Combine(@"..\\..\\approvals\\", reporter.Name);
+				SourcePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\\..\\approvals\\", reporter.Name);
 				Name = "";
 			}
 
@@ -90,11 +90,11 @@ namespace SpecFlow.Reporting.Tests
 				var filepath = Path.GetTempFileName();
 				reporter.WriteToFile(filepath);
 				Console.WriteLine("Verify " + filepath);
-
+				
 				ApprovalTests.Approvals.Verify(
 					new ApprovalStringWriter(File.ReadAllText(filepath)),
 					new ReportingApprovalNamer(reporter),
-					new BeyondCompareReporter()
+					new VisualStudioReporter()
 				);
 			};
 		}
