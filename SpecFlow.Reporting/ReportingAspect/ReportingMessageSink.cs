@@ -83,15 +83,31 @@ namespace SpecFlow.Reporting
 							var args = methodMessage.Args.ToArray();
 							for (int i = 0; i < args.Length; i++)
 							{
-								var name = methodInfo.GetParamName(i).ToUpper();
-								var value = args[i].ToString();
-								if (step.Title.Contains(name + " "))
+								var arg = args[i];
+								var table = arg as TechTalk.SpecFlow.Table;
+								if (table != null)
 								{
-									step.Title = step.Title.ReplaceFirst(name + " ", value + " ");
+									step.Table = new TableParam
+									{
+										Columns = table.Header.ToList(),
+										Rows = table.Rows.Select(x => x.Keys.ToDictionary(
+											k => k,
+											k => x[k]
+										)).ToList()
+									};
 								}
 								else
 								{
-									step.Title = step.Title.ReplaceFirst(" " + name, " " + value);
+									var name = methodInfo.GetParamName(i).ToUpper();
+									var value = arg.ToString();
+									if (step.Title.Contains(name + " "))
+									{
+										step.Title = step.Title.ReplaceFirst(name + " ", value + " ");
+									}
+									else
+									{
+										step.Title = step.Title.ReplaceFirst(" " + name, " " + value);
+									}
 								}
 							}
 						}

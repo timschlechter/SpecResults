@@ -156,7 +156,7 @@ this.ScenarioSetup(scenarioInfo);
                         "3",
                         "Any Guy"});
 #line 28
- testRunner.When("the a step contains a table:", ((string)(null)), table1, "When ");
+ testRunner.When("the a step contains a table and a \"second\" param:", ((string)(null)), table1, "When ");
 #line 33
  testRunner.Then("a report is generated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden

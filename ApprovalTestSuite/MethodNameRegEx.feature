@@ -25,7 +25,7 @@ Scenario: Step throws an exception
 
 Scenario: Table param
 	Given a scenario is specified
-	When the a step contains a table:
+	When the a step contains a table and a "second" param:
 	| Id | Name      |
 	| 1  | John Doe  |
 	| 2  | Some Dude |

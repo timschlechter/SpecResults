@@ -79,10 +79,18 @@ namespace SpecFlow.Reporting.Tests
 			throw new Exception("Error!");
 		}
 
-		[When(@"the a step contains a table:")]
-		public void WhenTheAStepContainsATable(Table table)
+		[When(@"the a step contains a table and a ""(.*)"" param:")]
+		public void WhenTheAStepContainsATableAndAParam(string p0, Table table)
 		{
 		}
+
+
+		[When]
+		public void When_a_step_uses_method_name_underscore_style_with_a_table_param_and_a_P0_param(string p0, Table table)
+		{
+		}
+
+
 
 
 	}

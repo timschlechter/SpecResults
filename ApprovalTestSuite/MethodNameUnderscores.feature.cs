@@ -82,6 +82,36 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Step uses method-name undescores style with table param")]
+        public virtual void StepUsesMethod_NameUndescoresStyleWithTableParam()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Step uses method-name undescores style with table param", ((string[])(null)));
+#line 9
+this.ScenarioSetup(scenarioInfo);
+#line 10
+ testRunner.Given("a scenario is specified", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Id",
+                        "Name"});
+            table1.AddRow(new string[] {
+                        "1",
+                        "John Doe"});
+            table1.AddRow(new string[] {
+                        "2",
+                        "Some Dude"});
+            table1.AddRow(new string[] {
+                        "3",
+                        "Any Guy"});
+#line 11
+ testRunner.When("a step uses method-name underscore style with a table param and a second param:", ((string)(null)), table1, "When ");
+#line 16
+ testRunner.Then("a report is generated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

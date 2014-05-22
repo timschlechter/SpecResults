@@ -225,7 +225,7 @@
                     }
                   ]
                 },
-                "title": "the a step contains a table:",
+                "title": "the a step contains a table and a \"second\" param:",
                 "start_time": "0001-01-01T00:00:00",
                 "end_time": "0001-01-01T00:00:00",
                 "result": "OK"
@@ -318,6 +318,75 @@
           "result": "OK",
           "tags": [],
           "title": "Step uses method-name undescores style",
+          "start_time": "0001-01-01T00:00:00",
+          "end_time": "0001-01-01T00:00:00"
+        },
+        {
+          "given": {
+            "result": "OK",
+            "steps": [
+              {
+                "steps": [],
+                "title": "a scenario is specified",
+                "start_time": "0001-01-01T00:00:00",
+                "end_time": "0001-01-01T00:00:00",
+                "result": "OK"
+              }
+            ],
+            "start_time": "0001-01-01T00:00:00",
+            "end_time": "0001-01-01T00:00:00"
+          },
+          "when": {
+            "result": "OK",
+            "steps": [
+              {
+                "steps": [],
+                "table": {
+                  "columns": [
+                    "Id",
+                    "Name"
+                  ],
+                  "rows": [
+                    {
+                      "Id": "1",
+                      "Name": "John Doe"
+                    },
+                    {
+                      "Id": "2",
+                      "Name": "Some Dude"
+                    },
+                    {
+                      "Id": "3",
+                      "Name": "Any Guy"
+                    }
+                  ]
+                },
+                "title": "a step uses method name underscore style with a table param and a second param",
+                "start_time": "0001-01-01T00:00:00",
+                "end_time": "0001-01-01T00:00:00",
+                "result": "OK"
+              }
+            ],
+            "start_time": "0001-01-01T00:00:00",
+            "end_time": "0001-01-01T00:00:00"
+          },
+          "then": {
+            "result": "OK",
+            "steps": [
+              {
+                "steps": [],
+                "title": "a report is generated",
+                "start_time": "0001-01-01T00:00:00",
+                "end_time": "0001-01-01T00:00:00",
+                "result": "OK"
+              }
+            ],
+            "start_time": "0001-01-01T00:00:00",
+            "end_time": "0001-01-01T00:00:00"
+          },
+          "result": "OK",
+          "tags": [],
+          "title": "Step uses method-name undescores style with table param",
           "start_time": "0001-01-01T00:00:00",
           "end_time": "0001-01-01T00:00:00"
         }
