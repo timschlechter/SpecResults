@@ -2,7 +2,7 @@ angular.module('app').run(['$templateCache', function($templateCache) {
   'use strict';
 
   $templateCache.put('directives/result-badge.tpl.html',
-    "<span class=\"label pull-right\" ng-class=\"{ 'label-success': result == 'OK', 'label-error': result == 'Error', 'label-warning': result == 'Pending', 'label-default': result == 'NotRun' }\">{{result}}</span>"
+    "<span class=\"label pull-right\" ng-class=\"{ 'label-success': result == 'OK', 'label-danger': result == 'Error', 'label-warning': result == 'Pending', 'label-default': result == 'NotRun' }\">{{result}}</span>"
   );
 
 
