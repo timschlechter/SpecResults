@@ -13,7 +13,8 @@
 #pragma warning disable
 namespace SpecFlow.Reporting.ApprovalTestSuite
 {
-    using TechTalk.SpecFlow;
+    using System;
+using TechTalk.SpecFlow;
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
@@ -100,7 +101,8 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Step is not implemented")]
+        [NUnit.Framework.DescriptionAttribute("Step is not implemented")]        
+        [NUnit.Framework.ExpectedException(typeof(PendingStepException))]
         public virtual void StepIsNotImplemented()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Step is not implemented", ((string[])(null)));
@@ -118,6 +120,7 @@ this.ScenarioSetup(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Step throws an exception")]
+        [NUnit.Framework.ExpectedException(typeof(Exception))]
         public virtual void StepThrowsAnException()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Step throws an exception", ((string[])(null)));
