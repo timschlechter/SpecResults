@@ -1,4 +1,4 @@
-# Generating better SpecFlow reports
+# Generating better SpecFlow reports [![Build status](https://ci.appveyor.com/api/projects/status/lbt1cx91ykobx1am)](https://ci.appveyor.com/project/TimSchlechter/specflow-reporting)
 
 [SpecFlow.Reporting](https://www.nuget.org/packages/SpecFlow.Reporting) was created to get better feedback from your automated [SpecFlow](http://www.specflow.org/) testsuite. With unit tests most times reporting is only interesting for developers and testers. But when practicing BDD, the output of your automated tests might be valuable for the whole development team, management and pherhaps even end-users.
 
