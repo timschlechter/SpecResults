@@ -94,7 +94,7 @@ namespace SpecFlow.Reporting.Tests
 				ApprovalTests.Approvals.Verify(
 					new ApprovalStringWriter(File.ReadAllText(filepath)),
 					new ReportingApprovalNamer(reporter),
-					new VisualStudioReporter()
+                    new NUnitReporter()
 				);
 			};
 		}
