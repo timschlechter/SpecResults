@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{CCC9EE
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlow.Reporting.UnitTests", "SpecFlow.Reporting.UnitTests\SpecFlow.Reporting.UnitTests.csproj", "{95C18142-2C66-4CA9-8F63-A9B7F65A1820}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Build Nuget Packages|Any CPU = Build Nuget Packages|Any CPU
@@ -33,6 +35,14 @@ Global
 		{EABA391E-6B65-4E5C-8842-3D71A5F97B4F}.NuGet|Any CPU.Build.0 = NuGet|Any CPU
 		{EABA391E-6B65-4E5C-8842-3D71A5F97B4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EABA391E-6B65-4E5C-8842-3D71A5F97B4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95C18142-2C66-4CA9-8F63-A9B7F65A1820}.Build Nuget Packages|Any CPU.ActiveCfg = Release|Any CPU
+		{95C18142-2C66-4CA9-8F63-A9B7F65A1820}.Build Nuget Packages|Any CPU.Build.0 = Release|Any CPU
+		{95C18142-2C66-4CA9-8F63-A9B7F65A1820}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95C18142-2C66-4CA9-8F63-A9B7F65A1820}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95C18142-2C66-4CA9-8F63-A9B7F65A1820}.NuGet|Any CPU.ActiveCfg = Release|Any CPU
+		{95C18142-2C66-4CA9-8F63-A9B7F65A1820}.NuGet|Any CPU.Build.0 = Release|Any CPU
+		{95C18142-2C66-4CA9-8F63-A9B7F65A1820}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95C18142-2C66-4CA9-8F63-A9B7F65A1820}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
