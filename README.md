@@ -12,17 +12,17 @@ SpecFlow.Reporting makes it easy to extend SpecFlow by creating reporters which 
 ## Usage
 
 Add one or more reporters to your SpecFlow project, for example:
-  -  [Json](https://www.nuget.org/packages/SpecFlow.Reporting.Json/): reports in json format ([example](https://github.com/TimSchlechter/SpecFlow.Reporting/blob/master/ApprovalTestSuite/approvals/SpecFlow.Reporting.Json.JsonReporter/approval.txt))
-  -  [Text](https://www.nuget.org/packages/SpecFlow.Reporting.Text/): reports in plain text format ([example](https://github.com/TimSchlechter/SpecFlow.Reporting/blob/master/ApprovalTestSuite/approvals/SpecFlow.Reporting.Text.PlainTextReporter/approval.txt))
-  -  [Xml](https://www.nuget.org/packages/SpecFlow.Reporting.Xml/): reports in xml format ([example](https://github.com/TimSchlechter/SpecFlow.Reporting/blob/master/ApprovalTestSuite/approvals/SpecFlow.Reporting.Xml.XmlReporter/approval.txt))
-  -  [WebApp](https://www.nuget.org/packages/SpecFlow.Reporting.WebApp/): writes an interactive, responsive, client-side web application, in which users can browse and search features, scenarios and steps ([example](http://specflowreporting.azurewebsites.net/))
+  -  [Json](https://www.nuget.org/packages/SpecFlow.Reporting.Json/): reports in json format [example](https://raw.githubusercontent.com/specflowreporting/SpecFlow.Reporting.Json/master/SpecFlow.Reporting.Json.ApprovalTests/approvals/SpecFlow.Reporting.Json.JsonReporter/approval.txt)
+  -  [Plain Text](https://www.nuget.org/packages/SpecFlow.Reporting.Text/): reports in plain text format [example](https://raw.githubusercontent.com/specflowreporting/SpecFlow.Reporting.PlainText/master/SpecFlow.Reporting.PlainText.ApprovalTests/approvals/SpecFlow.Reporting.Text.PlainTextReporter/approval.txt)
+  -  [Xml](https://www.nuget.org/packages/SpecFlow.Reporting.Xml/): reports in xml format [example](https://raw.githubusercontent.com/specflowreporting/SpecFlow.Reporting.Xml/master/SpecFlow.Reporting.Xml.ApprovalTests/approvals/SpecFlow.Reporting.Xml.XmlReporter/approval.txt)
+  -  [WebApp](https://www.nuget.org/packages/SpecFlow.Reporting.WebApp/): writes an interactive, responsive, client-side web application, in which users can browse and search features, scenarios and steps [example](http://specflowreporting.azurewebsites.net/)
 
 Work in progress:
   -  [Xml.NUnit](https://www.nuget.org/packages/SpecFlow.Reporting.Xml.NUnit/): less technical reporting in NUnit's xml output format
    
-Make your existing [StepDefinitions class](https://github.com/techtalk/SpecFlow/wiki/Step-Definitions) inherit from [SpecFlow.Reporting.ReportingStepDefinitions](https://github.com/TimSchlechter/SpecFlow.Reporting/blob/master/SpecFlow.Reporting/ReportingStepDefinitions.cs)__
+Make your existing [StepDefinitions class](https://github.com/techtalk/SpecFlow/wiki/Step-Definitions) inherit from [SpecFlow.Reporting.ReportingStepDefinitions](https://github.com/specflowreporting/SpecFlow.Reporting/blob/master/SpecFlow.Reporting/ReportingStepDefinitions.cs)
 
-Initialize and add the reporter(s) in [BeforeTestRun] and register on one of the [events](https://github.com/TimSchlechter/SpecFlow.Reporting/blob/master/SpecFlow.Reporting/Reporters.Events.cs) to get notified when something gets reported:
+Initialize and add the reporter(s) in [BeforeTestRun] and register on one of the [events](https://github.com/specflowreporting/SpecFlow.Reporting/blob/master/SpecFlow.Reporting/Reporters.Events.cs) to get notified when something gets reported:
 
 <pre>
 [Binding]
@@ -33,26 +33,9 @@ public class StepDefinitions : ReportingStepDefinitions
 	{
 		Reporters.Add(new JsonReporter());
 
-		Reporters.StartedReport += (sender, args) => {
-			args.Report.UserData = new {
-				SomeKey: "some value"
-			};
-		};
-
-		Reporters.FinishedStep += (sender, args) => {
-			args.Step.UserData = new {
-				SomeKey: "some value"
-			};
-		};
-
 		Reporters.FinishedReport += (sender, args) => {
 			Console.WriteLine(args.Reporter.WriteToString());
 		};
-	}
-
-	[Given(@"some example")]
-	public void GivenSomeExample()
-	{
 	}
 }	
 </pre>
@@ -61,7 +44,7 @@ public class StepDefinitions : ReportingStepDefinitions
 
 Create a new project and add the [SpecFlow.Reporting package](https://www.nuget.org/packages/SpecFlow.Reporting)
 
-Add a class which inherits from [SpecFlow.Reporting.Reporter](https://github.com/TimSchlechter/SpecFlow.Reporting/blob/master/SpecFlow.Reporting/Reporter.cs) and implement the WriteToStream method:
+Add a class which inherits from [SpecFlow.Reporting.Reporter](https://github.com/specflowreporting/SpecFlow.Reporting/blob/master/SpecFlow.Reporting/Reporter.cs) and implement the WriteToStream method:
 
 <pre>
 namespace SpecFlow.Reporting.MyFormat
