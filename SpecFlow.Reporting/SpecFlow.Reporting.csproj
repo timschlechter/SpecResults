@@ -67,9 +67,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\AssemblyInfo.Shared.cs">
-      <Link>Properties\AssemblyInfo.Shared.cs</Link>
-    </Compile>
     <Compile Include="EventArgs\FeatureEventArgs.cs" />
     <Compile Include="EventArgs\ScenarioBlockEventArgs.cs" />
     <Compile Include="EventArgs\ScenarioEventArgs.cs" />
@@ -97,7 +94,9 @@
     <Compile Include="ReportingStepDefinitions.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App.config.transform" />
     <None Include="packages.config" />
+    <None Include="SpecFlow.Reporting.nuspec" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
