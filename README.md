@@ -20,18 +20,6 @@ Add one or more reporters to your SpecFlow project, for example:
 Work in progress:
   -  [Xml.NUnit](https://www.nuget.org/packages/SpecFlow.Reporting.Xml.NUnit/): less technical reporting in NUnit's xml output format
    
-Register the reporter in the stepflow section in your app.config:
-
-<pre>
-&lt;specFlow&gt;
-	&lt;stepAssemblies&gt;
-		&lt;stepAssembly assembly="SpecFlow.Reporting" /&gt;
-	&lt;/stepAssemblies&gt;
-&lt;/specFlow&gt;
-</pre>
-
-<em>Remark: in the near future, this step will be performed automatically when installing the NuGet package</em>
-
 Make your existing [StepDefinitions class](https://github.com/techtalk/SpecFlow/wiki/Step-Definitions) inherit from [SpecFlow.Reporting.ReportingStepDefinitions](https://github.com/TimSchlechter/SpecFlow.Reporting/blob/master/SpecFlow.Reporting/ReportingStepDefinitions.cs)__
 
 Initialize and add the reporter(s) in [BeforeTestRun] and register on one of the [events](https://github.com/TimSchlechter/SpecFlow.Reporting/blob/master/SpecFlow.Reporting/Reporters.Events.cs) to get notified when something gets reported:
