@@ -4,7 +4,12 @@ namespace SpecFlow.Reporting
 {
 	public class Feature : TaggedReportItem
 	{
-		public string Description { get; set; }
+		public string _description { get; set; }
+		public string Description
+		{
+			get { return _description; }
+			set { _description = string.IsNullOrEmpty(value) ? value : value.Replace("\r", ""); }
+		}
 
 		public string DescriptionHtml { get { return Markdown.ToHtml(Description); } }
 

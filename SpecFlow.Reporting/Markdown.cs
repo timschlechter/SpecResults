@@ -21,6 +21,7 @@
 
 			foreach (var tag in blockLevelTags)
 			{
+                result = result.Replace("<" + tag + "><br />", "<" + tag + ">");
 				result = result.Replace("</" + tag + "><br />", "</" + tag + ">");
 			}
 
