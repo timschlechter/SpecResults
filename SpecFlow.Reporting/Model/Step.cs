@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 
 namespace SpecFlow.Reporting
 {
@@ -14,6 +15,7 @@ namespace SpecFlow.Reporting
 
 		public TableParam Table { get; set; }
 
+        [XmlIgnore]
         public Exception Exception { get; set; }
 	}
 }
