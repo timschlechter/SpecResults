@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace SpecFlow.Reporting
 {
@@ -12,5 +13,7 @@ namespace SpecFlow.Reporting
 		public List<Step> Steps { get; set; }
 
 		public TableParam Table { get; set; }
+
+        public Exception Exception { get; set; }
 	}
 }

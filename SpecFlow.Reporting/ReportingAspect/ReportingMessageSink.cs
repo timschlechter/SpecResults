@@ -135,7 +135,7 @@ namespace SpecFlow.Reporting
 			}
 			else if (mrm.Exception != null)
 			{
-				testResult = TestResult.Error;				
+				testResult = TestResult.Error;			
 			}
 			else
 			{
@@ -146,6 +146,7 @@ namespace SpecFlow.Reporting
 			{
 				reporter.CurrentStep.EndTime = endtime;
 				reporter.CurrentStep.Result = testResult;
+                reporter.CurrentStep.Exception = mrm.Exception;
 				Reporters.OnFinishedStep(reporter);
 			}
 
