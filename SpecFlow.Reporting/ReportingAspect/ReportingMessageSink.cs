@@ -146,7 +146,10 @@ namespace SpecFlow.Reporting
 			{
 				reporter.CurrentStep.EndTime = endtime;
 				reporter.CurrentStep.Result = testResult;
-                reporter.CurrentStep.Exception = mrm.Exception;
+                if (mrm.Exception != null)
+                {
+                    reporter.CurrentStep.Exception = new SerializableException(mrm.Exception);
+                }
 				Reporters.OnFinishedStep(reporter);
 			}
 
