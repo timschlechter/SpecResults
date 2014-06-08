@@ -4,11 +4,7 @@
 	{
 		public static string ToHtml(string markdown)
 		{
-			var md = new MarkdownDeep.Markdown();
-
-			md.ExtraMode = true;
-			md.SafeMode = false;
-			md.NewWindowForExternalLinks = true;
+            var md = new MarkdownSharp.Markdown();
 
 			var result = md.Transform(markdown);
 
