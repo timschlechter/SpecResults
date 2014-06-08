@@ -22,7 +22,6 @@ namespace SpecFlow.Reporting
             Message = ex.Message;
             Source = ex.Source;
             StackTrace = ex.StackTrace;
-            TargetSite = ex.TargetSite;
         }
 
         public string ExceptionType { get; set; }
@@ -36,7 +35,5 @@ namespace SpecFlow.Reporting
         public string Source { get; set; }
 
         public string StackTrace { get; set; }
-
-        public MethodBase TargetSite { get; set; }
     }
 }
