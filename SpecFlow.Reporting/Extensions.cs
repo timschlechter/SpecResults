@@ -70,14 +70,14 @@ namespace SpecFlow.Reporting
 			return retVal;
 		}
 
-        internal static Exception ToSerializable(this Exception ex)
+        internal static ExceptionInfo ToExceptionInfo(this Exception ex)
         {
             if (ex == null)
             {
                 return null;
             }
 
-            return new SerializableException(ex);
+            return new ExceptionInfo(ex);
         }
 	}
 }

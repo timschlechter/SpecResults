@@ -15,6 +15,6 @@ namespace SpecFlow.Reporting
 
 		public TableParam Table { get; set; }
 
-        public Exception Exception { get; set; }
+        public ExceptionInfo Exception { get; set; }
 	}
 }
