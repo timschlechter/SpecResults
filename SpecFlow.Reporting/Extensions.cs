@@ -69,5 +69,15 @@ namespace SpecFlow.Reporting
 
 			return retVal;
 		}
+
+        internal static Exception ToSerializable(this Exception ex)
+        {
+            if (ex == null)
+            {
+                return null;
+            }
+
+            return new SerializableException(ex);
+        }
 	}
 }
