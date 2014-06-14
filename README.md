@@ -12,9 +12,9 @@ SpecFlow.Reporting makes it easy to extend SpecFlow by creating reporters which 
 ## Usage
 
 Add one or more reporters to your SpecFlow project, for example:
-  -  [Json](https://www.nuget.org/packages/SpecFlow.Reporting.Json/): reports in json format [example](https://raw.githubusercontent.com/specflowreporting/SpecFlow.Reporting/master/SpecFlow.Reporting.ApprovalTests/approvals/SpecFlow.Reporting.Json.JsonReporter/approval.txt)
-  -  [Plain Text](https://www.nuget.org/packages/SpecFlow.Reporting.Text/): reports in plain text format [example](https://raw.githubusercontent.com/specflowreporting/SpecFlow.Reporting/master/SpecFlow.Reporting.ApprovalTests/approvals/SpecFlow.Reporting.Text.PlainTextReporter/approval.txt)
-  -  [Xml](https://www.nuget.org/packages/SpecFlow.Reporting.Xml/): reports in xml format [example](https://raw.githubusercontent.com/specflowreporting/SpecFlow.Reporting.Xml/master/SpecFlow.Reporting.ApprovalTests/approvals/SpecFlow.Reporting.Xml.XmlReporter/approval.txt)
+  -  [Json](https://www.nuget.org/packages/SpecFlow.Reporting.Json/): reports in json format [example](https://raw.githubusercontent.com/specflowreporting/SpecFlow.Reporting/master/SpecFlow.Reporting.ApprovalTestSuite/approvals/SpecFlow.Reporting.Json.JsonReporter/approval.txt)
+  -  [Plain Text](https://www.nuget.org/packages/SpecFlow.Reporting.Text/): reports in plain text format [example](https://raw.githubusercontent.com/specflowreporting/SpecFlow.Reporting/master/SpecFlow.Reporting.ApprovalTestSuite/approvals/SpecFlow.Reporting.Text.PlainTextReporter/approval.txt)
+  -  [Xml](https://www.nuget.org/packages/SpecFlow.Reporting.Xml/): reports in xml format [example](https://raw.githubusercontent.com/specflowreporting/SpecFlow.Reporting/master/SpecFlow.Reporting.ApprovalTestSuite/approvals/SpecFlow.Reporting.Xml.XmlReporter/approval.txt)
   -  [WebApp](https://www.nuget.org/packages/SpecFlow.Reporting.WebApp/): writes an interactive, responsive, client-side web application, in which users can browse and search features, scenarios and steps [example](http://specflowreporting.azurewebsites.net/)
 
 Work in progress:
