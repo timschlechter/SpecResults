@@ -12,9 +12,9 @@ SpecFlow.Reporting makes it easy to extend SpecFlow by creating reporters which 
 ## Usage
 
 Add one or more reporters to your SpecFlow project, for example:
-  -  [Json](https://www.nuget.org/packages/SpecFlow.Reporting.Json/): reports in json format [example](https://raw.githubusercontent.com/specflowreporting/SpecFlow.Reporting.Json/master/SpecFlow.Reporting.Json.ApprovalTests/approvals/SpecFlow.Reporting.Json.JsonReporter/approval.txt)
-  -  [Plain Text](https://www.nuget.org/packages/SpecFlow.Reporting.Text/): reports in plain text format [example](https://raw.githubusercontent.com/specflowreporting/SpecFlow.Reporting.PlainText/master/SpecFlow.Reporting.PlainText.ApprovalTests/approvals/SpecFlow.Reporting.Text.PlainTextReporter/approval.txt)
-  -  [Xml](https://www.nuget.org/packages/SpecFlow.Reporting.Xml/): reports in xml format [example](https://raw.githubusercontent.com/specflowreporting/SpecFlow.Reporting.Xml/master/SpecFlow.Reporting.Xml.ApprovalTests/approvals/SpecFlow.Reporting.Xml.XmlReporter/approval.txt)
+  -  [Json](https://www.nuget.org/packages/SpecFlow.Reporting.Json/): reports in json format [example](https://raw.githubusercontent.com/specflowreporting/SpecFlow.Reporting/master/SpecFlow.Reporting.ApprovalTests/approvals/SpecFlow.Reporting.Json.JsonReporter/approval.txt)
+  -  [Plain Text](https://www.nuget.org/packages/SpecFlow.Reporting.Text/): reports in plain text format [example](https://raw.githubusercontent.com/specflowreporting/SpecFlow.Reporting/master/SpecFlow.Reporting.ApprovalTests/approvals/SpecFlow.Reporting.Text.PlainTextReporter/approval.txt)
+  -  [Xml](https://www.nuget.org/packages/SpecFlow.Reporting.Xml/): reports in xml format [example](https://raw.githubusercontent.com/specflowreporting/SpecFlow.Reporting.Xml/master/SpecFlow.Reporting.ApprovalTests/approvals/SpecFlow.Reporting.Xml.XmlReporter/approval.txt)
   -  [WebApp](https://www.nuget.org/packages/SpecFlow.Reporting.WebApp/): writes an interactive, responsive, client-side web application, in which users can browse and search features, scenarios and steps [example](http://specflowreporting.azurewebsites.net/)
 
 Work in progress:
@@ -32,6 +32,8 @@ public class StepDefinitions : ReportingStepDefinitions
 	public static void BeforeTestRun()
 	{
 		Reporters.Add(new JsonReporter());
+		Reporters.Add(new XmlReporter());
+		Reporters.Add(new PlainTextReporter());
 
 		Reporters.FinishedReport += (sender, args) => {
 			Console.WriteLine(args.Reporter.WriteToString());
