@@ -33,7 +33,7 @@ namespace SpecFlow.Reporting
 
 			var starttime = Reporters.CurrentRunTime;
 
-			foreach (var reporter in Reporters.reporters)
+			foreach (var reporter in Reporters.GetAll())
 			{
 				var step = new Step
 				{
@@ -142,7 +142,7 @@ namespace SpecFlow.Reporting
 				testResult = TestResult.OK;
 			}
 
-			foreach (var reporter in Reporters.reporters)
+			foreach (var reporter in Reporters.GetAll())
 			{
 				reporter.CurrentStep.EndTime = endtime;
 				reporter.CurrentStep.Result = testResult;                

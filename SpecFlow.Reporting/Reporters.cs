@@ -4,40 +4,45 @@ using TechTalk.SpecFlow;
 
 namespace SpecFlow.Reporting
 {
-	[Binding]
-	public partial class Reporters
-	{
-		public static Reporter Add(Reporter reporter)
-		{
-			reporters.Add(reporter);
-			return reporter;
-		}
+    [Binding]
+    public static partial class Reporters
+    {
+        private static List<Reporter> reporters = new List<Reporter>();        
 
-		internal static List<Reporter> reporters = new List<Reporter>();
+        /// <summary>
+        /// Set fixed start and end times. Usefull for automated tests.
+        /// </summary>
+        public static DateTime? FixedRunTime
+        {
+            get;
+            set;
+        }
 
-		private static bool testrunIsFirstFeature;
+        /// <summary>
+        /// Returns the current date/time which is used during the test run. It can set to a fixed
+        /// datetime by <see cref="FixedRunTime" />
+        /// </summary>
+        internal static DateTime CurrentRunTime
+        {
+            get
+            {
+                if (FixedRunTime.HasValue)
+                {
+                    return FixedRunTime.Value;
+                }
+                return DateTime.Now;
+            }
+        }
 
-		private static DateTime testrunStarttime;
+        public static Reporter Add(Reporter reporter)
+        {
+            reporters.Add(reporter);
+            return reporter;
+        }
 
-		/// <summary>
-		/// Set fixed start and end times. Usefull for automated tests.
-		/// </summary>
-		public static DateTime? FixedRunTime
-		{
-			get;
-			set;
-		}
-
-		internal static DateTime CurrentRunTime
-		{
-			get
-			{
-				if (FixedRunTime.HasValue)
-				{
-					return FixedRunTime.Value;
-				}
-				return DateTime.Now;
-			}
-		}
-	}
+        public static IEnumerable<Reporter> GetAll()
+        {
+            return reporters;
+        }
+    }
 }

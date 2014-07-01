@@ -2,7 +2,7 @@
 
 namespace SpecFlow.Reporting
 {
-	public partial class Reporters
+	public static partial class Reporters
 	{
 		#region Events
 

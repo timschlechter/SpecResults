@@ -1,151 +1,155 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using TechTalk.SpecFlow;
 
 namespace SpecFlow.Reporting
 {
-	public static partial class Reporters
-	{
-		[BeforeTestRun]
-		internal static void BeforeTestRun()
-		{
-			testrunIsFirstFeature = true;
-			testrunStarttime = CurrentRunTime;
-		}
+    public static partial class Reporters
+    {
+        private static bool testrunIsFirstFeature;
 
-		[BeforeFeature]
-		internal static void BeforeFeature()
-		{
-			var starttime = CurrentRunTime;
+        private static DateTime testrunStarttime;
 
-			// Init reports when the first feature runs. This is intentionally
-			// not done in BeforeTestRun(), to make sure other
-			// [BeforeTestRun] annotated methods can perform initialization
-			// before the reports are created.
-			if (testrunIsFirstFeature)
-			{
-				foreach (var reporter in reporters)
-				{
-					reporter.Report = new Report
-					{
-						Features = new List<Feature>(),
-						Generator = reporter.Name,
-						StartTime = starttime
-					};
+        [AfterFeature]
+        internal static void AfterFeature()
+        {
+            foreach (var reporter in reporters)
+            {
+                var feature = reporter.CurrentFeature;
+                feature.EndTime = CurrentRunTime;
+                OnFinishedFeature(reporter);
+                reporter.CurrentFeature = null;
+            }
+        }
 
-					OnStartedReport(reporter);
-				}
+        [AfterScenario]
+        internal static void AfterScenario()
+        {
+            foreach (var reporter in reporters.ToArray())
+            {
+                var scenario = reporter.CurrentScenario;
+                scenario.EndTime = CurrentRunTime;
+                OnFinishedScenario(reporter);
+                reporter.CurrentScenario = null;
+            }
+        }
 
-				testrunIsFirstFeature = false;
-			}
+        [AfterScenarioBlock]
+        internal static void AfterScenarioBlock()
+        {
+            var endtime = CurrentRunTime;
+            foreach (var reporter in reporters)
+            {
+                var scenarioblock = reporter.CurrentScenarioBlock;
+                scenarioblock.EndTime = endtime;
+                OnFinishedScenarioBlock(reporter);
+                reporter.CurrentScenarioBlock = null;
+            }
+        }
 
-			foreach (var reporter in reporters)
-			{
-				var feature = new Feature
-				{
-					Tags = new List<string>(FeatureContext.Current.FeatureInfo.Tags),
-					Scenarios = new List<Scenario>(),
-					StartTime = starttime,
-					Title = FeatureContext.Current.FeatureInfo.Title,
-					Description = FeatureContext.Current.FeatureInfo.Description
-				};
+        [AfterTestRun]
+        internal static void AfterTestRun()
+        {
+            foreach (var reporter in reporters)
+            {
+                reporter.Report.EndTime = CurrentRunTime;
+                OnFinishedReport(reporter);
+            }
+        }
 
-				reporter.Report.Features.Add(feature);
-				reporter.CurrentFeature = feature;
+        [BeforeFeature]
+        internal static void BeforeFeature()
+        {
+            var starttime = CurrentRunTime;
 
-				OnStartedFeature(reporter);
-			}
-		}
+            // Init reports when the first feature runs. This is intentionally not done in
+            // BeforeTestRun(), to make sure other [BeforeTestRun] annotated methods can perform
+            // initialization before the reports are created.
+            if (testrunIsFirstFeature)
+            {
+                foreach (var reporter in reporters)
+                {
+                    reporter.Report = new Report
+                    {
+                        Features = new List<Feature>(),
+                        Generator = reporter.Name,
+                        StartTime = starttime
+                    };
 
-		[BeforeScenario]
-		internal static void BeforeScenario()
-		{
-			var starttime = CurrentRunTime;
+                    OnStartedReport(reporter);
+                }
 
-			foreach (var reporter in reporters)
-			{
-				var scenario = new Scenario
-				{
-					Tags = new List<string>(ScenarioContext.Current.ScenarioInfo.Tags),
-					Given = new ScenarioBlock { Steps = new List<Step>() },
-					When = new ScenarioBlock { Steps = new List<Step>() },
-					Then = new ScenarioBlock { Steps = new List<Step>() },
-					StartTime = starttime,
-					Title = ScenarioContext.Current.ScenarioInfo.Title
-				};
+                testrunIsFirstFeature = false;
+            }
 
-				reporter.CurrentFeature.Scenarios.Add(scenario);
-				reporter.CurrentScenario = scenario;
+            foreach (var reporter in reporters)
+            {
+                var feature = new Feature
+                {
+                    Tags = new List<string>(FeatureContext.Current.FeatureInfo.Tags),
+                    Scenarios = new List<Scenario>(),
+                    StartTime = starttime,
+                    Title = FeatureContext.Current.FeatureInfo.Title,
+                    Description = FeatureContext.Current.FeatureInfo.Description
+                };
 
-				OnStartedScenario(reporter);
-			}
-		}
+                reporter.Report.Features.Add(feature);
+                reporter.CurrentFeature = feature;
 
-		[BeforeScenarioBlock]
-		internal static void BeforeScenarioBlock()
-		{
-			var starttime = CurrentRunTime;
+                OnStartedFeature(reporter);
+            }
+        }
 
-			foreach (var reporter in reporters)
-			{
-				switch (ScenarioContext.Current.CurrentScenarioBlock)
-				{
-					case TechTalk.SpecFlow.ScenarioBlock.Given: reporter.CurrentScenarioBlock = reporter.CurrentScenario.Given; break;
-					case TechTalk.SpecFlow.ScenarioBlock.Then: reporter.CurrentScenarioBlock = reporter.CurrentScenario.Then; break;
-					case TechTalk.SpecFlow.ScenarioBlock.When: reporter.CurrentScenarioBlock = reporter.CurrentScenario.When; break;
-					default:
-						break;
-				}
+        [BeforeScenario]
+        internal static void BeforeScenario()
+        {
+            var starttime = CurrentRunTime;
 
-				reporter.CurrentScenarioBlock.StartTime = starttime;
-				OnStartedScenarioBlock(reporter);
-			}
-		}
+            foreach (var reporter in reporters)
+            {
+                var scenario = new Scenario
+                {
+                    Tags = new List<string>(ScenarioContext.Current.ScenarioInfo.Tags),
+                    Given = new ScenarioBlock { Steps = new List<Step>() },
+                    When = new ScenarioBlock { Steps = new List<Step>() },
+                    Then = new ScenarioBlock { Steps = new List<Step>() },
+                    StartTime = starttime,
+                    Title = ScenarioContext.Current.ScenarioInfo.Title
+                };
 
-		[AfterScenarioBlock]
-		internal static void AfterScenarioBlock()
-		{
-			var endtime = CurrentRunTime;
-			foreach (var reporter in reporters)
-			{
-				var scenarioblock = reporter.CurrentScenarioBlock;
-				scenarioblock.EndTime = endtime;
-				OnFinishedScenarioBlock(reporter);
-				reporter.CurrentScenarioBlock = null;
-			}
-		}
+                reporter.CurrentFeature.Scenarios.Add(scenario);
+                reporter.CurrentScenario = scenario;
 
-		[AfterScenario]
-		internal static void AfterScenario()
-		{
-			foreach (var reporter in reporters.ToArray())
-			{
-				var scenario = reporter.CurrentScenario;
-				scenario.EndTime = CurrentRunTime;
-				OnFinishedScenario(reporter);
-				reporter.CurrentScenario = null;
-			}
-		}
+                OnStartedScenario(reporter);
+            }
+        }
 
-		[AfterFeature]
-		internal static void AfterFeature()
-		{
-			foreach (var reporter in reporters)
-			{
-				var feature = reporter.CurrentFeature;
-				feature.EndTime = CurrentRunTime;
-				OnFinishedFeature(reporter);
-				reporter.CurrentFeature = null;
-			}
-		}
+        [BeforeScenarioBlock]
+        internal static void BeforeScenarioBlock()
+        {
+            var starttime = CurrentRunTime;
 
-		[AfterTestRun]
-		internal static void AfterTestRun()
-		{
-			foreach (var reporter in reporters)
-			{
-				reporter.Report.EndTime = CurrentRunTime;
-				OnFinishedReport(reporter);
-			}
-		}
-	}
+            foreach (var reporter in reporters)
+            {
+                switch (ScenarioContext.Current.CurrentScenarioBlock)
+                {
+                    case TechTalk.SpecFlow.ScenarioBlock.Given: reporter.CurrentScenarioBlock = reporter.CurrentScenario.Given; break;
+                    case TechTalk.SpecFlow.ScenarioBlock.Then: reporter.CurrentScenarioBlock = reporter.CurrentScenario.Then; break;
+                    case TechTalk.SpecFlow.ScenarioBlock.When: reporter.CurrentScenarioBlock = reporter.CurrentScenario.When; break;
+                    default:
+                        break;
+                }
+
+                reporter.CurrentScenarioBlock.StartTime = starttime;
+                OnStartedScenarioBlock(reporter);
+            }
+        }
+
+        [BeforeTestRun]
+        internal static void BeforeTestRun()
+        {
+            testrunIsFirstFeature = true;
+            testrunStarttime = CurrentRunTime;
+        }
+    }
 }
