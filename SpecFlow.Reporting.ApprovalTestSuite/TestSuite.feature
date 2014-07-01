@@ -48,3 +48,9 @@ Scenario: Step uses method-name undescores style with table param
 	| 2  | Some Dude |
 	| 3  | Any Guy   |
 	Then a report is generated
+
+Scenario: Nested step
+	Given a scenario is specified
+	When a child step was executed
+	Then a report is generated
+

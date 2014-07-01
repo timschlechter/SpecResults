@@ -85,5 +85,11 @@ namespace SpecFlow.Reporting.Tests
         public void When_a_step_uses_method_name_underscore_style_with_a_table_param_and_a_P0_param(string p0, Table table)
         {
         }
+
+        [When(@"a child step was executed")]
+        public void WhenAChildStepWasExecuted()
+        {
+            ReportStep(WhenTheTestsRun);
+        }
     }
 }

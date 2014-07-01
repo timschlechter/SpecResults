@@ -18,6 +18,63 @@ As a developer
 I want to run a predefined test suite</Description>
       <Scenarios>
         <Scenario>
+          <Title>Nested step</Title>
+          <StartTime>0001-01-01T00:00:00</StartTime>
+          <EndTime>0001-01-01T00:00:00</EndTime>
+          <Result>OK</Result>
+          <Tags />
+          <Given>
+            <StartTime>0001-01-01T00:00:00</StartTime>
+            <EndTime>0001-01-01T00:00:00</EndTime>
+            <Result>OK</Result>
+            <Steps>
+              <Step>
+                <Title>a scenario is specified</Title>
+                <StartTime>0001-01-01T00:00:00</StartTime>
+                <EndTime>0001-01-01T00:00:00</EndTime>
+                <Result>OK</Result>
+                <Steps />
+              </Step>
+            </Steps>
+          </Given>
+          <When>
+            <StartTime>0001-01-01T00:00:00</StartTime>
+            <EndTime>0001-01-01T00:00:00</EndTime>
+            <Result>OK</Result>
+            <Steps>
+              <Step>
+                <Title>a child step was executed</Title>
+                <StartTime>0001-01-01T00:00:00</StartTime>
+                <EndTime>0001-01-01T00:00:00</EndTime>
+                <Result>OK</Result>
+                <Steps>
+                  <Step>
+                    <Title>the tests run</Title>
+                    <StartTime>0001-01-01T00:00:00</StartTime>
+                    <EndTime>0001-01-01T00:00:00</EndTime>
+                    <Result>OK</Result>
+                    <Steps />
+                  </Step>
+                </Steps>
+              </Step>
+            </Steps>
+          </When>
+          <Then>
+            <StartTime>0001-01-01T00:00:00</StartTime>
+            <EndTime>0001-01-01T00:00:00</EndTime>
+            <Result>OK</Result>
+            <Steps>
+              <Step>
+                <Title>a report is generated</Title>
+                <StartTime>0001-01-01T00:00:00</StartTime>
+                <EndTime>0001-01-01T00:00:00</EndTime>
+                <Result>OK</Result>
+                <Steps />
+              </Step>
+            </Steps>
+          </Then>
+        </Scenario>
+        <Scenario>
           <Title>Single scenario</Title>
           <StartTime>0001-01-01T00:00:00</StartTime>
           <EndTime>0001-01-01T00:00:00</EndTime>
@@ -102,7 +159,7 @@ I want to run a predefined test suite</Description>
                 <Exception>
                   <ExceptionType>TechTalk.SpecFlow.PendingStepException</ExceptionType>
                   <Message>One or more step definitions are not implemented yet.</Message>
-                  <Source>TechTalk.SpecFlow</Source>
+                  <Source>SpecFlow.Reporting</Source>
                   <StackTrace>&lt;removed to make tests deterministic&gt;</StackTrace>
                 </Exception>
               </Step>
@@ -198,7 +255,7 @@ I want to run a predefined test suite</Description>
                 <Exception>
                   <ExceptionType>System.Exception</ExceptionType>
                   <Message>Error!</Message>
-                  <Source>SpecFlow.Reporting.ApprovalTestSuite</Source>
+                  <Source>SpecFlow.Reporting</Source>
                   <StackTrace>&lt;removed to make tests deterministic&gt;</StackTrace>
                 </Exception>
               </Step>

@@ -24,6 +24,63 @@
             "result": "OK",
             "steps": [
               {
+                "steps": [
+                  {
+                    "steps": [],
+                    "title": "the tests run",
+                    "start_time": "0001-01-01T00:00:00",
+                    "end_time": "0001-01-01T00:00:00",
+                    "result": "OK"
+                  }
+                ],
+                "title": "a child step was executed",
+                "start_time": "0001-01-01T00:00:00",
+                "end_time": "0001-01-01T00:00:00",
+                "result": "OK"
+              }
+            ],
+            "start_time": "0001-01-01T00:00:00",
+            "end_time": "0001-01-01T00:00:00"
+          },
+          "then": {
+            "result": "OK",
+            "steps": [
+              {
+                "steps": [],
+                "title": "a report is generated",
+                "start_time": "0001-01-01T00:00:00",
+                "end_time": "0001-01-01T00:00:00",
+                "result": "OK"
+              }
+            ],
+            "start_time": "0001-01-01T00:00:00",
+            "end_time": "0001-01-01T00:00:00"
+          },
+          "result": "OK",
+          "tags": [],
+          "title": "Nested step",
+          "start_time": "0001-01-01T00:00:00",
+          "end_time": "0001-01-01T00:00:00"
+        },
+        {
+          "given": {
+            "result": "OK",
+            "steps": [
+              {
+                "steps": [],
+                "title": "a scenario is specified",
+                "start_time": "0001-01-01T00:00:00",
+                "end_time": "0001-01-01T00:00:00",
+                "result": "OK"
+              }
+            ],
+            "start_time": "0001-01-01T00:00:00",
+            "end_time": "0001-01-01T00:00:00"
+          },
+          "when": {
+            "result": "OK",
+            "steps": [
+              {
                 "steps": [],
                 "title": "the tests run",
                 "start_time": "0001-01-01T00:00:00",
@@ -79,7 +136,7 @@
                 "exception": {
                   "exception_type": "TechTalk.SpecFlow.PendingStepException",
                   "message": "One or more step definitions are not implemented yet.",
-                  "source": "TechTalk.SpecFlow",
+                  "source": "SpecFlow.Reporting",
                   "stack_trace": "<removed to make tests deterministic>"
                 },
                 "title": "a step is not implemented",
@@ -175,7 +232,7 @@
                 "exception": {
                   "exception_type": "System.Exception",
                   "message": "Error!",
-                  "source": "SpecFlow.Reporting.ApprovalTestSuite",
+                  "source": "SpecFlow.Reporting",
                   "stack_trace": "<removed to make tests deterministic>"
                 },
                 "title": "a step throws an exception",

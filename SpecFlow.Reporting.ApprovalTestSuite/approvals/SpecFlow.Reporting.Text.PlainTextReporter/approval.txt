@@ -3,6 +3,12 @@
     As a developer
     I want to run a predefined test suite
 
+Scenario: Nested step [OK] in 0ms
+    Given a scenario is specified [OK] in 0ms
+    When a child step was executed [OK] in 0ms
+        When the tests run [OK] in 0ms
+    Then a report is generated [OK] in 0ms
+
 Scenario: Single scenario [OK] in 0ms
     Given a scenario is specified [OK] in 0ms
     When the tests run [OK] in 0ms

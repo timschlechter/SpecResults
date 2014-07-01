@@ -8,31 +8,16 @@ namespace SpecFlow.Reporting.Text
 {
     public class PlainTextReporter : Reporter
     {
-        public string DefaultFileName { get { return "testresults.txt"; } }
-
-        public string IndentString { get; set; }
-
-        public bool WriteToConsole { get; set; }
-
         public PlainTextReporter()
         {
             IndentString = "    ";
         }
 
-        public override void WriteToStream(Stream stream)
-        {
-            var sb = new StringBuilder();
-            foreach (var feature in Report.Features)
-            {
-                sb.AppendLine(ToPlainText(feature));
-            }
+        public string DefaultFileName { get { return "testresults.txt"; } }
 
-            var bytes = Encoding.UTF8.GetBytes(sb.ToString());
-            using (var ms = new MemoryStream(bytes))
-            {
-                ms.CopyTo(stream);
-            }
-        }
+        public string IndentString { get; set; }
+
+        public bool WriteToConsole { get; set; }
 
         public static string GetResultLabel(ReportItem item)
         {
@@ -92,24 +77,43 @@ namespace SpecFlow.Reporting.Text
             var sb = new StringBuilder();
             sb.AppendLine("Scenario: " + scenario.Title + " " + GetResultLabel(scenario));
 
-            sb.Append(ToPlainText(TechTalk.SpecFlow.ScenarioBlock.Given, scenario.Given));
-            sb.Append(ToPlainText(TechTalk.SpecFlow.ScenarioBlock.When, scenario.When));
-            sb.Append(ToPlainText(TechTalk.SpecFlow.ScenarioBlock.Then, scenario.Then));
+            if (scenario.Given.Steps.Count() > 0)
+                sb.AppendLine(ToPlainText(TechTalk.SpecFlow.ScenarioBlock.Given, scenario.Given));
+
+            if (scenario.When.Steps.Count() > 0)
+                sb.AppendLine(ToPlainText(TechTalk.SpecFlow.ScenarioBlock.When, scenario.When));
+
+            if (scenario.Then.Steps.Count() > 0)
+                sb.AppendLine(ToPlainText(TechTalk.SpecFlow.ScenarioBlock.Then, scenario.Then));
 
             return sb.ToString();
         }
 
         public string ToPlainText(TechTalk.SpecFlow.ScenarioBlock blockType, ScenarioBlock scenarioblock)
         {
-            var sb = new StringBuilder();
+            return ToPlainText(scenarioblock.Steps, blockType.ToString());
+        }
 
-            foreach (var step in scenarioblock.Steps)
+        public string ToPlainText(IEnumerable<Step> steps, string prefix)
+        {
+            var sb = new StringBuilder();
+            var stepsArray = steps.ToArray();
+            for (int i = 0; i < stepsArray.Count(); i++)
             {
-                var text = ToPlainText(step, sb.Length == 0 ? blockType.ToString() : "And");
-                sb.AppendLine(Indent(text));
+                if (i > 0)
+                {
+                    sb.AppendLine();
+                }
+                var step = stepsArray[i];
+                sb.Append(ToPlainText(step, i == 0 ? prefix : "And"));
+                if (step.Steps.Count() > 0)
+                {
+                    sb.AppendLine();
+                    sb.Append(ToPlainText(step.Steps, prefix));
+                }
             }
 
-            return sb.ToString();
+            return Indent(sb.ToString());
         }
 
         public string ToPlainText(Step step, string prefix)
@@ -120,6 +124,21 @@ namespace SpecFlow.Reporting.Text
                 step.Title,
                 GetResultLabel(step)
             );
+        }
+
+        public override void WriteToStream(Stream stream)
+        {
+            var sb = new StringBuilder();
+            foreach (var feature in Report.Features)
+            {
+                sb.AppendLine(ToPlainText(feature));
+            }
+
+            var bytes = Encoding.UTF8.GetBytes(sb.ToString());
+            using (var ms = new MemoryStream(bytes))
+            {
+                ms.CopyTo(stream);
+            }
         }
     }
 }
