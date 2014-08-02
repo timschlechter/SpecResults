@@ -28,7 +28,7 @@ namespace SpecFlow.Reporting.Json
                 Report,
                 JsonSerializerSettings
             );
-            var bytes = Encoding.Default.GetBytes(json);
+            var bytes = Encoding.UTF8.GetBytes(json);
             using (var ms = new MemoryStream(bytes))
             {
                 ms.CopyTo(stream);
