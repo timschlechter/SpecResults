@@ -41,7 +41,7 @@ namespace SpecFlow.Reporting
         /// <summary>
         /// The report currently being created
         /// </summary>
-        public Report Report { get; internal set; }
+        public Report Report { get; set; }
 
         /// <summary>
         /// Serializes this reporter's report to the given <paramref name="path" />
