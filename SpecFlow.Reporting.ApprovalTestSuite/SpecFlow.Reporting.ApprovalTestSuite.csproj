@@ -88,6 +88,9 @@
     <Compile Include="Steps.Definitions.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="approvals\SpecFlow.Reporting.Json.JsonReporter\approval.txt" />
+    <Content Include="approvals\SpecFlow.Reporting.Text.PlainTextReporter\approval.txt" />
+    <Content Include="approvals\SpecFlow.Reporting.Xml.XmlReporter\approval.txt" />
     <None Include="App.config" />
     <Content Include="App.config.transform" />
     <None Include="packages.config" />
@@ -116,6 +119,9 @@
       <Project>{eaba391e-6b65-4e5c-8842-3d71a5f97b4f}</Project>
       <Name>SpecFlow.Reporting</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

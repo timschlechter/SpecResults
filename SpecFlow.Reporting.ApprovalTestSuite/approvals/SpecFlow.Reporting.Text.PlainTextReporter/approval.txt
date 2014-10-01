@@ -5,7 +5,7 @@
 
 Scenario: Nested step [OK] in 0ms
     Given a scenario is specified [OK] in 0ms
-    When a child step was executed [OK] in 0ms
+    When a child step was executed [OK] in 0ms
         When the tests run [OK] in 0ms
     Then a report is generated [OK] in 0ms
 
@@ -23,23 +23,45 @@ Scenario: Steps contain arguments [OK] in 0ms
     When the tests with "multiple" parameters run "smoothly" [OK] in 0ms
     Then "1" report is generated [OK] in 0ms
 
+Scenario: Steps contain multi arguments [OK] in 0ms
+    Given a "awesome" scenario is specified with a multi-line argument [OK] in 0ms
+    """
+    Here we go with mulitiple
+    lines!
+    """
+    When the tests with multiple line parameters [OK] in 0ms
+    """
+    like
+    this 
+    one
+    """
+    Then "1" report is generated [OK] in 0ms
+
 Scenario: Step throws an exception [Error] in 0ms
     Given a scenario is specified [OK] in 0ms
     When a step throws an exception [Error] in 0ms
 
 Scenario: Step uses method-name undescores style [OK] in 0ms
     Given a scenario is specified [OK] in 0ms
-    When a step uses method name style [OK] in 0ms
+    When a step uses method name style [OK] in 0ms
     And a step uses method-name style with two parameters [OK] in 0ms
     Then a report is generated [OK] in 0ms
 
 Scenario: Step uses method-name undescores style with table param [OK] in 0ms
     Given a scenario is specified [OK] in 0ms
-    When a step uses method name underscore style with a table param and a second param [OK] in 0ms
+    When a step uses method name underscore style with a table param and a second param [OK] in 0ms
+    | Id        | Name      |
+    | 1         | John Doe  |
+    | 2         | Some Dude |
+    | 3         | Any Guy   |
     Then a report is generated [OK] in 0ms
 
 Scenario: Table param [OK] in 0ms
     Given a scenario is specified [OK] in 0ms
-    When the a step contains a table and a "second" param: [OK] in 0ms
+    When the a step contains a table and a "second" param: [OK] in 0ms
+    | Id        | Name      |
+    | 1         | John Doe  |
+    | 2         | Some Dude |
+    | 3         | Any Guy   |
     Then a report is generated [OK] in 0ms
 

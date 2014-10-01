@@ -91,5 +91,13 @@ namespace SpecFlow.Reporting.Tests
         {
             ReportStep(WhenTheTestsRun);
         }
+        [Given(@"a ""(.*)"" scenario is specified with a multi-line argument")]
+        public void GivenAScenarioIsSpecifiedWithAMulti_LineArgument(string p0, string multilineText)
+        {
+        }
+        [When(@"the tests with multiple line parameters")]
+        public void WhenTheTestsWithMultipleLineParameters(string multilineText)
+        {
+        }
     }
 }
