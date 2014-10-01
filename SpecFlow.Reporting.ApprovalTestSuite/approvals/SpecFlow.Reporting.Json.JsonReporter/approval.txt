@@ -215,6 +215,57 @@
             "steps": [
               {
                 "steps": [],
+                "multi_line_parameter": "Here we go with mulitiple\r\nlines!",
+                "title": "a \"awesome\" scenario is specified with a multi-line argument",
+                "start_time": "0001-01-01T00:00:00",
+                "end_time": "0001-01-01T00:00:00",
+                "result": "OK"
+              }
+            ],
+            "start_time": "0001-01-01T00:00:00",
+            "end_time": "0001-01-01T00:00:00"
+          },
+          "when": {
+            "result": "OK",
+            "steps": [
+              {
+                "steps": [],
+                "multi_line_parameter": "like\r\nthis \r\none",
+                "title": "the tests with multiple line parameters",
+                "start_time": "0001-01-01T00:00:00",
+                "end_time": "0001-01-01T00:00:00",
+                "result": "OK"
+              }
+            ],
+            "start_time": "0001-01-01T00:00:00",
+            "end_time": "0001-01-01T00:00:00"
+          },
+          "then": {
+            "result": "OK",
+            "steps": [
+              {
+                "steps": [],
+                "title": "\"1\" report is generated",
+                "start_time": "0001-01-01T00:00:00",
+                "end_time": "0001-01-01T00:00:00",
+                "result": "OK"
+              }
+            ],
+            "start_time": "0001-01-01T00:00:00",
+            "end_time": "0001-01-01T00:00:00"
+          },
+          "result": "OK",
+          "tags": [],
+          "title": "Steps contain multi arguments",
+          "start_time": "0001-01-01T00:00:00",
+          "end_time": "0001-01-01T00:00:00"
+        },
+        {
+          "given": {
+            "result": "OK",
+            "steps": [
+              {
+                "steps": [],
                 "title": "a scenario is specified",
                 "start_time": "0001-01-01T00:00:00",
                 "end_time": "0001-01-01T00:00:00",

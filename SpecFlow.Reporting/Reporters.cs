@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using TechTalk.SpecFlow;
 
 namespace SpecFlow.Reporting
@@ -65,7 +66,12 @@ namespace SpecFlow.Reporting
                         }
                         else
                         {
-                            step.Title = step.Title.ReplaceFirst("(.*)", args[i].ToString());
+                          Regex titleRegex = new Regex(step.Title);
+                          var match = titleRegex.Match(step.Title);
+                          if (match.Groups.Count > 1)
+                            step.Title = step.Title.ReplaceFirst(match.Groups[1].Value, args[i].ToString());
+                          else
+                            step.MultiLineParameter = args[i].ToString();
                         }
                     }
                 }

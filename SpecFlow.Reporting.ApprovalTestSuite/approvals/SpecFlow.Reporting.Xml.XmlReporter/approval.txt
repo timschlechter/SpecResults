@@ -222,6 +222,60 @@ I want to run a predefined test suite</Description>
           </Then>
         </Scenario>
         <Scenario>
+          <Title>Steps contain multi arguments</Title>
+          <StartTime>0001-01-01T00:00:00</StartTime>
+          <EndTime>0001-01-01T00:00:00</EndTime>
+          <Result>OK</Result>
+          <Tags />
+          <Given>
+            <StartTime>0001-01-01T00:00:00</StartTime>
+            <EndTime>0001-01-01T00:00:00</EndTime>
+            <Result>OK</Result>
+            <Steps>
+              <Step>
+                <Title>a "awesome" scenario is specified with a multi-line argument</Title>
+                <StartTime>0001-01-01T00:00:00</StartTime>
+                <EndTime>0001-01-01T00:00:00</EndTime>
+                <Result>OK</Result>
+                <Steps />
+                <MultiLineParameter>Here we go with mulitiple
+lines!</MultiLineParameter>
+              </Step>
+            </Steps>
+          </Given>
+          <When>
+            <StartTime>0001-01-01T00:00:00</StartTime>
+            <EndTime>0001-01-01T00:00:00</EndTime>
+            <Result>OK</Result>
+            <Steps>
+              <Step>
+                <Title>the tests with multiple line parameters</Title>
+                <StartTime>0001-01-01T00:00:00</StartTime>
+                <EndTime>0001-01-01T00:00:00</EndTime>
+                <Result>OK</Result>
+                <Steps />
+                <MultiLineParameter>like
+this 
+one</MultiLineParameter>
+              </Step>
+            </Steps>
+          </When>
+          <Then>
+            <StartTime>0001-01-01T00:00:00</StartTime>
+            <EndTime>0001-01-01T00:00:00</EndTime>
+            <Result>OK</Result>
+            <Steps>
+              <Step>
+                <Title>"1" report is generated</Title>
+                <StartTime>0001-01-01T00:00:00</StartTime>
+                <EndTime>0001-01-01T00:00:00</EndTime>
+                <Result>OK</Result>
+                <Steps />
+              </Step>
+            </Steps>
+          </Then>
+        </Scenario>
+        <Scenario>
           <Title>Step throws an exception</Title>
           <StartTime>0001-01-01T00:00:00</StartTime>
           <EndTime>0001-01-01T00:00:00</EndTime>
