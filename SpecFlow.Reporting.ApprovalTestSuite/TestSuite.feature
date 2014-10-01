@@ -15,14 +15,23 @@ Scenario: Steps contain arguments
 	When the tests with "multiple" parameters run "smoothly"
 	Then "1" report is generated
 	  
+Scenario: Steps contain multi arguments
+	Given a "awesome" scenario is specified with a multi-line argument
+  """
+  Here we go with mulitiple
+  lines!
+  """
+	When the tests with multiple line parameters
+  """
+  like
+  this 
+  one
+  """
+	Then "1" report is generated
+	  
 Scenario: Step is not implemented
 	Given a scenario is specified
 	When a step is not implemented
-	Then a report is generated
-
-Scenario: Step throws an exception
-	Given a scenario is specified
-	When a step throws an exception
 	Then a report is generated
 
 Scenario: Table param

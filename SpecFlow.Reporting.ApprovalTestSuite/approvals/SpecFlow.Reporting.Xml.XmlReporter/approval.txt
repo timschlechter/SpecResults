@@ -2,14 +2,14 @@
 <Report>
   <StartTime>0001-01-01T00:00:00</StartTime>
   <EndTime>0001-01-01T00:00:00</EndTime>
-  <Result>Error</Result>
+  <Result>Pending</Result>
   <Generator>SpecFlow.Reporting.Xml.XmlReporter</Generator>
   <Features>
     <Feature>
       <Title>Test Suite</Title>
       <StartTime>0001-01-01T00:00:00</StartTime>
       <EndTime>0001-01-01T00:00:00</EndTime>
-      <Result>Error</Result>
+      <Result>Pending</Result>
       <Tags>
         <string>Category:SomeFeatureCategory</string>
       </Tags>
@@ -222,10 +222,10 @@ I want to run a predefined test suite</Description>
           </Then>
         </Scenario>
         <Scenario>
-          <Title>Step throws an exception</Title>
+          <Title>Steps contain multi arguments</Title>
           <StartTime>0001-01-01T00:00:00</StartTime>
           <EndTime>0001-01-01T00:00:00</EndTime>
-          <Result>Error</Result>
+          <Result>OK</Result>
           <Tags />
           <Given>
             <StartTime>0001-01-01T00:00:00</StartTime>
@@ -233,31 +233,30 @@ I want to run a predefined test suite</Description>
             <Result>OK</Result>
             <Steps>
               <Step>
-                <Title>a scenario is specified</Title>
+                <Title>a "awesome" scenario is specified with a multi-line argument</Title>
                 <StartTime>0001-01-01T00:00:00</StartTime>
                 <EndTime>0001-01-01T00:00:00</EndTime>
                 <Result>OK</Result>
                 <Steps />
+                <MultiLineParameter>Here we go with mulitiple
+lines!</MultiLineParameter>
               </Step>
             </Steps>
           </Given>
           <When>
             <StartTime>0001-01-01T00:00:00</StartTime>
             <EndTime>0001-01-01T00:00:00</EndTime>
-            <Result>Error</Result>
+            <Result>OK</Result>
             <Steps>
               <Step>
-                <Title>a step throws an exception</Title>
+                <Title>the tests with multiple line parameters</Title>
                 <StartTime>0001-01-01T00:00:00</StartTime>
                 <EndTime>0001-01-01T00:00:00</EndTime>
-                <Result>Error</Result>
+                <Result>OK</Result>
                 <Steps />
-                <Exception>
-                  <ExceptionType>System.Exception</ExceptionType>
-                  <Message>Error!</Message>
-                  <Source>SpecFlow.Reporting</Source>
-                  <StackTrace>&lt;removed to make tests deterministic&gt;</StackTrace>
-                </Exception>
+                <MultiLineParameter>like
+this 
+one</MultiLineParameter>
               </Step>
             </Steps>
           </When>
@@ -265,7 +264,15 @@ I want to run a predefined test suite</Description>
             <StartTime>0001-01-01T00:00:00</StartTime>
             <EndTime>0001-01-01T00:00:00</EndTime>
             <Result>OK</Result>
-            <Steps />
+            <Steps>
+              <Step>
+                <Title>"1" report is generated</Title>
+                <StartTime>0001-01-01T00:00:00</StartTime>
+                <EndTime>0001-01-01T00:00:00</EndTime>
+                <Result>OK</Result>
+                <Steps />
+              </Step>
+            </Steps>
           </Then>
         </Scenario>
         <Scenario>
