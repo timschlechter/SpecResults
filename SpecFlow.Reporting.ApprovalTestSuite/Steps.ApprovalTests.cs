@@ -114,7 +114,7 @@ namespace SpecFlow.Reporting.Tests
                 ApprovalTests.Approvals.Verify(
                     new ApprovalStringWriter(received),
                     new ReportingApprovalNamer(reporter),
-                    new BeyondCompareReporter()
+                    new NUnitReporter()
                 );
             };
         }
