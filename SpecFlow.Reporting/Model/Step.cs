@@ -4,17 +4,19 @@ using System.Xml.Serialization;
 
 namespace SpecFlow.Reporting
 {
-	public class Step : ReportItem
-	{
-        public Step()
-        {
-            Steps = new List<Step>();
-        }
+  public class Step : ReportItem
+  {
+    public Step()
+    {
+      Steps = new List<Step>();
+    }
 
-		public List<Step> Steps { get; set; }
+    public List<Step> Steps { get; set; }
 
-		public TableParam Table { get; set; }
+    public TableParam Table { get; set; }
 
-        public ExceptionInfo Exception { get; set; }
-	}
+    public string MultiLineParameter { get; set; }
+
+    public ExceptionInfo Exception { get; set; }
+  }
 }

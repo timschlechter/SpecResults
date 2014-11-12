@@ -106,10 +106,35 @@ namespace SpecFlow.Reporting.Text
                 }
                 var step = stepsArray[i];
                 sb.Append(ToPlainText(step, i == 0 ? prefix : "And"));
+                if (step.Table != null)
+                {
+                    sb.AppendLine();
+                    sb.Append(ToPlainText(step.Table));
+                }
+                if(step.MultiLineParameter != null)
+                {
+                    sb.AppendLine();
+                    sb.AppendLine("\"\"\"");
+                    sb.Append(step.MultiLineParameter);
+                    sb.AppendLine();
+                    sb.Append("\"\"\"");
+                }
                 if (step.Steps.Count() > 0)
                 {
                     sb.AppendLine();
                     sb.Append(ToPlainText(step.Steps, prefix));
+                    if(step.Table != null)
+                    {
+                        sb.AppendLine();
+                        sb.Append(ToPlainText(step.Table));
+                    }
+                    if (step.MultiLineParameter != null)
+                    {
+                        sb.AppendLine();
+                        sb.AppendLine("\"\"\"");
+                        sb.Append(step.MultiLineParameter);
+                        sb.AppendLine("\"\"\"");
+                    }
                 }
             }
 
@@ -124,6 +149,32 @@ namespace SpecFlow.Reporting.Text
                 step.Title,
                 GetResultLabel(step)
             );
+        }
+
+        public string ToPlainText(TableParam table)
+        {
+            StringBuilder rows = new StringBuilder();
+            StringBuilder columnsRow = new StringBuilder("|");
+            for(int i = 0; i < table.Columns.Count; i++)
+            {
+                var width = table.GetMaxColumnCharacters(i);
+                columnsRow.Append(" " + table.Columns[i].PadRight(width, ' ') + " |");
+            }
+            rows.Append(columnsRow.ToString());
+            foreach(var row in table.Rows)
+            {
+                rows.AppendLine();
+                StringBuilder rowString = new StringBuilder("|");
+                int index = 0;
+                foreach (var value in row.Values)
+                {
+                    var width = table.GetMaxColumnCharacters(index);
+                    rowString.Append(" " + value.PadRight(width, ' ') + " |");
+                    index++;
+                }
+                rows.Append(rowString.ToString());
+            }
+            return rows.ToString();
         }
 
         public override void WriteToStream(Stream stream)
