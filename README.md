@@ -1,3 +1,8 @@
+__Attention__
+
+This is not an official <code>SpecFlow</code> package. The namespace <code>SpecFlow.Reporting</code> clashes with some official SpecFlow packages. Therefore I will rename this project to <code>SpecResults</code>.
+
+
 # Generating better SpecFlow reports [![Build status](https://ci.appveyor.com/api/projects/status/yjeo6b1lonrp7jj0/branch/master)](https://ci.appveyor.com/project/TimSchlechter/specflow-reporting-196)
 
 [SpecFlow.Reporting](https://www.nuget.org/packages/SpecFlow.Reporting) was created to get better feedback from your automated [SpecFlow](http://www.specflow.org/) testsuite. With unit tests most times reporting is only interesting for developers and testers. But when practicing BDD, the output of your automated tests might be valuable for the whole development team, management and pherhaps even end-users.
