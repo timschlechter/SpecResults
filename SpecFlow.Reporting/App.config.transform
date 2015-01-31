@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<configuration>
-  <specFlow>
-    <stepAssemblies>
-      <stepAssembly assembly="SpecFlow.Reporting" />
-    </stepAssemblies>
-  </specFlow>
-</configuration>

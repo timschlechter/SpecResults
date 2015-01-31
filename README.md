@@ -1,13 +1,16 @@
-__Attention__
-
-This is not an official <code>SpecFlow</code> package. The namespace <code>SpecFlow.Reporting</code> clashes with some official SpecFlow packages. Therefore I will rename this project to <code>SpecResults</code>.
-
+> __Attention:__ this project was formally known as SpwecFlow.Reporting. This is
+> not an offical SpecFlow package and the name clashed with some of the
+> official SpecFlow packages/namespace. Therefor it was renamed to
+> SpecResults.
+>
+> All previous published versions of SpecFlow.Reporting are still available on
+> NuGet.org, alltough they aren't listed anymore.
 
 # Generating better SpecFlow reports [![Build status](https://ci.appveyor.com/api/projects/status/yjeo6b1lonrp7jj0/branch/master)](https://ci.appveyor.com/project/TimSchlechter/specflow-reporting-196)
 
-[SpecFlow.Reporting](https://www.nuget.org/packages/SpecFlow.Reporting) was created to get better feedback from your automated [SpecFlow](http://www.specflow.org/) testsuite. With unit tests most times reporting is only interesting for developers and testers. But when practicing BDD, the output of your automated tests might be valuable for the whole development team, management and pherhaps even end-users.
+[SpecResults](https://www.nuget.org/packages/SpecResults) was created to get better feedback from your automated [SpecFlow](http://www.specflow.org/) testsuite. With unit tests most times reporting is only interesting for developers and testers. But when practicing BDD, the output of your automated tests might be valuable for the whole development team, management and pherhaps even end-users.
 
-SpecFlow.Reporting makes it easy to extend SpecFlow by creating reporters which can write output in all kinds of formats and can even be enriched with additional data.
+SpecResults makes it easy to extend SpecFlow by creating reporters which can write output in all kinds of formats and can even be enriched with additional data.
 
 ## Table of contents
   -  [Usage](#usage)
@@ -17,17 +20,17 @@ SpecFlow.Reporting makes it easy to extend SpecFlow by creating reporters which 
 ## Usage
 
 Add one or more reporters to your SpecFlow project, for example:
-  -  [Json](https://www.nuget.org/packages/SpecFlow.Reporting.Json/): reports in json format [example](https://raw.githubusercontent.com/specflowreporting/SpecFlow.Reporting/master/SpecFlow.Reporting.ApprovalTestSuite/approvals/SpecFlow.Reporting.Json.JsonReporter/approval.txt)
-  -  [Plain Text](https://www.nuget.org/packages/SpecFlow.Reporting.Text/): reports in plain text format [example](https://raw.githubusercontent.com/specflowreporting/SpecFlow.Reporting/master/SpecFlow.Reporting.ApprovalTestSuite/approvals/SpecFlow.Reporting.Text.PlainTextReporter/approval.txt)
-  -  [Xml](https://www.nuget.org/packages/SpecFlow.Reporting.Xml/): reports in xml format [example](https://raw.githubusercontent.com/specflowreporting/SpecFlow.Reporting/master/SpecFlow.Reporting.ApprovalTestSuite/approvals/SpecFlow.Reporting.Xml.XmlReporter/approval.txt)
-  -  [WebApp](https://www.nuget.org/packages/SpecFlow.Reporting.WebApp/): writes an interactive, responsive, client-side web application, in which users can browse and search features, scenarios and steps [example](http://specflowreporting.azurewebsites.net/)
+  -  [Json](https://www.nuget.org/packages/SpecResults.Json/): reports in json format [example](https://raw.githubusercontent.com/specflowreporting/SpecResults/master/SpecResults.ApprovalTestSuite/approvals/SpecResults.Json.JsonReporter/approval.txt)
+  -  [Plain Text](https://www.nuget.org/packages/SpecResults.Text/): reports in plain text format [example](https://raw.githubusercontent.com/specflowreporting/SpecResults/master/SpecResults.ApprovalTestSuite/approvals/SpecResults.Text.PlainTextReporter/approval.txt)
+  -  [Xml](https://www.nuget.org/packages/SpecResults.Xml/): reports in xml format [example](https://raw.githubusercontent.com/specflowreporting/SpecResults/master/SpecResults.ApprovalTestSuite/approvals/SpecResults.Xml.XmlReporter/approval.txt)
+  -  [WebApp](https://www.nuget.org/packages/SpecResults.WebApp/): writes an interactive, responsive, client-side web application, in which users can browse and search features, scenarios and steps [example](http://specflowreporting.azurewebsites.net/)
 
 Work in progress:
-  -  [Xml.NUnit](https://www.nuget.org/packages/SpecFlow.Reporting.Xml.NUnit/): less technical reporting in NUnit's xml output format
+  -  [Xml.NUnit](https://www.nuget.org/packages/SpecResults.Xml.NUnit/): less technical reporting in NUnit's xml output format
    
-Make your existing [StepDefinitions class](https://github.com/techtalk/SpecFlow/wiki/Step-Definitions) inherit from [SpecFlow.Reporting.ReportingStepDefinitions](https://github.com/specflowreporting/SpecFlow.Reporting/blob/master/SpecFlow.Reporting/ReportingStepDefinitions.cs)
+Make your existing [StepDefinitions class](https://github.com/techtalk/SpecFlow/wiki/Step-Definitions) inherit from [SpecResults.ReportingStepDefinitions](https://github.com/specflowreporting/SpecResults/blob/master/SpecResults/ReportingStepDefinitions.cs)
 
-Initialize and add the reporter(s) in [BeforeTestRun] and register on one of the [events](https://github.com/specflowreporting/SpecFlow.Reporting/blob/master/SpecFlow.Reporting/Reporters.Events.cs) to get notified when something gets reported:
+Initialize and add the reporter(s) in [BeforeTestRun] and register on one of the [events](https://github.com/specflowreporting/SpecResults/blob/master/SpecResults/Reporters.Events.cs) to get notified when something gets reported:
 
 <pre>
 [Binding]
@@ -49,14 +52,14 @@ public class StepDefinitions : ReportingStepDefinitions
 
 ## Create your own reporter
 
-Create a new project and add the [SpecFlow.Reporting package](https://www.nuget.org/packages/SpecFlow.Reporting)
+Create a new project and add the [SpecResults package](https://www.nuget.org/packages/SpecResults)
 
-Add a class which inherits from [SpecFlow.Reporting.Reporter](https://github.com/specflowreporting/SpecFlow.Reporting/blob/master/SpecFlow.Reporting/Reporter.cs) and implement the WriteToStream method:
+Add a class which inherits from [SpecResults.Reporter](https://github.com/specflowreporting/SpecResults/blob/master/SpecResults/Reporter.cs) and implement the WriteToStream method:
 
 <pre>
-namespace SpecFlow.Reporting.MyFormat
+namespace SpecResults.MyFormat
 {
-	public class MyFormatReporter : SpecFlow.Reporting.Reporter
+	public class MyFormatReporter : SpecResults.Reporter
 	{
 		public override void WriteToStream(Stream stream)
 		{
