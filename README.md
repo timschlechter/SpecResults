@@ -1,4 +1,4 @@
-> __Attention:__ this project was formally known as SpwecFlow.Reporting. This is
+> __Attention:__ this project was formerly known as SpecFlow.Reporting. This is
 > not an offical SpecFlow package and the name clashed with some of the
 > official SpecFlow packages/namespace. Therefor it was renamed to
 > SpecResults.
