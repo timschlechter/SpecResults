@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("SpecResults.ApprovalTestSuite")]
 [assembly:
 	AssemblyDescription(
-		"Formally known as SpecFlow.Reporting.ApprovalTestSuite: Approval test suite which can be used to test reporters")]
+		"Formerly known as SpecFlow.Reporting.ApprovalTestSuite: Approval test suite which can be used to test reporters")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Tim Schlechter")]
 [assembly: AssemblyProduct("SpecResults.ApprovalTestSuite")]

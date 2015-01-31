@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 
 [assembly: AssemblyTitle("SpecResults.Json")]
-[assembly: AssemblyDescription("Formally known as SpecFlow.Reporting.Json: generate SpecFlow testresult Json reports")]
+[assembly: AssemblyDescription("Formerly known as SpecFlow.Reporting.Json: generate SpecFlow testresult Json reports")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Tim Schlechter")]
 [assembly: AssemblyProduct("SpecResults.Json")]
