@@ -1,17 +1,21 @@
 ﻿using System.Collections.Generic;
 
-namespace SpecResults
+namespace SpecResults.Model
 {
 	public class Feature : TaggedReportItem
 	{
-        private string _description;
+		private string _description;
+
 		public string Description
 		{
 			get { return _description; }
 			set { _description = string.IsNullOrEmpty(value) ? value : value.Replace("\r", ""); }
 		}
 
-		public string DescriptionHtml { get { return Markdown.ToHtml(Description); } }
+		public string DescriptionHtml
+		{
+			get { return Markdown.ToHtml(Description); }
+		}
 
 		public List<Scenario> Scenarios { get; set; }
 

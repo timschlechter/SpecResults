@@ -1,17 +1,16 @@
-﻿using System;
+﻿using SpecResults.Model;
 
-namespace SpecResults
+namespace SpecResults.EventArgs
 {
-	public class ReportEventArgs : EventArgs
+	public class ReportEventArgs : System.EventArgs
 	{
-		public Reporter Reporter { get; internal set; }
-
-		public Report Report { get; internal set; }
-
 		public ReportEventArgs(Reporter reporter)
 		{
 			Reporter = reporter;
 			Report = reporter.Report;
 		}
+
+		public Reporter Reporter { get; internal set; }
+		public Report Report { get; internal set; }
 	}
 }

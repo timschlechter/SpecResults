@@ -2,7 +2,8 @@
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("SpecResults.PlainText")]
-[assembly: AssemblyDescription("Formally known as SpecFlow.Reporting.PainText: generate SpecFlow testresult Plain Text reports")]
+[assembly:
+	AssemblyDescription("Formally known as SpecFlow.Reporting.PainText: generate SpecFlow testresult Plain Text reports")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Tim Schlechter")]
 [assembly: AssemblyProduct("SpecResults.PlainText")]

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SpecResults
+namespace SpecResults.Model
 {
 	public class TaggedReportItem : ReportItem
 	{

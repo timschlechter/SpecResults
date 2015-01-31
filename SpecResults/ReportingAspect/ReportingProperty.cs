@@ -2,15 +2,10 @@
 using System.Runtime.Remoting.Contexts;
 using System.Runtime.Remoting.Messaging;
 
-namespace SpecResults
+namespace SpecResults.ReportingAspect
 {
 	internal class ReportingProperty : IContextProperty, IContributeObjectSink
 	{
-		public IMessageSink GetObjectSink(MarshalByRefObject o, IMessageSink next)
-		{
-			return new ReportingMessageSink(next);
-		}
-
 		public void Freeze(Context newContext)
 		{
 		}
@@ -19,13 +14,20 @@ namespace SpecResults
 		{
 			var p = newCtx.GetProperty("Reporting") as ReportingProperty;
 			if (p == null)
+			{
 				return false;
+			}
 			return true;
 		}
 
 		public string Name
 		{
 			get { return "Reporting"; }
+		}
+
+		public IMessageSink GetObjectSink(MarshalByRefObject o, IMessageSink next)
+		{
+			return new ReportingMessageSink(next);
 		}
 	}
 }

@@ -1,122 +1,114 @@
-﻿using ApprovalTests.Core;
-using ApprovalTests.Reporters;
-using System;
+﻿using System;
 using System.IO;
 using System.Linq;
 using System.Text;
+using ApprovalTests.Core;
+using ApprovalTests.Reporters;
+using Approvals = ApprovalTests.Approvals;
 
-namespace SpecResults.Tests
+namespace SpecResults.ApprovalTestSuite
 {
-    public partial class Steps
-    {
-        #region Nested Type: ApprovalScenarioNamer
+	public partial class Steps
+	{
+		public static void IntializeApprovalTests()
+		{
+			// Clear report after each Scenario
+			Reporters.FinishedReport += (sender, args) =>
+			{
+				var reporter = args.Reporter;
 
-        public class ReportingApprovalNamer : IApprovalNamer
-        {
-            private static string Clean(string val)
-            {
-                if (string.IsNullOrEmpty(val))
-                {
-                    return null;
-                }
+				// Replace Stack Trace value of reported exceptions, because
+				// content depends on runtime environment
+				var steps = reporter.Report.Features
+					.SelectMany(f => f.Scenarios)
+					.SelectMany(s => new[] {s.Given, s.When, s.Then})
+					.SelectMany(s => s.Steps);
 
-                return Path.GetInvalidFileNameChars().Aggregate(val, (current, c) => current.Replace(c.ToString(), string.Empty));
-            }
+				foreach (var step in steps)
+				{
+					if (step.Exception != null)
+					{
+						step.Exception.StackTrace = "<removed to make tests deterministic>";
+					}
+				}
 
-            public ReportingApprovalNamer(Reporter reporter)
-            {
-                SourcePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\\..\\approvals\\", reporter.Name);
-                Name = "";
-            }
+				// Verify IFileWriter
+				var filepath = Path.GetTempFileName();
+				reporter.WriteToFile(filepath);
 
-            public string Name
-            {
-                get;
-                set;
-            }
+				var received = File.ReadAllText(filepath);
 
-            public string SourcePath
-            {
-                get;
-                set;
-            }
-        }
+				// HACK: Post process undeterministic attribute order
+				received = received.Replace(" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"", "");
+				received = received.Replace(" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"", "");
 
-        #endregion Nested Type: ApprovalScenarioNamer
+				Approvals.Verify(
+					new ApprovalStringWriter(received),
+					new ReportingApprovalNamer(reporter),
+					new NUnitReporter()
+					);
+			};
+		}
 
-        #region Nested Type: ApprovalStringWriter
+		#region Nested Type: ApprovalScenarioNamer
 
-        public class ApprovalStringWriter : IApprovalWriter
-        {
-            public string Result { get; private set; }
+		public class ReportingApprovalNamer : IApprovalNamer
+		{
+			public ReportingApprovalNamer(Reporter reporter)
+			{
+				SourcePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\\..\\approvals\\", reporter.Name);
+				Name = "";
+			}
 
-            public ApprovalStringWriter(string result)
-            {
-                this.Result = result;
-            }
+			public string Name { get; set; }
+			public string SourcePath { get; set; }
 
-            public string GetApprovalFilename(string basename)
-            {
-                return Path.Combine(basename, "approval.txt");
-            }
+			public static string Clean(string val)
+			{
+				if (string.IsNullOrEmpty(val))
+				{
+					return null;
+				}
 
-            public string GetReceivedFilename(string basename)
-            {
-                return Path.Combine(basename, "received.txt");
-            }
+				return Path.GetInvalidFileNameChars().Aggregate(val, (current, c) => current.Replace(c.ToString(), string.Empty));
+			}
+		}
 
-            public string WriteReceivedFile(string received)
-            {
-                var directory = Path.GetDirectoryName(received);
-                if (!Directory.Exists(directory))
-                {
-                    Directory.CreateDirectory(directory);
-                }
-                File.WriteAllText(received, Result, Encoding.UTF8);
-                return received;
-            }
-        }
+		#endregion Nested Type: ApprovalScenarioNamer
 
-        #endregion Nested Type: ApprovalStringWriter
+		#region Nested Type: ApprovalStringWriter
 
-        public static void IntializeApprovalTests()
-        {
-            // Clear report after each Scenario
-            Reporters.FinishedReport += (sender, args) =>
-            {
-                var reporter = args.Reporter;
+		public class ApprovalStringWriter : IApprovalWriter
+		{
+			public ApprovalStringWriter(string result)
+			{
+				Result = result;
+			}
 
-                // Replace Stack Trace value of reported exceptions, because
-                // content depends on runtime environment
-                var steps = reporter.Report.Features
-                                .SelectMany(f => f.Scenarios)
-                                .SelectMany(s => new[] { s.Given, s.When, s.Then })
-                                .SelectMany(s => s.Steps);
+			public string Result { get; private set; }
 
-                foreach (var step in steps)
-                {
-                    if (step.Exception != null)
-                    {
-                        step.Exception.StackTrace = "<removed to make tests deterministic>";
-                    }
-                }
+			public string GetApprovalFilename(string basename)
+			{
+				return Path.Combine(basename, "approval.txt");
+			}
 
-                // Verify IFileWriter
-                var filepath = Path.GetTempFileName();
-                reporter.WriteToFile(filepath);
-                
-                var received = File.ReadAllText(filepath);
+			public string GetReceivedFilename(string basename)
+			{
+				return Path.Combine(basename, "received.txt");
+			}
 
-                // HACK: Post process undeterministic attribute order
-                received = received.Replace(" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"", "");
-                received = received.Replace(" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"", "");
-                
-                ApprovalTests.Approvals.Verify(
-                    new ApprovalStringWriter(received),
-                    new ReportingApprovalNamer(reporter),
-                    new NUnitReporter()
-                );
-            };
-        }
-    }
+			public string WriteReceivedFile(string received)
+			{
+				var directory = Path.GetDirectoryName(received);
+				if (directory != null && !Directory.Exists(directory))
+				{
+					Directory.CreateDirectory(directory);
+				}
+				File.WriteAllText(received, Result, Encoding.UTF8);
+				return received;
+			}
+		}
+
+		#endregion Nested Type: ApprovalStringWriter
+	}
 }

@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 
-namespace SpecResults
+namespace SpecResults.Model
 {
 	public class Report : ReportItem
 	{
 		public string Generator { get; set; }
-
 		public List<Feature> Features { get; set; }
 
 		public override TestResult Result

@@ -1,6 +1,6 @@
-﻿namespace SpecResults.Text
+﻿namespace SpecResults.PlainText
 {
-    public static class Extensions
-    {
-    }
+	public static class Extensions
+	{
+	}
 }

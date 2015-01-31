@@ -1,7 +1,7 @@
 ﻿using System.Runtime.Remoting.Activation;
 using System.Runtime.Remoting.Contexts;
 
-namespace SpecResults
+namespace SpecResults.ReportingAspect
 {
 	internal class ReportingAttribute : ContextAttribute
 	{
@@ -15,11 +15,13 @@ namespace SpecResults
 			ccm.ContextProperties.Add(new ReportingProperty());
 		}
 
-		public override bool IsContextOK(Context ctx, System.Runtime.Remoting.Activation.IConstructionCallMessage ctorMsg)
+		public override bool IsContextOK(Context ctx, IConstructionCallMessage ctorMsg)
 		{
 			var p = ctx.GetProperty("Reporting") as ReportingProperty;
 			if (p == null)
+			{
 				return false;
+			}
 			return true;
 		}
 
@@ -27,7 +29,9 @@ namespace SpecResults
 		{
 			var p = newCtx.GetProperty("Reporting") as ReportingProperty;
 			if (p == null)
+			{
 				return false;
+			}
 			return true;
 		}
 	}
