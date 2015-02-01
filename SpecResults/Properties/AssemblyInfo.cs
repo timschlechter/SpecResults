@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("SpecResults")]
-[assembly: AssemblyDescription("Formerly known as SpecFlow.Reporting: generate SpecFlow testresult reports.")]F
+[assembly: AssemblyDescription("Formerly known as SpecFlow.Reporting: generate SpecFlow testresult reports.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Tim Schlechter")]
 [assembly: AssemblyProduct("SpecResults")]
