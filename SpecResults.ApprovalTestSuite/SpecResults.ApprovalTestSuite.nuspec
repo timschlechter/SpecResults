@@ -4,10 +4,10 @@
 	<metadata>
 		<id>$id$</id>
 		<version>$version$</version>
-		<title>$title$ (formerly SpecFlow.Reporting.ApprovalTestSuite)</title>
+		<title>$title$</title>
 		<authors>$author$</authors>
 		<owners>$author$</owners>
-		<licenseUrl>http://en.wikipedia.org/wiki/MIT_License</licenseUrl>
+		<licenseUrl>https://raw.githubusercontent.com/TimSchlechter/SpecResults/master/LICENSE</licenseUrl>
 		<projectUrl>https://github.com/specflowreporting/SpecResults</projectUrl>
 		<iconUrl>https://dl.dropboxusercontent.com/u/17880436/SpecFlowReporting.png</iconUrl>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -15,5 +15,11 @@
 		<releaseNotes></releaseNotes>
 		<copyright>Copyright 2015</copyright>
 		<tags>specflow bdd test reporting approvaltests</tags>
+		<dependencies>
+			<dependency id="SpecResults" version="$version$" />
+			<dependency id="SpecResults.Json" version="$version$" />
+			<dependency id="SpecResults.PlainText" version="$version$" />
+			<dependency id="SpecResults.Xml" version="$version$" />
+		</dependencies>
 	</metadata>
 </package>
