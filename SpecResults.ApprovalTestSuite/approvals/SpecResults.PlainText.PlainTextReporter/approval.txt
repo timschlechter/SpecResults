@@ -3,6 +3,16 @@
     As a developer
     I want to run a predefined test suite
 
+Scenario: eating (example 1) [OK] in 0ms
+    Given there are 20 cucumbers [OK] in 0ms
+    When I eat 5 cucumbers [OK] in 0ms
+    Then I should have 15 cucumbers [OK] in 0ms
+
+Scenario: eating (example 2) [OK] in 0ms
+    Given there are 12 cucumbers [OK] in 0ms
+    When I eat 5 cucumbers [OK] in 0ms
+    Then I should have 7 cucumbers [OK] in 0ms
+
 Scenario: Nested step [OK] in 0ms
     Given a scenario is specified [OK] in 0ms
     When a child step was executed [OK] in 0ms

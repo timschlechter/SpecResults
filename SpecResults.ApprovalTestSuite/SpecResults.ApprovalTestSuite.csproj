@@ -89,7 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="approvals\SpecResults.Json.JsonReporter\approval.txt" />
-    <Content Include="approvals\SpecResults.Text.PlainTextReporter\approval.txt" />
+    <Content Include="approvals\SpecResults.PlainText.PlainTextReporter\approval.txt" />
     <Content Include="approvals\SpecResults.Xml.XmlReporter\approval.txt" />
     <None Include="App.config" />
     <Content Include="App.config.transform" />

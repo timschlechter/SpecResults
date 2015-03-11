@@ -101,5 +101,20 @@ namespace SpecResults.ApprovalTestSuite
 		public void WhenTheTestsWithMultipleLineParameters(string multilineText)
 		{
 		}
+
+		[Given(@"there are (.*) cucumbers")]
+		public void GivenThereAreCucumbers(int p0)
+		{
+		}
+
+		[When(@"I eat (.*) cucumbers")]
+		public void WhenIEatCucumbers(int p0)
+		{
+		}
+
+		[Then(@"I should have (.*) cucumbers")]
+		public void ThenIShouldHaveCucumbers(int p0)
+		{
+		}
 	}
 }

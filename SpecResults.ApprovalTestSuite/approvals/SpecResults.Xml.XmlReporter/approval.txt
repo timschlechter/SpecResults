@@ -18,6 +18,104 @@ As a developer
 I want to run a predefined test suite</Description>
       <Scenarios>
         <Scenario>
+          <Title>eating (example 1)</Title>
+          <StartTime>0001-01-01T00:00:00</StartTime>
+          <EndTime>0001-01-01T00:00:00</EndTime>
+          <Result>OK</Result>
+          <Tags />
+          <Given>
+            <StartTime>0001-01-01T00:00:00</StartTime>
+            <EndTime>0001-01-01T00:00:00</EndTime>
+            <Result>OK</Result>
+            <Steps>
+              <Step>
+                <Title>there are 20 cucumbers</Title>
+                <StartTime>0001-01-01T00:00:00</StartTime>
+                <EndTime>0001-01-01T00:00:00</EndTime>
+                <Result>OK</Result>
+                <Steps />
+              </Step>
+            </Steps>
+          </Given>
+          <When>
+            <StartTime>0001-01-01T00:00:00</StartTime>
+            <EndTime>0001-01-01T00:00:00</EndTime>
+            <Result>OK</Result>
+            <Steps>
+              <Step>
+                <Title>I eat 5 cucumbers</Title>
+                <StartTime>0001-01-01T00:00:00</StartTime>
+                <EndTime>0001-01-01T00:00:00</EndTime>
+                <Result>OK</Result>
+                <Steps />
+              </Step>
+            </Steps>
+          </When>
+          <Then>
+            <StartTime>0001-01-01T00:00:00</StartTime>
+            <EndTime>0001-01-01T00:00:00</EndTime>
+            <Result>OK</Result>
+            <Steps>
+              <Step>
+                <Title>I should have 15 cucumbers</Title>
+                <StartTime>0001-01-01T00:00:00</StartTime>
+                <EndTime>0001-01-01T00:00:00</EndTime>
+                <Result>OK</Result>
+                <Steps />
+              </Step>
+            </Steps>
+          </Then>
+        </Scenario>
+        <Scenario>
+          <Title>eating (example 2)</Title>
+          <StartTime>0001-01-01T00:00:00</StartTime>
+          <EndTime>0001-01-01T00:00:00</EndTime>
+          <Result>OK</Result>
+          <Tags />
+          <Given>
+            <StartTime>0001-01-01T00:00:00</StartTime>
+            <EndTime>0001-01-01T00:00:00</EndTime>
+            <Result>OK</Result>
+            <Steps>
+              <Step>
+                <Title>there are 12 cucumbers</Title>
+                <StartTime>0001-01-01T00:00:00</StartTime>
+                <EndTime>0001-01-01T00:00:00</EndTime>
+                <Result>OK</Result>
+                <Steps />
+              </Step>
+            </Steps>
+          </Given>
+          <When>
+            <StartTime>0001-01-01T00:00:00</StartTime>
+            <EndTime>0001-01-01T00:00:00</EndTime>
+            <Result>OK</Result>
+            <Steps>
+              <Step>
+                <Title>I eat 5 cucumbers</Title>
+                <StartTime>0001-01-01T00:00:00</StartTime>
+                <EndTime>0001-01-01T00:00:00</EndTime>
+                <Result>OK</Result>
+                <Steps />
+              </Step>
+            </Steps>
+          </When>
+          <Then>
+            <StartTime>0001-01-01T00:00:00</StartTime>
+            <EndTime>0001-01-01T00:00:00</EndTime>
+            <Result>OK</Result>
+            <Steps>
+              <Step>
+                <Title>I should have 7 cucumbers</Title>
+                <StartTime>0001-01-01T00:00:00</StartTime>
+                <EndTime>0001-01-01T00:00:00</EndTime>
+                <Result>OK</Result>
+                <Steps />
+              </Step>
+            </Steps>
+          </Then>
+        </Scenario>
+        <Scenario>
           <Title>Nested step</Title>
           <StartTime>0001-01-01T00:00:00</StartTime>
           <EndTime>0001-01-01T00:00:00</EndTime>

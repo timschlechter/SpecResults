@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using SpecResults.Model;
 using TechTalk.SpecFlow;
 using ScenarioBlock = SpecResults.Model.ScenarioBlock;
@@ -15,6 +16,19 @@ namespace SpecResults
 			foreach (var reporter in reporters)
 			{
 				var feature = reporter.CurrentFeature;
+
+				var scenarioOutlineGroups = feature.Scenarios.GroupBy(scenario => scenario.Title)
+					.Where((scenarioGrp, key) => scenarioGrp.Count() > 1)
+					.Select((scenarioGrp, key) => scenarioGrp.ToList());
+
+				foreach (var scenarioOutlineGroup in scenarioOutlineGroups)
+				{
+					for (int i = 0; i < scenarioOutlineGroup.Count(); i++)
+					{
+						scenarioOutlineGroup[i].Title = string.Format("{0} (example {1})", scenarioOutlineGroup[i].Title, i + 1);
+					}
+				}
+
 				feature.EndTime = CurrentRunTime;
 				OnFinishedFeature(reporter);
 				reporter.CurrentFeature = null;

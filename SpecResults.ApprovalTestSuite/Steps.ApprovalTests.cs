@@ -46,7 +46,7 @@ namespace SpecResults.ApprovalTestSuite
 					new ApprovalStringWriter(received),
 					new ReportingApprovalNamer(reporter),
 					new NUnitReporter()
-					);
+				);
 			};
 		}
 

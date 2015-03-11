@@ -11,6 +11,104 @@
             "steps": [
               {
                 "steps": [],
+                "title": "there are 20 cucumbers",
+                "start_time": "0001-01-01T00:00:00",
+                "end_time": "0001-01-01T00:00:00",
+                "result": "OK"
+              }
+            ],
+            "start_time": "0001-01-01T00:00:00",
+            "end_time": "0001-01-01T00:00:00"
+          },
+          "when": {
+            "result": "OK",
+            "steps": [
+              {
+                "steps": [],
+                "title": "I eat 5 cucumbers",
+                "start_time": "0001-01-01T00:00:00",
+                "end_time": "0001-01-01T00:00:00",
+                "result": "OK"
+              }
+            ],
+            "start_time": "0001-01-01T00:00:00",
+            "end_time": "0001-01-01T00:00:00"
+          },
+          "then": {
+            "result": "OK",
+            "steps": [
+              {
+                "steps": [],
+                "title": "I should have 15 cucumbers",
+                "start_time": "0001-01-01T00:00:00",
+                "end_time": "0001-01-01T00:00:00",
+                "result": "OK"
+              }
+            ],
+            "start_time": "0001-01-01T00:00:00",
+            "end_time": "0001-01-01T00:00:00"
+          },
+          "result": "OK",
+          "tags": [],
+          "title": "eating (example 1)",
+          "start_time": "0001-01-01T00:00:00",
+          "end_time": "0001-01-01T00:00:00"
+        },
+        {
+          "given": {
+            "result": "OK",
+            "steps": [
+              {
+                "steps": [],
+                "title": "there are 12 cucumbers",
+                "start_time": "0001-01-01T00:00:00",
+                "end_time": "0001-01-01T00:00:00",
+                "result": "OK"
+              }
+            ],
+            "start_time": "0001-01-01T00:00:00",
+            "end_time": "0001-01-01T00:00:00"
+          },
+          "when": {
+            "result": "OK",
+            "steps": [
+              {
+                "steps": [],
+                "title": "I eat 5 cucumbers",
+                "start_time": "0001-01-01T00:00:00",
+                "end_time": "0001-01-01T00:00:00",
+                "result": "OK"
+              }
+            ],
+            "start_time": "0001-01-01T00:00:00",
+            "end_time": "0001-01-01T00:00:00"
+          },
+          "then": {
+            "result": "OK",
+            "steps": [
+              {
+                "steps": [],
+                "title": "I should have 7 cucumbers",
+                "start_time": "0001-01-01T00:00:00",
+                "end_time": "0001-01-01T00:00:00",
+                "result": "OK"
+              }
+            ],
+            "start_time": "0001-01-01T00:00:00",
+            "end_time": "0001-01-01T00:00:00"
+          },
+          "result": "OK",
+          "tags": [],
+          "title": "eating (example 2)",
+          "start_time": "0001-01-01T00:00:00",
+          "end_time": "0001-01-01T00:00:00"
+        },
+        {
+          "given": {
+            "result": "OK",
+            "steps": [
+              {
+                "steps": [],
                 "title": "a scenario is specified",
                 "start_time": "0001-01-01T00:00:00",
                 "end_time": "0001-01-01T00:00:00",
